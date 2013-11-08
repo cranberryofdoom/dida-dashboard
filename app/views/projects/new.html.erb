@@ -1,0 +1,18 @@
+<%= simple_form_for @client do |f| %>
+	<%= f.input :first_name %>
+	<%= f.input :last_name %>
+	<%= f.input :email %>
+	<%= f.input :department %>
+<% end %>
+<%= simple_form_for @organization do |f| %>
+	<%= f.input :name %>
+	<%= f.input :description %>
+<% end %>
+<%= simple_form_for @project do |f| %>
+	<%= f.input :due_date %>
+	<%= f.input :details %>
+	<%= f.input :direction %>
+	<%= f.input :kind %>
+	<%= f.input :medium %>
+	<%= f.submit "Punch It!", :class => "btn" %>
+<% end %>
