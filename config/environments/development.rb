@@ -25,15 +25,8 @@ DidaDashboard::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-<<<<<<< HEAD
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
-=======
-  config.assets.debug = 
-
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
->>>>>>> 4596c8bce98c47d5602f510f03a96b5678a9ba0f
-end
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}

@@ -1,21 +1,12 @@
 DidaDashboard::Application.routes.draw do
   devise_for :users
-<<<<<<< HEAD
   resources :projects
-=======
->>>>>>> 4596c8bce98c47d5602f510f03a96b5678a9ba0f
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-<<<<<<< HEAD
   root 'projects#index'
-
-=======
-  root 'welcome#index'
-  get '/dashboard' => 'welcome#index'
->>>>>>> 4596c8bce98c47d5602f510f03a96b5678a9ba0f
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
