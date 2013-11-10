@@ -1,21 +1,33 @@
-<div class="navbar navbar-inverse">
+<div class="navbar navbar-fixed-top topnav">
   <div class="container">
     <div class="navbar-header">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+       <span class="sr-only">Toggle navigation</span>
+       <span class="glyphicon glyphicon-align-justify"></span>
+     </button>
       <a class="navbar-brand">DiDA</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="projects.html">Projects</a></li>
-        <li ><a href="/calendar">Calendar</a></li>
-        <li><a href="/time">Time</a></li>
-        <li><a href="/team">Team</a></li>
+     <li>
+
+      <a href="allprojects.html"  class="active"><span class="glyphicon glyphicon-th-list"></span>Projects</a>
+    </li>
+    <li>
+
+      <a href="calendar.html"><span class="glyphicon glyphicon-calendar"></span>Calendar</a>
+    </li>
+    <li>
+
+      <a href="time.html"><span class="glyphicon glyphicon-time"></span>Time</a>
+    </li>
+    <li>
+
+      <a href="team.html"><span class="glyphicon glyphicon-star"></span>Team</a>
+    </li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
+     
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.first_name %> <%= current_user.last_name %> </span><b class="caret"></b></a>

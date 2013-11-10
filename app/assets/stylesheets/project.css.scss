@@ -1,3 +1,324 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*GENERAL BODY STYLES*/
+h1,h2,h3,h4,h5,h6, small {
+	font-family: 'Lato', Helvetica, sans-serif;
+	padding: 5px;
+	margin:0px;
+}
+
+h1{
+	font-weight: 100;
+	font-size: 28px;
+}
+
+p {
+	font-family: 'Lato', Helvetica;
+	font-weight: 200;
+}
+a {
+	color: #333333;
+}
+.heading {
+	color: #ffffff;
+	padding: 10px;
+}
+
+.caret {
+	margin-left: 6px;
+}
+.active {
+	color: #F1C40F;
+}
+body { padding-top: 55px;
+	background-color: #F2ECEA;
+	font-family: 'Lato', Helvetica, sans-serif;
+
+}
+@media screen and (max-width: 768px) {
+	body { padding-top: 0px; }
+
+}
+
+
+.affix {
+	position: static;
+	margin-bottom: 25px;
+	margin-top: 60px;
+	text-align: center;
+}
+
+@media (min-width: 992px) {
+	.sidebar.affix, .sidebar.affix-bottom {
+		width: 150px;
+		text-align: left;
+	}
+}
+@media (min-width: 992px) {
+	.sidebar.affix, .sidebar.affix-bottom {
+		margin-top: 20px;
+	}
+}
+@media (min-width: 992px) {
+	.sidebar.affix {
+		position: fixed;
+	}
+}
+
+@media (min-width: 1200px){
+	.sidebar.affix-bottom, .sidebar.affix {
+		width: 150px;
+	}
+}
+
+.glyphicon {
+	padding-right: 10px;
+}
+/*TOP NAVIGATION*/
+
+header.navbar.navbar-fixed-top.topnav {
+	text-transform: uppercase;
+	background-color: #333333;
+	color: #F7EF8F;
+	font-weight: 300;
+	font-family: 'Lato';
+
+	
+}
+
+.navbar-nav>li>a {
+	text-shadow: none;
+	color: #ffffff;
+}
+.navbar-nav .active {
+	color: #F1C40F;
+}
+.nav > li {
+	border-bottom: 1px;
+	border-color: #13C4A5;
+	margin-right: 10px;	
+
+}
+
+.navbar-nav>li>a:hover {
+	background-color: transparent;
+	color: #F1C40F;
+}
+.navbar-brand {
+	margin-right: 45px;
+}
+header {
+	margin-bottom: 30px;
+}
+/*SIDE BAR*/
+.sidebar {
+	background-color: #F1C40F;
+	font-weight: 500;
+}
+
+.sidenav a:active {
+	color: #ffffff;
+}
+
+.sidebar li a:hover{
+	background-color: transparent;
+	color: #ffffff;
+}
+
+.sub-nav {
+	text-indent: 10px;
+	font-size: 14px;
+	line-height: 16px;
+	list-style: none;
+}
+
+
+/*MAIN CONTENT*/
+.container-content{
+	margin-top: 20px;
+}
+
+/*PROJECTS*/
+#archived {
+	background-color: #6B99BF;
+
+}
+.glyphicon-chevron-right {
+	padding-left: 10px;
+	font-size: 20px;
+}
+#unassigned {
+	background-color: #FF5649;
+
+}
+.due-date {
+}
+
+#assigned {
+	background-color: #13C4A5;
+}
+.project {
+	background-color: #ffffff;
+	background-image: none;
+	padding: 10px;
+	margin: 10px;
+}
+
+/*BUTTONS*/
+.btn-group {
+	border-radius: 0px;
+	margin: 3px;
+		border-radius: 0px;
+}
+
+
+/*COLORS*/
+.status article {
+	padding: 8px 10px;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.status .led {
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	display: inline-block;
+}
+
+.dropdown-menu {
+		border-radius: 0px;
+}
+.pull-right {
+	background-color: transparent;
+}
+.btn:active {
+	box-shadow: none;
+}
+a .project {
+
+}
+.heading > a {
+	color: #ffffff;
+}
+.heading >a:hover {
+	text-decoration: none;
+	color: #F1C40F;
+}
+.led {
+
+}
+
+
+.proj-title, .due-date, .btn-group {
+	   display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+}
+.col-sm-3, .col-sm-1, .col-sm-2, .col-sm-4 {
+
+}
+.btn {
+		border-radius: 0px;
+}
+/*#selectField {*/
+/*	display: inline-block;
+	padding: 6px 6px;
+	font-size: 14px;
+	font-weight: normal;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	-webkit-user-select: none;
+	-webkit-writing-mode: horizontal-tb;
+	position: relative;
+	float: left;
+	background-image: none;
+	text-shadow: none;
+	background-color: buttonface;
+	color: buttontext;
+	-webkit-appearance: none;*/
+
+/*
+	display: inline-block;
+padding: 6px 6px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+-webkit-user-select: none;
+
+position: relative;
+float: left;
+align-items: flex-start;
+}*/
+
+select {
+
+}
+
+
+.box {
+	display: inline;
+	float: right;
+	margin: 10px;
+	vertical-align:middle;
+}
+.yellow {
+	background: #ffcc00;
+	background: -moz-linear-gradient(top,  #ffcc00 0%, #ffcc00 50%, #eabb00 51%, #eabb00 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(50%,#ffcc00), color-stop(51%,#eabb00), color-stop(100%,#eabb00));
+	background: -webkit-linear-gradient(top,  #ffcc00 0%,#ffcc00 50%,#eabb00 51%,#eabb00 100%);
+	background: -ms-linear-gradient(top,  #ffcc00 0%,#ffcc00 50%,#eabb00 51%,#eabb00 100%);
+	background: linear-gradient(to bottom,  #ffcc00 0%,#ffcc00 50%,#eabb00 51%,#eabb00 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#eabb00',GradientType=0);
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+}
+
+.green {
+	background: #17d766;
+	background: -moz-linear-gradient(top,  #17d766 0%, #17d766 50%, #16cf62 51%, #16cf62 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#17d766), color-stop(50%,#17d766), color-stop(51%,#16cf62), color-stop(100%,#16cf62));
+	background: -webkit-linear-gradient(top,  #17d766 0%,#17d766 50%,#16cf62 51%,#16cf62 100%);
+	background: -ms-linear-gradient(top,  #17d766 0%,#17d766 50%,#16cf62 51%,#16cf62 100%);
+	background: linear-gradient(to bottom,  #17d766 0%,#17d766 50%,#16cf62 51%,#16cf62 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#17d766', endColorsGradientType=0);
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+}
+
+.red {
+	background: #f23311;
+	background: -moz-linear-gradient(top,  #f23311 0%, #f23311 50%, #e32c0c 51%, #e32c0c 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f23311), color-stop(50%,#f23311), color-stop(51%,#e32c0c), color-stop(100%,#e32c0c));
+	background: -webkit-linear-gradient(top,  #f23311 0%,#f23311 50%,#e32c0c 51%,#e32c0c 100%);
+	background: -ms-linear-gradient(top,  #f23311 0%,#f23311 50%,#e32c0c 51%,#e32c0c 100%);
+	background: linear-gradient(to bottom,  #f23311 0%,#f23311 50%,#e32c0c 51%,#e32c0c 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f23311', endColorstr='#e32c0c',GradientType=0);
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+}
+
+.section {
+	border: 2px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+
+}
+
+.proj-title {
+	font-weight: 300;
+	padding: 0px;
+}
