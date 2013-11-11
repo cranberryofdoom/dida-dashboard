@@ -1,31 +1,29 @@
 class ProjectsController < ApplicationController
 
 	def index
-		
+		@projects = Project.all
 	end
 
 	def new
-		@project = Project.new
-		@organization = Organization.new
-		@client = Client.new
+		@project ||= Project.new
+		@project.client ||= Client.new
+		@project.client.organization ||= Organization.new
 	end
 
 	def create
-		p = Project.create(project_params)
-		c = Client.create(client_params)
-		o = Organization.create(organization_params)
-
+		p = Project.new(project_params)
+		p.client = Client.create(client_params)
+		p.client.organization = Organization.create(organization_params)
 		p.status = "unassigned"
-		p.client = c
-		o.client = c
-		o.save
 		p.save
-
-		if Organization.find_by name: o.name
+		if p.errors.any?
+			flash[:alert] = "That mothafuckin shit just failed for some reason :("
+			redirect_to :method => new
+			return
 		end
 
-		# flash[:alert] = "Project successfully created!"
-		redirect_to p
+		flash[:alert] = "Project successfully created!"
+		redirect_to project_path(p)
 	end
 
 	def show
@@ -37,12 +35,12 @@ class ProjectsController < ApplicationController
 	    # since you'll be able to reuse the same permit list between create and update. Also, you
 	    # can specialize this method with per-user checking of permissible attributes.
 	    def project_params
-	      params.require(:project).permit(:status, :due_date, :details, :direction, :kind)
-	    end
-	    def organization_params
-	    	params.require(:organization).permit(:name, :description)
+	    	params.except("client").except("organization").require(:project).permit(:status, :kind, :due_date, :details, :direction, :kind, {:mediums => []})
 	    end
 	    def client_params
-	    	params.require(:client).permit(:email, :first_name, :last_name, :department)
+	    	params[:project][:client].permit(:first_name, :last_name, :email, :department, :cell)
 	    end
-end
+	    def organization_params
+	    	params[:project][:organization].permit(:name, :description)
+	    end
+	end

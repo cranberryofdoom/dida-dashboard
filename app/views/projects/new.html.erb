@@ -1,18 +1,19 @@
-<%= simple_form_for @client do |f| %>
-	<%= f.input :first_name %>
-	<%= f.input :last_name %>
-	<%= f.input :email %>
-	<%= f.input :department %>
-<% end %>
-<%= simple_form_for @organization do |f| %>
-	<%= f.input :name %>
-	<%= f.input :description %>
-<% end %>
 <%= simple_form_for @project do |f| %>
+	<%= f.simple_fields_for @project.client do |c| %>
+		<%= c.input :first_name %>
+		<%= c.input :last_name %>
+		<%= c.input :email %>
+		<%= c.input :department, collection: ["Undergraduate Student Organization", "Graduate Student Organization", "University Departmental Organization", "Other"] %>
+		<%= c.input :cell, :as => 'tel', input_html: {id: 'input-cell', placeholder: "(919) LOL-DUKE"} %>
+	<% end %>
+	<%= f.simple_fields_for @project.client.organization do |o| %>
+		<%= o.input :name %>
+		<%= o.input :description %>
+	<% end %>
 	<%= f.input :due_date %>
+	<%= f.input :kind %>
 	<%= f.input :details %>
 	<%= f.input :direction %>
-	<%= f.input :kind %>
-	<%= f.input :medium %>
-	<%= f.submit "Punch It!", :class => "btn" %>
+	<%= f.input :mediums, :as => :check_boxes, collection: ["Poster", "Large Flyer", "Small Flyer", "Banner", "Logo", "Bus Ad", "The Chronicle Ad", "T-Shirt", "Dining Hall Table Tent", "Website", "Other"] %>
+	<%= f.submit "Submit", :class => "btn" %>
 <% end %>
