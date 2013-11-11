@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20131110212839) do
   add_index "organizations", ["client_id"], name: "index_organizations_on_client_id"
 
   create_table "projects", force: true do |t|
-    t.string   "mediums"
+    t.string   "mediums_json"
     t.string   "kind"
     t.string   "status"
     t.date     "due_date"
