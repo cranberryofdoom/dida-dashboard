@@ -1,215 +1,89 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2">
-        <%=render 'navigation/projects_sidebar_nav' %>
-      </div>
-      <div class="col-sm-10">
-        
-        <!-- MAIN CONTENT -->
-        <div class="col-md-10" role="main">
-          <div class="container-content">
-           <div class="section" id="unassigned">
-            <div>
-             <h1 class="heading">Unassigned</h1>
-           </div>
+<div class="row">
 
-           <!-- PROJECT -->
+	<!-- SIDEBAR NAVIGATION -->
+	<div class="col-sm-2">
+		<%=render 'navigation/projects_sidebar_nav' %>
+	</div>
 
-           <div class="project">
-             <div class="row">
+	<div class="col-sm-10">
 
-              <div class='col-sm-4'>
-               <h3 class="proj-title">Project 1</h3>
-               <small class="medium">Project Medium</small>
-             </div>
+		<!-- UNASSIGNED PROJECTS -->
+		<div class="section" id="unassigned">
+			<h1 class="project-heading">Unassigned</h1>
+			<% @projects.each do |project| %>
+			<% if project.status == "unassigned" %>
+			<div class="project">
+				<div class="row">
+					<div class="col-sm-4">
+						<h3 class="project-title"><%= project.client.organization.name %></h3>
+						<small class="medium"><%= project.mediums.take(project.mediums.length-1).to_sentence %></small>
+					</div>
+					<div class="col-sm-2">
+						<span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+						<%= project.due_date %>
+					</div>
+					<div class="col-sm-2">
+						<select class="selectpicker" id="selectField">
+							<option >Designer</option>
+							<option>Ann</option>
+							<option>Ashley</option>
+							<option value="d3">Bob</option>
+						</select>
+					</div>
+					<div class="col-sm-2">
+						<select class="selectpicker team" id="selectField">              
+							<option>Team</option>
+							<option >Print 1</option>
+							<option>Print 2</option>
+							<option>Web</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<% end %>
+			<% end %>
+		</div>
 
-             <div class='col-sm-2'>
-               <!-- <h4 class="due-date">Due Date</h4> -->
+		<!-- ASSIGNED PROJECTS -->
+		<div class="section" id="assigned">
+			<h1 class="project-heading">Assigned</h1>
+			<% @projects.each do |project| %>
+			<% if project.status == "assigned" %>
+			<div class="project">
+				<div class="row">
+					<div class="col-sm-4">
+						<h3 class="project-title"><%= project.client.organization.name %></h3>
+						<small class="medium"><%= project.mediums.take(project.mediums.length-1).to_sentence %></small>
+					</div>
+					<div class="col-sm-2">
+						<span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+						<%= project.due_date %>
+					</div>
+					<div class="col-sm-2">
+						<select class="selectpicker" id="selectField">
+							<option >Designer</option>
+							<option>Ann</option>
+							<option>Ashley</option>
+							<option value="d3">Bob</option>
+						</select>
+					</div>
+					<div class="col-sm-2">
+						<select class="selectpicker team" id="selectField">              
+							<option>Team</option>
+							<option >Print 1</option>
+							<option>Print 2</option>
+							<option>Web</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<% end %>
+			<% end %>
+		</div>
 
-
-               <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                <input class="span2" size="16" type="text" value="12-02-2012" readonly>
-                <span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-              </div>
-            </div>
-
-            <div class='col-sm-2'>
-              <select class="selectpicker" id="selectField">
-                <option >Designer</option>
-                <option>Ann</option>
-                <option>Ashley</option>
-                <option value="d3">Bob</option>
-              </select>
-
-
-            </div>
-
-            <div class='col-sm-2'>
-              <select class="selectpicker team" id="selectField">                 
-                <option>Team</option>
-                <option >Print 1</option>
-                <option>Print 2</option>
-                <option>Web</option>
-              </select>
-
-            </div>
-            <div class='col-sm-2'>
-
-              <select class="selectpicker" id="selectField">
-                <option value="option1" >Not Started <span class="caret"></span></option>
-                <option value="option2">Contacted Client <span class="caret"></span></option>
-                <option value="option3">Draft <span class="caret"></span></option>
-                <option value="option4">Finished <span class="caret"></span></option>
-
-              </select>
-<!-- 
-        <div id="option1" class="box"><div class="led red"></div></div>
-        <div id="option2" class="box"><div class="led yellow"></div></div>
-        <div id="option3" class="box"><div class="led green"></div></div>
-        <div id="option4" class="box"><div class="led blue"></div></div> -->
-
-      </div>
-    </div><!-- end row  -->
-
-  </div><!--end project-->
-
-
-</div><!--end section-->
-
-<!-- ASSIGNED PROJECTS -->
-
-<div class="section" id="assigned">
-  <div>
-   <h1 class="heading">Assigned</h1>
- </div>
-
-
- <!-- PROJECT -->
-
- <div class="project">
-   <div class="row">
-
-    <div class='col-sm-4'>
-     <h3 class="proj-title">Project 1</h3>
-     <small class="medium">Project Medium</small>
-   </div>
-
-   <div class='col-sm-2'>
-    <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-      <input class="span2" size="16" type="text" value="12-02-2012" readonly>
-      <span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-    </div>
-  </div>
-
-  <div class='col-sm-2'>
-    <select class="selectpicker" id="selectField">
-      <option >Designer</option>
-      <option>Ann</option>
-      <option>Ashley</option>
-      <option value="d3">Bob</option>
-    </select>
-
-
-  </div>
-
-  <div class='col-sm-2'>
-    <select class="selectpicker team" id="selectField">                 
-      <option>Team</option>
-      <option >Print 1</option>
-      <option>Print 2</option>
-      <option>Web</option>
-    </select>
-
-  </div>
-  <div class='col-sm-2'>
-
-    <select class="selectpicker" id="selectField">
-      <option value="option1" >Not Started <span class="caret"></span></option>
-      <option value="option2">Contacted Client <span class="caret"></span></option>
-      <option value="option3">Draft <span class="caret"></span></option>
-      <option value="option4">Finished <span class="caret"></span></option>
-
-    </select>
-<!-- 
-        <div id="option1" class="box"><div class="led red"></div></div>
-        <div id="option2" class="box"><div class="led yellow"></div></div>
-        <div id="option3" class="box"><div class="led green"></div></div>
-        <div id="option4" class="box"><div class="led blue"></div></div> -->
-
-      </div>
-    </div><!-- end row  -->
-
-  </div><!--end project-->
-  <!-- PROJECT -->
-
-  <div class="project">
-   <div class="row">
-
-    <div class='col-sm-4'>
-     <h3 class="proj-title">Project 1</h3>
-     <small class="medium">Project Medium</small>
-   </div>
-
-   <div class='col-sm-2'>
-    <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-      <input class="span2" size="16" type="text" value="12-02-2012" readonly>
-      <span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-    </div>
-  </div>
-
-  <div class='col-sm-2'>
-    <select class="selectpicker" id="selectField">
-      <option >Designer</option>
-      <option>Ann</option>
-      <option>Ashley</option>
-      <option value="d3">Bob</option>
-    </select>
-
-
-  </div>
-
-  <div class='col-sm-2'>
-    <select class="selectpicker team" id="selectField">                 
-      <option>Team</option>
-      <option >Print 1</option>
-      <option>Print 2</option>
-      <option>Web</option>
-    </select>
-
-  </div>
-  <div class='col-sm-2'>
-
-    <select class="selectpicker" id="selectField">
-      <option value="option1" >Not Started <span class="caret"></span></option>
-      <option value="option2">Contacted Client <span class="caret"></span></option>
-      <option value="option3">Draft <span class="caret"></span></option>
-      <option value="option4">Finished <span class="caret"></span></option>
-
-    </select>
-<!-- 
-        <div id="option1" class="box"><div class="led red"></div></div>
-        <div id="option2" class="box"><div class="led yellow"></div></div>
-        <div id="option3" class="box"><div class="led green"></div></div>
-        <div id="option4" class="box"><div class="led blue"></div></div> -->
-
-      </div>
-    </div><!-- end row  -->
-
-  </div><!--end project-->
-
-</div><!--end section-->
-
-
-
-<!-- archived projects -->
-
-<div class="page-header">
-  <h1 class="heading" id="archived"><a href="archives.html">Archived</a><span class="glyphicon glyphicon-chevron-right" ></span></h1>
-</div>  
-
-</div>
-</div>
-</div>
-
-
+		<!-- ARCHIVED PROJECTS -->
+		<div class="section" id="archived">
+			<h1 class="project-heading">Archived<b class="right-caret"></b></h1>
+		</div>
+	</div>
 </div>

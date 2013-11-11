@@ -1,0 +1,29 @@
+/*PROJECTS SIDEBAR NAV*/
+
+.sidebar {
+	background-color: #F1C40F;
+	font-weight: 500;
+}
+
+.sidenav a:active {
+	color: #ffffff;
+}
+
+.sidebar li a:hover{
+	background-color: transparent;
+	color: #ffffff;
+}
+
+/*DASHBOARD NAV*/
+
+.dashboard-nav-glyphicon {
+	margin-right: 10px;
+}
+
+.navbar-nav .active {
+	color: #F1C40F;
+}
+
+.navbar-nav>li>a:hover {
+	color: #F1C40F;
+}
