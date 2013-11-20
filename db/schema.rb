@@ -53,14 +53,9 @@ ActiveRecord::Schema.define(version: 20131113215204) do
 
   create_table "teams", force: true do |t|
     t.string   "name"
-    t.integer  "project_manager_id"
-    t.integer  "project_mentor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "teams", ["project_manager_id"], name: "index_teams_on_project_manager_id"
-  add_index "teams", ["project_mentor_id"], name: "index_teams_on_project_mentor_id"
 
   create_table "teams_users", force: true do |t|
     t.integer "team_id"
