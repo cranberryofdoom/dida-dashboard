@@ -2,6 +2,12 @@ class ProjectsController < ApplicationController
 
 	def index
 		@projects = Project.all
+		@users = User.all
+		@teams = Team.all
+	end
+
+	def save
+		
 	end
 
 	def new
