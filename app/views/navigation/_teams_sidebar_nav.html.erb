@@ -1,4 +1,28 @@
 <div class="sidebar affix">
 	<ul class="nav sidenav">
+		<% @teams.each do |team| %>
+		<li><a href=""><%= team.name %></a></li>
+		<% end %>
+		<li><a href="/teams/new" data-toggle="modal" data-target="#create-team">Create New Team</a></li>
 	</ul>
+</div>
+
+<div class="modal fade" id="create-team" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="create-team-label">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="create-team-label">Create A Team</h4>
+			</div>
+			<%= simple_form_for @team do |f| %>
+			<div class="modal-body">
+				<%= f.input :name %>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<%= f.submit "Submit", :class => "btn" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
 </div>

@@ -7,13 +7,23 @@
 
 	<div class="col-sm-10">
 
-		<!-- UNASSIGNED PROJECTS -->
-		
-
-		<!-- ASSIGNED PROJECTS -->
-		
-
-		<!-- ARCHIVED PROJECTS -->
-		
+		<% @teams.each do |team| %>
+		<div class="section">
+			<h1><%= team.name %></h1>
+			<%= link_to "delete", team, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+			<% team.users.each do |user| %>
+			<div class="row">
+				<div class="col-lg-4">
+					<h3><%= user.first_name %> <%= user.last_name %></h3>
+					<strong><%= user.privilege %></strong>
+					<div class="well">
+						<p></p>
+					</div>
+				</div>
+			</div>
+			<% end %>
+		</div>
+		<% end %>
 	</div>
 </div>
