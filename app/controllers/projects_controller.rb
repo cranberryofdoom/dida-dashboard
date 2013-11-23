@@ -4,6 +4,9 @@ class ProjectsController < ApplicationController
 		@projects = Project.all
 		@users = User.all
 		@teams = Team.all
+		@unassigned_projects = Project.where(:status => "unassigned")
+		@assigned_projects = Project.where(:status => "assigned")
+		@archived_projects = Project.where(:status => "archived")
 	end
 
 	def save

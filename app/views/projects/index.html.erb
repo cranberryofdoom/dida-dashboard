@@ -7,42 +7,58 @@
 
 	<div class="col-sm-10">
 
+		<script type="text/javascript">
+		function selectDesigner(select){
+			teams = <%= @teams.to_json.html_safe %>;
+			u = <%= @users.to_json.html_safe %>;
+			s = select.options[select.selectedIndex].text;
+
+		}
+		$(function(){
+			$("#unassigned-project-assign").click(
+				function(){
+					$("#unassigned-project-assign").hide();
+					$(".select-team-div").show();
+					$("#unassigned-project-done").show();
+				});
+		});
+		</script>
+
 		<!-- UNASSIGNED PROJECTS -->
 		<div class="section" id="unassigned">
 			<h1 class="project-heading">Unassigned</h1>
-			<% @projects.each do |project| %>
-			<% if project.status == "unassigned" %>
+			<button id="unassigned-project-assign">Assign Projects</button>
+			<button id="unassigned-project-done" class="hide-me">Done</button>
+			<% @unassigned_projects.each do |unassigned| %>
 			<div class="project">
 				<div class="row">
 					<div class="col-sm-4">
-						<h3 class="project-title"><%= project.client.organization.name %></h3>
-						<small class="medium"><%= project.mediums.take(project.mediums.length-1).to_sentence %></small>
+						<h3 class="project-title"><%= unassigned.client.organization.name %></h3>
+						<small class="medium"><%= unassigned.mediums.take(unassigned.mediums.length-1).to_sentence %></small>
 					</div>
 					<div class="col-sm-2">
 						<span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-						<%= project.due_date %>
+						<%= unassigned.due_date %>
 					</div>
-					<div class="col-sm-2">
-						<select class="selectpicker" id="selectField">
-							<option >Designer</option>
-							<option>Ann</option>
-							<option>Ashley</option>
-							<option value="d3">Bob</option>
-						</select>
-					</div>
-					<div class="col-sm-2">
-						<select class="selectpicker team" id="selectField">              
-							<option>Team</option>
-							<option >Print 1</option>
-							<option>Print 2</option>
-							<option>Web</option>
+					<div class="col-sm-2 hide-me select-team-div">
+						<select class="select-team" onchange="selectDesigner(this)">
+							<% @teams.each do |team| %>
+							<option>
+								<%= team.name %>
+							</option>
+							<% end %>
 						</select>
 					</div>
 				</div>
 			</div>
 			<% end %>
-			<% end %>
 		</div>
+
+		<style type="text/css">
+		.hide-me {
+			display: none;
+		}
+		</style>
 
 		<!-- ASSIGNED PROJECTS -->
 		<div class="section" id="assigned">
@@ -58,22 +74,6 @@
 					<div class="col-sm-2">
 						<span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 						<%= project.due_date %>
-					</div>
-					<div class="col-sm-2">
-						<select class="selectpicker" id="selectField">
-							<option >Designer</option>
-							<option>Ann</option>
-							<option>Ashley</option>
-							<option value="d3">Bob</option>
-						</select>
-					</div>
-					<div class="col-sm-2">
-						<select class="selectpicker team" id="selectField">              
-							<option>Team</option>
-							<option >Print 1</option>
-							<option>Print 2</option>
-							<option>Web</option>
-						</select>
 					</div>
 				</div>
 			</div>
