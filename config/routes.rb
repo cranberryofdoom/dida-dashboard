@@ -7,6 +7,7 @@ DidaDashboard::Application.routes.draw do
   end
   resources :teams do
     post "add_designer"
+    delete "remove_designer"
   end
 
   root 'projects#index'
