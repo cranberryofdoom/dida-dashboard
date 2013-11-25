@@ -1,4 +1,8 @@
 class ProjectsController < ApplicationController
+	## DON'T FORGET TO REMOVE THIS LATER!
+	if Rails.env.development?
+		protect_from_forgery except: :update_team
+	end
 
 	def index
 		@projects = Project.all
@@ -18,7 +22,6 @@ class ProjectsController < ApplicationController
 		@project.client ||= Client.new
 		@project.client.organization ||= Organization.new
 	end
-
 	def create
 		p = Project.new(project_params)
 		p.client = Client.create(client_params)
@@ -37,6 +40,14 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find_by_id(params[:id])
+	end
+
+	def update_team
+		project = Project.find params[:project_id]
+		t = Team.find(params[:team_id])
+		project.team = t
+		project.save
+		render :json => t.users.to_json
 	end
 
 	private

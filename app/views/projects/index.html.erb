@@ -8,29 +8,22 @@
 	<div class="col-sm-10">
 
 		<script type="text/javascript">
-		function selectDesigner(select){
-			teams = <%= @teams.to_json.html_safe %>;
-			u = <%= @users.to_json.html_safe %>;
-			s = select.options[select.selectedIndex].text;
-
-		}
 		$(function(){
-			$("#unassigned-project-assign").click(
-				function(){
-					$("#unassigned-project-assign").hide();
-					$(".select-team-div").show();
-					$("#unassigned-project-done").show();
+			$(".select-team").change(function(){
+				$.post("projects/1/update_team", {"team_id": $(this).val().toString()})
+				.done(function(data){
+					$(".select-team").after()
+					console.log( data[0].first_name );
 				});
+			})
 		});
 		</script>
 
 		<!-- UNASSIGNED PROJECTS -->
 		<div class="section" id="unassigned">
 			<h1 class="project-heading">Unassigned</h1>
-			<button id="unassigned-project-assign">Assign Projects</button>
-			<button id="unassigned-project-done" class="hide-me">Done</button>
 			<% @unassigned_projects.each do |unassigned| %>
-			<div class="project">
+			<div class="project" id="project-<%=unassigned.id%>" data-project-id="<%=unassigned.id%>">
 				<div class="row">
 					<div class="col-sm-4">
 						<h3 class="project-title"><%= unassigned.client.organization.name %></h3>
@@ -40,10 +33,11 @@
 						<span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 						<%= unassigned.due_date %>
 					</div>
-					<div class="col-sm-2 hide-me select-team-div">
-						<select class="select-team" onchange="selectDesigner(this)">
+					<div class="col-sm-2 select-team-div">
+						<select class="select-team">
+							<option value="">Select Team</option>
 							<% @teams.each do |team| %>
-							<option>
+							<option value="<%= team.id %>">
 								<%= team.name %>
 							</option>
 							<% end %>
@@ -55,9 +49,6 @@
 		</div>
 
 		<style type="text/css">
-		.hide-me {
-			display: none;
-		}
 		</style>
 
 		<!-- ASSIGNED PROJECTS -->
