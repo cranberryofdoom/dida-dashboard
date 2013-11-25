@@ -5,9 +5,9 @@ DidaDashboard::Application.routes.draw do
   resources :projects do
     post "update_team"
   end
-
-
-
+  resources :teams do
+    post "add_designer"
+  end
 
   root 'projects#index'
 
