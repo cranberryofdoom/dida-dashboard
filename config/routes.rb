@@ -2,6 +2,10 @@ DidaDashboard::Application.routes.draw do
   devise_for :users
   resources :projects, :teams
 
+  resources :teams do
+    post "add_designer"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
