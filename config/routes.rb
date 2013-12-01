@@ -3,9 +3,8 @@ DidaDashboard::Application.routes.draw do
   resources :teams
 
   namespace :api do
-    resources :teams, :defaults => {format: :json} do
-      resources :users, :defaults => {format: :json}
-    end
+    resources :teams
+    resources :users
   end
 
   resources :projects do
