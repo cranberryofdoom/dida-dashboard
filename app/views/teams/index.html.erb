@@ -33,10 +33,21 @@
 
 <script type="text/javascript">
 
+	$(".remove-designer").click(
+		function(){
+			$.ajax({
+				url: "teams/1/remove_designer",
+				type: "DELETE",
+				data: {"user_id": $(this).data("remove-designer-id")},
+			}).done(
+			function(){
+			});
+		});
+
 	$("#designers-list, .team-list").sortable({
 		connectWith: ".connected-sortable",
 		receive: function(event, ui) {
-			$.post("teams/" + $(this).data("team-id") + "/add_designer",{"user_id": ui.item.data("designer-id")});
+			$.post("teams/" + $(this).data("team-id") + "/add_designer", {"user_id": ui.item.data("designer-id")});
 		}
 	});
 
