@@ -8,6 +8,7 @@
 	<div class="col-sm-7">
 		<div ng-controller="TeamIndexController">
 			<team ng-repeat="team in teams">
+				<span ng-init="team_id = team.id"></span>
 			</team>
 		</div>
 	</div>
