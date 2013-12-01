@@ -1,9 +1,8 @@
-<div class="sidebar affix">
-	<ul class="nav sidenav">
-		<% @teams.each do |team| %>
-		<li><a href=""><%= team.name %></a></li>
-		<% end %>
-		<li><a href="/teams/new" data-toggle="modal" data-target="#create-team">Create New Team</a></li>
+<div class="sidebar affix" ng-controller="TeamIndexController">
+	<ul>
+		<li ng-repeat="team in teams">
+			<h3>{{team.name}}</h3>
+		</li>
 	</ul>
 </div>
 

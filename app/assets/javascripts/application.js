@@ -17,5 +17,7 @@
 //= require bootstrap-select
 //= require bootstrap-datepicker
 //= require turbolinks
+//= require dida
+//= require_tree ./angular
 //= require_tree .
 

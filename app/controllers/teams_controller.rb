@@ -31,7 +31,7 @@ class TeamsController < ApplicationController
 
 	def destroy
 		Team.find(params[:id]).destroy
-    	redirect_to :controller => 'teams', :action => 'index'
+		redirect_to :controller => 'teams', :action => 'index'
 	end
 
 	def add_designer
@@ -46,6 +46,5 @@ class TeamsController < ApplicationController
 	def team_params
 		params.require(:team).permit(:name)
 	end
-
 
 end
