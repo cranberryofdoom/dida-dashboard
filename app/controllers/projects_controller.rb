@@ -50,6 +50,15 @@ class ProjectsController < ApplicationController
 		render :json => t.users.to_json
 	end
 
+	def update_designer
+		project = Project.find params[:project_id]
+		u = User.find(params[:user_id])
+		project.user = u
+		project.status = "assigned"
+		project.save
+		render nothing: true
+	end
+
 	private
 	    # Using a private method to encapsulate the permissible parameters is just a good pattern
 	    # since you'll be able to reuse the same permit list between create and update. Also, you

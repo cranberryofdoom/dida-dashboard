@@ -10,12 +10,23 @@
 		<script type="text/javascript">
 		$(function(){
 			$(".select-team").change(function(){
-				$.post("projects/1/update_team", {"team_id": $(this).val().toString()})
+				var project_id = $(this).closest(".project").data("project-id");
+				$.post("projects/" + project_id + "/update_team", {"team_id": $(this).val().toString()})
 				.done(function(data){
-					$(".select-team").after()
-					console.log( data[0].first_name );
+					for (i = 0; i < data.length; i++) {
+						$("#select-designer-" + project_id)
+						.removeClass("hide")
+						.append(new Option(data[i].first_name + " " + data[i].last_name, data[i].id));
+					}
 				});
-			})
+			});
+			$(".select-designer").change(function(){
+				var project_id = $(this).closest(".project").data("project-id");
+				$.post("projects/" + project_id + "/update_designer", {"team_id": $(this).val().toString()})
+				.done(function(data){
+					
+				});
+			});
 		});
 		</script>
 
@@ -23,7 +34,7 @@
 		<div class="section" id="unassigned">
 			<h1 class="project-heading">Unassigned</h1>
 			<% @unassigned_projects.each do |unassigned| %>
-			<div class="project" id="project-<%=unassigned.id%>" data-project-id="<%=unassigned.id%>">
+			<div class="project" id="project-<%= unassigned.id %>" data-project-id="<%= unassigned.id %>">
 				<div class="row">
 					<div class="col-sm-4">
 						<h3 class="project-title"><%= unassigned.client.organization.name %></h3>
@@ -33,8 +44,8 @@
 						<span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 						<%= unassigned.due_date %>
 					</div>
-					<div class="col-sm-2 select-team-div">
-						<select class="select-team">
+					<div class="col-sm-2">
+						<select class="select-team" id="select-team-<%= unassigned.id %>">
 							<option value="">Select Team</option>
 							<% @teams.each do |team| %>
 							<option value="<%= team.id %>">
@@ -43,28 +54,30 @@
 							<% end %>
 						</select>
 					</div>
+					<div class="col-sm-2">
+						<select class="select-designer hide" id="select-designer-<%= unassigned.id %>">
+							<option value="">Select Designer</option>
+						</select>
+					</div>
 				</div>
 			</div>
 			<% end %>
 		</div>
 
-		<style type="text/css">
-		</style>
-
 		<!-- ASSIGNED PROJECTS -->
 		<div class="section" id="assigned">
 			<h1 class="project-heading">Assigned</h1>
-			<% @projects.each do |project| %>
+			<% @assigned_projects.each do |assigned| %>
 			<% if project.status == "assigned" %>
 			<div class="project">
 				<div class="row">
 					<div class="col-sm-4">
-						<h3 class="project-title"><%= project.client.organization.name %></h3>
-						<small class="medium"><%= project.mediums.take(project.mediums.length-1).to_sentence %></small>
+						<h3 class="project-title"><%= assigned.client.organization.name %></h3>
+						<small class="medium"><%= assigned.mediums.take(project.mediums.length-1).to_sentence %></small>
 					</div>
 					<div class="col-sm-2">
 						<span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-						<%= project.due_date %>
+						<%= assigned.due_date %>
 					</div>
 				</div>
 			</div>
