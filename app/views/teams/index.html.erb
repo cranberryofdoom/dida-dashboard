@@ -4,63 +4,44 @@
 	<div class="col-sm-2">
 		<%= render 'navigation/teams_sidebar_nav' %>
 	</div>
+	<div ng-controller="TeamIndexController">
+		<div class="col-sm-7">
 
-	<div class="col-sm-7">
-		<div ng-controller="TeamIndexController">
 			<team ng-repeat="team in teams">
 			</team>
+
 		</div>
-	</div>
-	<div class="col-sm-3">
-		<div ng-controller="DesignerIndexController">
-			<ul>
-				<li ng-repeat="designer in designers">
+		<div class="col-sm-3">
+			<ul ng-model="designers" data-drop="true">
+				<button class="btn-draggable" ng-model="designers" ng-repeat="designer in designers" data-drag="true">
 					{{designer.first_name}} {{designer.last_name}}
-				</li>
+				</button>
 			</ul>
-		</div>
-	</div>
-</div>
-
-
-<div class="modal fade" id="add-user" tabindex="0" role="dialog" aria-hidden="true" aria-labelledby="add-user-label">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="add-user-label">Add Designers</h4>
-			</div>
-			<div class="modal-body">
-				<input id="add-user-input">
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
 
-	$(".remove-designer").click(
+$(".remove-designer").click(
+	function(){
+		$.ajax({
+			url: "teams/1/remove_designer",
+			type: "DELETE",
+			data: {"user_id": $(this).data("remove-designer-id")},
+		}).done(
 		function(){
-			$.ajax({
-				url: "teams/1/remove_designer",
-				type: "DELETE",
-				data: {"user_id": $(this).data("remove-designer-id")},
-			}).done(
-			function(){
-			});
 		});
-
-	$("#designers-list, .team-list").sortable({
-		connectWith: ".connected-sortable",
-		receive: function(event, ui) {
-			$.post("teams/" + $(this).data("team-id") + "/add_designer", {"user_id": ui.item.data("designer-id")});
-		}
 	});
 
-	$(".team-list li").dblclick(function(ev){
-		$(this).prependTo("#users-list");
-	});
+$("#designers-list, .team-list").sortable({
+	connectWith: ".connected-sortable",
+	receive: function(event, ui) {
+		$.post("teams/" + $(this).data("team-id") + "/add_designer", {"user_id": ui.item.data("designer-id")});
+	}
+});
+
+$(".team-list li").dblclick(function(ev){
+	$(this).prependTo("#users-list");
+});
 </script>

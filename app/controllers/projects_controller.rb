@@ -5,16 +5,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def index
-		@projects = Project.all
-		@users = User.all
-		@teams = Team.all
-		@unassigned_projects = Project.where(:status => "unassigned")
-		@assigned_projects = Project.where(:status => "assigned")
-		@archived_projects = Project.where(:status => "archived")
 	end
 
 	def save
-		
 	end
 
 	def new
@@ -39,7 +32,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@project = Project.find_by_id(params[:id])
 	end
 
 	def update_team
@@ -47,7 +39,7 @@ class ProjectsController < ApplicationController
 		t = Team.find(params[:team_id])
 		project.team = t
 		project.save
-		render :json => t.users.to_json
+		render :json => project.team.to_json
 	end
 
 	def update_designer
@@ -56,7 +48,7 @@ class ProjectsController < ApplicationController
 		project.user = u
 		project.status = "assigned"
 		project.save
-		render nothing: true
+		render :json => project.user.to_json
 	end
 
 	private

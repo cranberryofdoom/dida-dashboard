@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui-1.10.3.custom.min
+//= require angular-dragdrop.min
 //= require bootstrap
 //= require bootstrap-select
 //= require bootstrap-datepicker

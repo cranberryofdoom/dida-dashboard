@@ -1,9 +1,7 @@
-<section>
-	<h2>{{team.name}}</h2>
-	<button>X</button>
-	<ul>
-		<li ng-repeat="user in team.users">
-			{{user.first_name}} {{user.last_name}} 
-		</li>
-	</ul>
-</section>
+<h2>{{team.name}}</h2>
+<button>X</button>
+<ul ng-model="team.users">
+	<li ng-model="team.users" ng-repeat="user in team.users">
+		{{user.first_name}} {{user.last_name}} 
+	</li>
+</ul>

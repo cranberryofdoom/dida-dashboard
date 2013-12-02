@@ -17,10 +17,6 @@ class TeamsController < ApplicationController
 	def new
 	end
 
-	def add
-
-	end
-
 	def create
 		t = Team.create(team_params)
 		redirect_to :controller => 'teams', :action => 'index'

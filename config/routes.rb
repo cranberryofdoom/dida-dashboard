@@ -1,10 +1,10 @@
 DidaDashboard::Application.routes.draw do
   devise_for :users
-  resources :teams
 
   namespace :api do
     resources :teams
     resources :users
+    resources :projects
   end
 
   resources :projects do

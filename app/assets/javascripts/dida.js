@@ -7,4 +7,9 @@ Dida.config(function ($routeProvider) {
 		templateUrl: 'teams/index.html.erb',
 		controller: 'teams_ctrl'
 	})
+	.when('/projects',
+	{
+		templateUrl: 'projects/index.html.erb',
+		controller: 'projects_ctrl'
+	})
 });

@@ -1,0 +1,10 @@
+<h3>{{project.client.organization.name}}</h3>
+<small>{{project.mediums_json}}</small>
+<p>{{project.due_date}}</p>
+<select ng-change="updateTeam(team, project)" ng-model="team" ng-options="team.name for team in teams">
+	<option value="">Select Team</option>
+</select>
+<select ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
+	<option value="">Select Designer</option>
+</select>
+<button>X</button>
