@@ -1,6 +1,8 @@
-<h3>{{project.client.organization.name}}</h3>
-<small>{{project.mediums_json}}</small>
-<p>{{project.due_date}}</p>
-<p>{{project.team.name}}</p>
-<p>{{project.user.first_name}} {{project.user.last_name}}</p>
-<button>X</button>
+<div class="project">
+	<h2><a href="/projects/{{project.id}}">{{project.client.organization.name}}</a></h2>
+	<p>{{project.mediums_json[0]}}</p>
+	<p>Due Date: {{project.due_date}}</p>
+	<p>{{project.team.name}}</p>
+	<p>{{project.user.first_name}} {{project.user.last_name}}</p>
+	<button ng-click="deleteProject(project)">X</button>
+</div>

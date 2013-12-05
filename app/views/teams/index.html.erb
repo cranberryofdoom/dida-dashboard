@@ -4,44 +4,29 @@
 	<div class="col-sm-2">
 		<%= render 'navigation/teams_sidebar_nav' %>
 	</div>
-	<div ng-controller="TeamIndexController">
-		<div class="col-sm-7">
 
+	<div ng-controller="TeamIndexController">
+
+		<div class="col-sm-7">
 			<team ng-repeat="team in teams">
 			</team>
-
 		</div>
+
 		<div class="col-sm-3">
-			<ul ng-model="designers" data-drop="true">
-				<button class="btn-draggable" ng-model="designers" ng-repeat="designer in designers" data-drag="true">
+			<ul ng-model="designers" id="designers-list">
+				<li ng-model="designers" ng-repeat="designer in designers">
 					{{designer.first_name}} {{designer.last_name}}
-				</button>
+				</li>
 			</ul>
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
-
-$(".remove-designer").click(
-	function(){
-		$.ajax({
-			url: "teams/1/remove_designer",
-			type: "DELETE",
-			data: {"user_id": $(this).data("remove-designer-id")},
-		}).done(
-		function(){
-		});
-	});
-
 $("#designers-list, .team-list").sortable({
 	connectWith: ".connected-sortable",
 	receive: function(event, ui) {
 		$.post("teams/" + $(this).data("team-id") + "/add_designer", {"user_id": ui.item.data("designer-id")});
 	}
-});
-
-$(".team-list li").dblclick(function(ev){
-	$(this).prependTo("#users-list");
 });
 </script>

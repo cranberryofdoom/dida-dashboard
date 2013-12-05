@@ -8,28 +8,39 @@
 	background-color: #6B99BF;
 }
 
-.glyphicon-caret-right {
-	padding-left: 10px;
-	font-size: 20px;
-}
 #unassigned {
 	background-color: #FF5649;
-
 }
 
 #assigned {
 	background-color: #13C4A5;
 }
-.project {
-	background-color: #ffffff;
-	background-image: none;
-	padding: 10px;
+
+.project-group-label {
 	margin: 10px;
+}
+
+.project-group {
+	padding: 10px;
+	margin-bottom: 40px;
+	.project {
+		background-color: #ffffff;
+		background-image: none;
+		padding: 10px;
+		margin-bottom: 10px;
+		position: relative;
+		button {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 10px;
+		}
+	}
 }
 
 /*BUTTONS*/
 .btn-group {
 	border-radius: 0px;
 	margin: 3px;
-		border-radius: 0px;
+	border-radius: 0px;
 }

@@ -1,19 +1,22 @@
 <%= simple_form_for @project do |f| %>
+	
+	<h1>Client Information</h1>
 	<%= f.simple_fields_for @project.client, defaults: { wrapper_html: { class: 'form-group' }, input_html: { class: 'form-control'} } do |c| %>
-		<%= c.input :first_name %>
-		<%= c.input :last_name %>
-		<%= c.input :email %>
-		<%= c.input :department, collection: ["Undergraduate Student Organization", "Graduate Student Organization", "University Departmental Organization", "Other"] %>
-		<%= c.input :cell, :as => 'tel', input_html: {id: 'input-cell', placeholder: "(919) LOL-DUKE"} %>
+		<%= c.input :first_name, wrapper_html: { class: 'col-xs-6' } %>
+		<%= c.input :last_name, wrapper_html: { class: 'col-xs-6' } %>
+		<%= c.input :email, wrapper_html: { class: 'col-xs-6' } %>
+		<%= c.input :cell, :as => 'tel', input_html: {id: 'input-cell', placeholder: "(919) LOL-DUKE"}, wrapper_html: { class: 'col-xs-6' } %>
+		<%= c.input :department, collection: ["Undergraduate Student Organization", "Graduate Student Organization", "University Departmental Organization", "Other"], wrapper_html: { class: 'col-xs-12' } %>
 	<% end %>
-	<%= f.simple_fields_for @project.client.organization do |o| %>
-		<%= o.input :name %>
-		<%= o.input :description %>
+	<h1>Organization Information</h1>
+	<%= f.simple_fields_for @project.client.organization, defaults: { wrapper_html: { class: 'form-group' }, input_html: { class: 'form-control'} } do |o| %>
+		<%= o.input :name, wrapper_html: { class: 'col-xs-12' }%>
+		<%= o.input :description, wrapper_html: { class: 'col-xs-12' } %>
 	<% end %>
+	<h1>Project Information</h1>
 	<%= f.input :due_date %>
-	<%= f.input :kind %>
-	<%= f.input :details %>
-	<%= f.input :direction %>
+	<%= f.input :details, wrapper_html: { class: 'form-group' }, input_html: { class: 'form-control'} %>
+	<%= f.input :direction, wrapper_html: { class: 'form-group' }, input_html: { class: 'form-control'} %>
 	<%= f.input :mediums, :as => :check_boxes, collection: ["Poster", "Large Flyer", "Small Flyer", "Banner", "Logo", "Bus Ad", "The Chronicle Ad", "T-Shirt", "Dining Hall Table Tent", "Website", "Other"] %>
 	<%= f.submit "Submit", :class => "btn" %>
 <% end %>

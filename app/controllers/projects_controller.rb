@@ -7,31 +7,28 @@ class ProjectsController < ApplicationController
 	def index
 	end
 
-	def save
-	end
-
 	def new
 		@project ||= Project.new
 		@project.client ||= Client.new
 		@project.client.organization ||= Organization.new
 	end
+
 	def create
 		p = Project.new(project_params)
 		p.client = Client.create(client_params)
 		p.client.organization = Organization.create(organization_params)
 		p.status = "unassigned"
 		p.save
-		if p.errors.any?
-			flash[:alert] = "That mothafuckin shit just failed for some reason :("
-			redirect_to :method => new
-			return
-		end
-
-		flash[:alert] = "Project successfully created!"
 		redirect_to project_path(p)
 	end
 
+	def delete
+		project = Project.find params[:project_id]
+		project.delete
+	end
+
 	def show
+		 @project = Project.find_by_id(params[:id])
 	end
 
 	def update_team
@@ -56,7 +53,10 @@ class ProjectsController < ApplicationController
 	    # since you'll be able to reuse the same permit list between create and update. Also, you
 	    # can specialize this method with per-user checking of permissible attributes.
 	    def project_params
-	    	params.except("client").except("organization").require(:project).permit(:status, :kind, :due_date, :details, :direction, :kind, {:mediums => []})
+	    	pp = params.except("client").except("organization").require(:project).permit(:status, :kind, :due_date, :details, :direction, :kind, {:mediums => []})
+	    	# hack to remove the blank item from project.mediums
+	    	pp["mediums"].delete("")
+	    	pp
 	    end
 	    def client_params
 	    	params[:project][:client].permit(:first_name, :last_name, :email, :department, :cell)
