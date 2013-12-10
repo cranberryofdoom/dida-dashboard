@@ -18,6 +18,7 @@ class TeamsController < ApplicationController
 	end
 
 	def create
+
 		t = Team.create(team_params)
 		redirect_to :controller => 'teams', :action => 'index'
 	end
@@ -27,7 +28,7 @@ class TeamsController < ApplicationController
 
 	def destroy
 		Team.find(params[:id]).destroy
-		redirect_to :controller => 'teams', :action => 'index'
+		render :json=>true
 	end
 
 	def remove_designer

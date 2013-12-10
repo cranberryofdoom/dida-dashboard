@@ -1,11 +1,11 @@
-window.Dida = angular.module('DiDA', ['ngResource', 'ngRoute']);
+window.Dida = angular.module('DiDA', ['ngResource', 'ngRoute', 'ngDragDrop']);
 
 Dida.config(function ($routeProvider) {
 	$routeProvider
 	.when('/teams', 
 	{
 		templateUrl: 'teams/index.html.erb',
-		controller: 'teams_ctrl'
+		controller: 'teams_ctrl',
 	})
 	.when('/projects',
 	{

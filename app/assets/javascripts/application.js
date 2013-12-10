@@ -13,6 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui-1.10.3.custom.min
+//= require jquery.ui.core
+//= require jquery.ui.widget
+//= require jquery.ui.mouse
+//= require jquery.ui.draggable
 //= require angular-dragdrop.min
 //= require bootstrap
 //= require bootstrap-select

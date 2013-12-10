@@ -1,9 +1,10 @@
 <div class="sidebar affix" ng-controller="TeamIndexController">
+<h2>Teams</h2>
 	<ul>
 		<li ng-repeat="team in teams">
-			<h3>{{team.name}}</h3>
+			<h4>{{team.name}}</h4>
 		</li>
-		<li><a href="/teams/new" data-toggle="modal" data-target="#create-team">Create New Team</a></li>
+		<li><a class="option" href="/teams/new" data-toggle="modal" data-target="#create-team">Create New Team</a></li>
 	</ul>
 </div>
 

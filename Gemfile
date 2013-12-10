@@ -31,7 +31,11 @@ gem 'bcrypt-ruby', '3.0.1'
 
 gem 'devise'
 
+gem 'cancan'
+
 gem 'simple_form'
+
+gem "angular-dragdrop-rails"
 
 group :development do
   gem "better_errors"

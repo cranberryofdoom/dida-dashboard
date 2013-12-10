@@ -1,6 +1,25 @@
+.container {
+	width: 100%;
+}
+
+.affix {
+	width:inherit;
+}
+.primary-nav li.current {
+	border-bottom:1px #333 solid;
+}
+.heading {
+	background-color: #7E9C99;
+}
 h1,h2,h3,h4,h5,h6, small {
 	font-family: 'Lato', Helvetica, sans-serif;
 	margin:0px;
+	color: #26282B;
+}
+
+h2 {
+	font-size: 24px;
+	padding: 10px;
 }
 
 p {
@@ -9,14 +28,22 @@ p {
 }
 
 a {
-	color: #333333;
+	color: #26282B;
 }
 
 body { padding-top: 80px;
-	background-color: #F2ECEA;
+	background-color: #FCF6F4;
 	font-family: 'Lato', Helvetica, sans-serif;
 }
-
+.sidebar li.current {
+	border-bottom:1px #333 solid;
+	background-color: #ffffff;
+}
+/*.break {
+	min-height: 3px;
+	background-color: #ffffff;
+	width: 100%;
+}*/
 .right-caret {
 	margin: 0 10px;
     border-bottom: 10px solid transparent;

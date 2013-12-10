@@ -3,4 +3,4 @@ Dida.directive("team", function() {
 		restrict: "E",
 		templateUrl: "team.html"
 	}
-})
+}) 

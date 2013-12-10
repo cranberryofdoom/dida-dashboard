@@ -1,3 +1,19 @@
-// Place all the styles related to the teams controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+ul.team-list{
+	list-style:none;
+	padding:0;
+	min-height:12em;
+}
+ul.team-list li:nth-child(2n){
+	background-color:#a6dbed;
+}
+.teams{
+	margin:10px;
+	background-color: #BEEBE7;
+}
+li {
+	cursor:move;
+}
+.teams h2 {
+	color: #ffffff;
+
+}

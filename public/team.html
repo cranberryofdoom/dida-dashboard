@@ -1,7 +1,11 @@
-<h2>{{team.name}}</h2>
-<button>X</button>
-<ul class="team-list" ng-model="team.users">
+<div class="teams">
+<div class="heading"><h2>{{team.name}}</h2></div>
+<ul class="team-list connected-sortable" ng-model="team.users">
 	<li ng-model="team.users" ng-repeat="user in team.users">
-		{{user.first_name}} {{user.last_name}} 
+		<div >
+			{{user.first_name}} {{user.last_name}} 
+		</div>
 	</li>
 </ul>
+<button class="deleteTeam" ng-click="delete(team.id)">X</button>
+</div>
