@@ -10,17 +10,7 @@
 
 		<div class="col-sm-7">
 			<team class="team-list" ng-repeat="team in teams">
-			<div class="teams">
-<div class="heading"><h2>{{team.name}}</h2></div>
-<ul class="team-list connected-sortable" ng-model="team.users">
-	<li ng-model="team.users" ng-repeat="user in team.users">
-		<div >
-			{{user.first_name}} {{user.last_name}} 
-		</div>
-	</li>
-</ul>
-<button class="deleteTeam" ng-click="delete(team.id)">X</button>
-</div>
+
 			</team>
 			
 
@@ -55,7 +45,7 @@ $(document).ready(function() {
 
 </script>
 
-
+<!-- trying something else here with multiSortable.js but not implemented ATM  -->
 <script type="text/javascript" charset="utf-8">
 jQuery(function() {
   jQuery('.sidebar li').each(function() {
