@@ -18,13 +18,7 @@
 		</div>
 
 		<div class="col-sm-2 sidebar">
-			<h2>Designers</h2>
-			<ul ng-model="designers" id="designers" class="connected-sortable" >
-				<li ng-model="designers" ng-repeat="designer in designers">
-					{{designer.first_name}} {{designer.last_name}}
-					
-				</li>
-			</ul>
+			<%= render 'navigation/users_sidebar_nav' %>
 		</div>
 		<div class="col-sm-1">
 		</div>

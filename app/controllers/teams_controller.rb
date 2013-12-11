@@ -2,13 +2,14 @@ class TeamsController < ApplicationController
 
 	## DON'T FORGET TO REMOVE THIS LATER!
 	if Rails.env.development?
-		protect_from_forgery :except => [:add_designer, :remove_designer]
+		protect_from_forgery :except => [:add_designer, :remove_designer, :create_user]
 	end
 
 	def index
 		@teams = Team.all
 		@team = Team.new
 		@users = User.all
+		@user = User.create_user
 	end
 
 	def save
@@ -16,6 +17,12 @@ class TeamsController < ApplicationController
 
 	def new
 	end
+
+	def create_user
+		t = User.create(user_params)
+		redirect_to :controller => 'teams', :action => 'index'
+	end
+
 
 	def create
 
@@ -50,6 +57,10 @@ class TeamsController < ApplicationController
 	private
 	def team_params
 		params.require(:team).permit(:name)
+	end
+
+	def user_params
+		params.require(:user).permit(:email, :password, :password_confirmation)
 	end
 
 end

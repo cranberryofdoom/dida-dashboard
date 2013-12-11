@@ -1,0 +1,32 @@
+<div class="sidebar" ng-controller="TeamIndexController">
+
+	<h2>Designers</h2>
+	<ul ng-model="designers" id="designers" class="connected-sortable" >
+		<li ng-model="designers" ng-repeat="designer in designers">
+			{{designer.first_name}} {{designer.last_name}}
+		</li>
+		<li><a class="option" href="/users/new" data-toggle="modal" data-target="#create-user">Create New User</a></li>
+	</ul>
+</div>
+
+<div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="create-user-label">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="create-user-label">Create A User</h4>
+			</div>
+			<%= simple_form_for @user do |f| %>
+			<div class="modal-body">
+			    <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true %>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<%= f.submit "Submit", :class => "btn" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
