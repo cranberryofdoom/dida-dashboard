@@ -1,12 +1,11 @@
-<div class="sidebar" ng-controller="TeamIndexController">
-
-				<h2>Designers</h2>
-				<ul ng-model="designers" id="designers">
-					<li ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}" ng-repeat="designer in designers">
-						{{designer.first_name}} {{designer.last_name}}
-					</li>
-					<li><a class="option" href="/users/new" data-toggle="modal" data-target="#create-user">Create New User</a></li>
-				</ul>
+<div class="sidebar">
+	<h2>Designers</h2>
+	<ul ng-model="designers" id="designers">
+		<li ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}" ng-repeat="designer in designers">
+			{{designer.first_name}} {{designer.last_name}}
+		</li>
+		<li><a class="option" data-toggle="modal" data-target="#create-user">Create New User</a></li>
+	</ul>
 </div>
 
 <div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="create-user-label">
@@ -16,11 +15,15 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h4 class="modal-title" id="create-user-label">Create A User</h4>
 			</div>
-			<%= simple_form_for @user do |f| %>
+			<%= simple_form_for :user, :url => url_for(:action => 'create_user', :controller => 'teams'),
+			:method => 'post' do |f| %>
 			<div class="modal-body">
-			    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
+				<%= f.input :first_name, :required => true %>
+				<%= f.input :last_name, :required => true %>
+				<%= f.input :privilege, collection: ["admin", "project mentor", "project manager", "designer"], :required => true %>
+				<%= f.input :email, :required => true, :autofocus => true %>
+				<%= f.input :password, :required => true %>
+				<%= f.input :password_confirmation, :required => true %>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

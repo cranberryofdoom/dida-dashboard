@@ -1,9 +1,6 @@
 DidaDashboard::Application.routes.draw do
   devise_for :users
 
-
-
-
   namespace :api do
     resources :teams
     resources :users
@@ -17,7 +14,9 @@ DidaDashboard::Application.routes.draw do
   resources :teams do
     post "add_designer"
     delete "remove_designer"
-    post "create_user"
+    collection do
+      post "create_user" 
+    end
   end
 
   root 'home#index'

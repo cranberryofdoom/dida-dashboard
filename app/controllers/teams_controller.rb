@@ -9,7 +9,7 @@ class TeamsController < ApplicationController
 		@teams = Team.all
 		@team = Team.new
 		@users = User.all
-		@user = User.create_user
+		@user = User.new
 	end
 
 	def save
@@ -18,14 +18,8 @@ class TeamsController < ApplicationController
 	def new
 	end
 
-	def create_user
-		t = User.create(user_params)
-		redirect_to :controller => 'teams', :action => 'index'
-	end
-
 
 	def create
-
 		t = Team.create(team_params)
 		redirect_to :controller => 'teams', :action => 'index'
 	end
@@ -54,13 +48,18 @@ class TeamsController < ApplicationController
 		render :json => u.to_json
 	end
 
+	def create_user
+		u = User.create(user_params)
+		redirect_to :controller => 'teams', :action => 'index'
+	end
+
 	private
 	def team_params
 		params.require(:team).permit(:name)
 	end
 
 	def user_params
-		params.require(:user).permit(:email, :password, :password_confirmation)
+		params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :privilege)
 	end
 
 end
