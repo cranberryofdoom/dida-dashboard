@@ -8,18 +8,22 @@
 	<div class="col-sm-10">
 
 		<div ng-controller="ProjectIndexController">
-			<h2 id="unassigned" class="row heading">Unassigned</h2>
-			<div class="row project-group">
-				<unassigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'unassigned'}" ng-model="project"></unassigned>
+			<h2 id="unassigned" class=" heading">Unassigned</h2>
+			<div class="project-group">
+				<div class="row">
+					<unassigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'unassigned'}" ng-model="project"></unassigned>
+				</div>
 			</div>
 			
-			<h2 id="assigned" class="row heading">Assigned</h2>
-			<div class="row project-group">
-				<assigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'assigned'}:true" ng-model="project"></assigned>
+			<h2 id="assigned" class=" heading">Assigned</h2>
+			<div class="project-group">
+				<div class="row">
+					<assigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'assigned'}:true" ng-model="project"></assigned>
+				</div>
 			</div>
 			
-			<h2 id="archived" class="row heading">Archived</h2>
-			<div class="row project-group">
+			<h2 id="archived" class="heading">Archived</h2>
+			<div class="project-group">
 			</div>
 		</div>
 	</div>
