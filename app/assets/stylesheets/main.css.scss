@@ -1,40 +1,41 @@
+/*COLORS*/
+
+$yellow: #F1C462;
+$charcoal: #3F4247;
+$white: #ffffff;
+$red: #FF5649;
+$black: #222222;
+
+
 .container {
-	width: 100%;
+	width: 90%;
 }
 
-.affix {
-	width:inherit;
-}
-.primary-nav li.current {
-	border-bottom:1px #333 solid;
-}
-.heading {
-	background-color: #7E9C99;
-}
-h1,h2,h3,h4,h5,h6, small {
+h1,h2,h3,h4,h5,h6,small {
 	font-family: 'Lato', Helvetica, sans-serif;
-	margin:0px;
-	color: #26282B;
+	margin: 0px;
+	color: $black;
 }
 
 h2 {
 	font-size: 24px;
-	padding: 10px;
 }
 
 p {
 	font-family: 'Lato', Helvetica;
-	font-weight: 200;
+	font-weight: 300;
 }
 
 a {
 	color: #26282B;
 }
 
-body { padding-top: 80px;
+body {
+	padding-top: 140px;
 	background-color: #FCF6F4;
 	font-family: 'Lato', Helvetica, sans-serif;
 }
+
 .sidebar li.current {
 	border-bottom:1px #333 solid;
 	background-color: #ffffff;

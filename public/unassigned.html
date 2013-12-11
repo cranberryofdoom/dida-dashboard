@@ -1,18 +1,20 @@
 <div class="project">
 	<h2><a href="/projects/{{project.id}}">{{project.client.organization.name}}</a></h2>
-	<p>{{eval(project.mediums_json).join(",")}}</p>
+	<p>{{project.mediums_json[0]}}</p>
+	<p>Due Date: {{project.due_date}}</p>
 	<div class="row">
-		<p class="col-lg-4">Due Date: {{project.due_date}}</p>
-		<div class="col-lg-4">
+		<div class="col-lg-6">
 			<select ng-change="updateTeam(team, project)" ng-model="team" ng-options="team.name for team in teams">
 				<option value="">Select Team</option>
 			</select>
 		</div>
-		<div class="col-lg-4">
-			<select class="col-lg-4" ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
+		<div class="col-lg-6">
+			<select ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
 				<option value="">Select Designer</option>
 			</select>
 		</div>
+		
 	</div>
-	<button ng-click="deleteProject(project)">X</button>
+	
+	<button class="glyphicon glyphicon-remove" ng-click="deleteProject(project)"></button>
 </div>

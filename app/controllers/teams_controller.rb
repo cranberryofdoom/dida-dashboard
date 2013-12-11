@@ -59,7 +59,7 @@ class TeamsController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :privilege)
+		params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :privilege, :netid, :status, :payroll, :year, :position, :area, :cell)
 	end
 
 end

@@ -1,5 +1,14 @@
+/*COLORS*/
+
+$yellow: #F1C462;
+$charcoal: #3F4247;
+$black: #222222;
+$white: #ffffff;
+$red: #FF5649;
+
 .project-heading {
-	color: #ffffff;
+	background-color: $red;
+	color: $white;
 	padding: 10px;
 }
 
@@ -9,7 +18,7 @@
 }
 
 #unassigned {
-	background-color: #FF5649;
+	background-color: $red
 }
 
 #assigned {
@@ -17,23 +26,34 @@
 }
 
 .project-group-label {
-	margin: 10px;
+	padding: 15px 25px;
+	text-transform: uppercase;
+	font-weight: 900;
+	font-size: 20px;
 }
 
 .project-group {
-	padding: 10px;
 	margin-bottom: 40px;
+	padding: 30px 15px;
+	background-color: $charcoal;
 	.project {
 		background-color: #ffffff;
 		background-image: none;
-		padding: 10px;
-		margin-bottom: 10px;
 		position: relative;
+		padding: 25px;
+		a {
+			color: $black;
+		}
 		button {
+			color: $white;
+			background-color: $charcoal;
+			border: none;
+			width: 25px;
+			height: 25px;
 			position: absolute;
 			top: 0;
 			right: 0;
-			margin: 10px;
+			margin: 15px;
 		}
 	}
 }
