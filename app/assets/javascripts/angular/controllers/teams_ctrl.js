@@ -36,7 +36,6 @@ Dida.controller('TeamIndexController', function($scope, $http, Team, Designer, $
         $scope.draggedDesigner = user;
     };
 
-
     $scope.dropCallback = function(event, ui, team) {
         console.log($scope.draggedDesigner.id + ', ' + team.id);
         // var alreadyAdded = false;
