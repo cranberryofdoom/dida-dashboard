@@ -1,5 +1,4 @@
 
-
 <div class="row">
 	<!-- SIDEBAR NAVIGATION -->
 	<div class="col-sm-2">
@@ -8,62 +7,45 @@
 
 	<div ng-controller="TeamIndexController">
 
-		<div class="col-sm-7">
-			<team class="team-list" ng-repeat="team in teams">
-			<div class="teams">
-<div class="heading"><h2>{{team.name}}</h2></div>
-<ul class="team-list connected-sortable" ng-model="team.users">
-	<li ng-model="team.users" ng-repeat="user in team.users">
-		<div >
-			{{user.first_name}} {{user.last_name}} 
-		</div>
-	</li>
-</ul>
-<button class="deleteTeam" ng-click="delete(team.id)">X</button>
-</div>
-			</team>
-			
-
-
+		<div class="col-sm-8">
+			<team ng-repeat="team in teams"></team>
 		</div>
 
-		<div class="col-sm-2 sidebar">
-			<h2>Designers</h2>
-			<ul ng-model="designers" id="designers" class="connected-sortable" >
-				<li ng-model="designers" ng-repeat="designer in designers">
-					{{designer.first_name}} {{designer.last_name}}
-					
-				</li>
-			</ul>
-		</div>
-		<div class="col-sm-1">
+		<div class="col-sm-2">
+			<div class="sidebar">
+				<h2>Designers</h2>
+				<ul ng-model="designers" id="designers">
+					<li ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}" ng-repeat="designer in designers">
+						{{designer.first_name}} {{designer.last_name}}
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
-$(document).ready(function() {
-
-		$("#designers, .team-list").sortable({
-			connectWith: ".connected-sortable",
-	receive: function(event, ui) {
-		// $.post("teams/" + $(this).data("team-id") + "/add_designer", {"user_id": ui.item.data("designer-id")});
-	}
-});
-
-	});
+// $(function() {
+// 	$("#designers, .team-list").sortable({
+// 		connectWith: ".connected-sortable",
+// 		receive: function(event, ui) {
+// 			alert("BLAHHHHHH");
+// 		// $.post("teams/" + $(this).data("team-id") + "/add_designer", {"user_id": ui.item.data("designer-id")});
+// 	}
+// })
+// });
 
 </script>
 
 
 <script type="text/javascript" charset="utf-8">
 jQuery(function() {
-  jQuery('.sidebar li').each(function() {
-    var href = jQuery(this).find('a').attr('href');
-    if (href === window.location.pathname) {
-      jQuery(this).addClass('current');
-    }
-  });
+	jQuery('.sidebar li').each(function() {
+		var href = jQuery(this).find('a').attr('href');
+		if (href === window.location.pathname) {
+			jQuery(this).addClass('current');
+		}
+	});
 });  
 
 </script>

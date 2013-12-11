@@ -1,11 +1,13 @@
 <div class="teams">
-<div class="heading"><h2>{{team.name}}</h2></div>
-<ul class="team-list connected-sortable" ng-model="team.users">
-	<li ng-model="team.users" ng-repeat="user in team.users">
-		<div >
-			{{user.first_name}} {{user.last_name}} 
-		</div>
-	</li>
-</ul>
-<button class="deleteTeam" ng-click="delete(team.id)">X</button>
+	<div class="heading">
+		<h2>{{team.name}}</h2>
+		<button class="deleteTeam" ng-click="delete(team.id)">X</button>
+	</div>
+	<ul data-drop="true" jqyoui-droppable="{multiple:true}" class="team-list" ng-model="team.users">
+		<li ng-model="team.users" ng-repeat="user in team.users track by $index">
+			<div >
+				{{user.first_name}} {{user.last_name}} 
+			</div>
+		</li>
+	</ul>
 </div>
