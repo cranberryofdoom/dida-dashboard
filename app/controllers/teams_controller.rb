@@ -1,5 +1,4 @@
 class TeamsController < ApplicationController
-
 	## DON'T FORGET TO REMOVE THIS LATER!
 	if Rails.env.development?
 		protect_from_forgery :except => [:add_designer, :remove_designer, :create_user]
@@ -20,6 +19,7 @@ class TeamsController < ApplicationController
 
 
 	def create
+		
 		t = Team.create(team_params)
 		redirect_to :controller => 'teams', :action => 'index'
 	end
