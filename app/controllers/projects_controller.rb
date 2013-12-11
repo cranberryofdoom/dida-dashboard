@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
 	def delete
 		p = Project.find params[:project_id]
 		p.delete
-		render :json = p
+		render :json => p
 	end
 
 	def show
