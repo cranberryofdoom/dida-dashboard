@@ -19,7 +19,6 @@ class TeamsController < ApplicationController
 
 
 	def create
-		
 		t = Team.create(team_params)
 		redirect_to :controller => 'teams', :action => 'index'
 	end
@@ -28,24 +27,26 @@ class TeamsController < ApplicationController
 	end
 
 	def destroy
-		Team.find(params[:id]).destroy
-		render :json=>true
+		t = Team.find(params[:id])
+		t.destroy
+		t.save
+		render :json => t
 	end
 
 	def remove_designer
-		team = Team.find params[:team_id]
+		t = Team.find params[:team_id]
 		u = User.find(params[:user_id])
-		team.users.delete(User.find_by_id(u.id))
-		team.save
-		render :json => u.to_json
+		t.users.delete(User.find_by_id(u.id))
+		t.save
+		render :json => u
 	end
 
 	def add_designer
-		team = Team.find params[:team_id]
+		t = Team.find params[:team_id]
 		u = User.find(params[:user_id])
-		team.users << u
-		team.save
-		render :json => u.to_json
+		t.users << u
+		t.save
+		render :json => u
 	end
 
 	def create_user
