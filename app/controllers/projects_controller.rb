@@ -23,8 +23,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def delete
-		project = Project.find params[:project_id]
-		project.delete
+		p = Project.find params[:project_id]
+		p.delete
+		render :json = p
 	end
 
 	def show
@@ -32,20 +33,20 @@ class ProjectsController < ApplicationController
 	end
 
 	def update_team
-		project = Project.find params[:project_id]
+		p = Project.find params[:project_id]
 		t = Team.find(params[:team_id])
-		project.team = t
-		project.save
-		render :json => project.team.to_json
+		p.team = t
+		p.save
+		render :json => p.team
 	end
 
 	def update_designer
-		project = Project.find params[:project_id]
+		p = Project.find params[:project_id]
 		u = User.find(params[:user_id])
-		project.user = u
-		project.status = "assigned"
-		project.save
-		render :json => project.user.to_json
+		p.user = u
+		p.status = "assigned"
+		p.save
+		render :json => p.user
 	end
 
 	private

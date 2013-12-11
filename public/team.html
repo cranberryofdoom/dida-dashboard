@@ -5,7 +5,7 @@
 	</div>
 
 	<div class="team-wrapper">
-		<ul data-drop="true" jqyoui-droppable="{index: {{$index}}, multiple:true, onDrop:'dropCallback(team, $index)', animate:true}" class="row team-list" ng-model="team.users">
+		<ul data-drop="true" jqyoui-droppable="{index: {{$index}}, multiple: true, onDrop:'dropCallback(team, $index)', animate: true}" class="row team-list" ng-model="team.users">
 			<li class="col-sm-4" ng-model="team.users" ng-repeat="user in team.users track by $index">
 				<div class="designer">
 				<button class="remove-button glyphicon glyphicon-remove" ng-click="removeDesigner($index, user, team)"></button>

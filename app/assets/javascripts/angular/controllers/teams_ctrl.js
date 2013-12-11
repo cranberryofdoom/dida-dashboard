@@ -15,16 +15,14 @@ Dida.controller('TeamIndexController', function($scope, $http, Team, Designer, $
 	};
 
 	$scope.startCallback = function(event, ui, user) {
-		console.log('Dropped into something' + user.id);
 		$scope.draggedDesigner = user;
 	};
 
 	$scope.dropCallback = function(event, ui, team) {
-		console.log($scope.draggedDesigner.id + ', ' + team.id);
         $http.post('teams/' + team.id + '/add_designer', {'user_id': $scope.draggedDesigner.id})
         .success(function(){
+        	team.users.concat($scope.draggedDesigner.id);
         	alert("YAY");
-
         });
     };
 });
