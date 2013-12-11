@@ -16,11 +16,7 @@ $white: #ffffff;
 		color: $white;
 	}
 	h2 {
-		padding: 15px 25px;
-		font-size: 20px;
 		background-color: $yellow;
-		font-weight: 900;
-		text-transform: uppercase;
 	}
 	ul {
 		list-style-type: none;
@@ -48,33 +44,33 @@ $white: #ffffff;
 	}
 }
 
-	.option a {
-		margin-top: 12px;
-	}
- 
+.option a {
+	margin-top: 12px;
+}
 
-	/*DASHBOARD NAV*/
 
-	.dashboard-nav-glyphicon {
-		margin-right: 15px;
-	}
+/*DASHBOARD NAV*/
 
-	.navbar-nav .active {
+.dashboard-nav-glyphicon {
+	margin-right: 15px;
+}
+
+.navbar-nav .active {
+	color: #F1C40F;
+	li > a:hover {
 		color: #F1C40F;
-		li > a:hover {
-			color: #F1C40F;
+	}
+}
+
+.navbar-nav {
+	li {
+		a {
+			padding: 25px;
 		}
 	}
+}
 
-	.navbar-nav {
-		li {
-			a {
-				padding: 25px;
-			}
-		}
-	}
-
-	.navbar-brand {
-		padding: 25px;
-		font-size: 24px;
-	}
+.navbar-brand {
+	padding: 25px;
+	font-size: 24px;
+}
