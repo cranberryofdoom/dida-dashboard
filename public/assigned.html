@@ -4,5 +4,7 @@
 	<p>Due Date: {{project.due_date}}</p>
 	<p>{{project.team.name}}</p>
 	<p>{{project.user.first_name}} {{project.user.last_name}}</p>
-	<button  class="remove-button glyphicon glyphicon-remove" ng-click="deleteProject(project)"></button>
+	<button class="remove-button" ng-click="deleteProject(project)">
+		<span class="glyphicon glyphicon-remove"></span>
+	</button>
 </div>
