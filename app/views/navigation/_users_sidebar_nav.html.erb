@@ -1,12 +1,12 @@
 <div class="sidebar" ng-controller="TeamIndexController">
 
-	<h2>Designers</h2>
-	<ul ng-model="designers" id="designers" class="connected-sortable" >
-		<li ng-model="designers" ng-repeat="designer in designers">
-			{{designer.first_name}} {{designer.last_name}}
-		</li>
-		<li><a class="option" href="/users/new" data-toggle="modal" data-target="#create-user">Create New User</a></li>
-	</ul>
+				<h2>Designers</h2>
+				<ul ng-model="designers" id="designers">
+					<li ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}" ng-repeat="designer in designers">
+						{{designer.first_name}} {{designer.last_name}}
+					</li>
+					<li><a class="option" href="/users/new" data-toggle="modal" data-target="#create-user">Create New User</a></li>
+				</ul>
 </div>
 
 <div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="create-user-label">

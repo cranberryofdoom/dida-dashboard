@@ -9,6 +9,13 @@ ul.team-list li:nth-child(2n){
 .teams{
 	margin:10px;
 	background-color: #BEEBE7;
+	position: relative;
+	button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 10px;
+	}
 }
 li {
 	cursor:move;

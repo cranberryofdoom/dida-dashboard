@@ -10,14 +10,12 @@
 		<div ng-controller="ProjectIndexController">
 			<h1 class="project-group-label">Unassigned</h1>
 			<div id="unassigned" class="project-group">
-				<unassigned ng-repeat="project in projects | filter:{status:'unassigned'}" ng-model="project">
-				</unassigned>
+				<unassigned ng-repeat="project in projects | filter:{status:'unassigned'}" ng-model="project"></unassigned>
 			</div>
 			
 			<h1 class="project-group-label">Assigned</h1>
 			<div id="assigned" class="project-group">
-				<assigned ng-repeat="project in projects | filter:{status:'assigned'}:true" ng-model="project">
-				</assigned>
+				<assigned ng-repeat="project in projects | filter:{status:'assigned'}:true" ng-model="project"></assigned>
 			</div>
 			
 			<h1 class="project-group-label">Archived</h1>
