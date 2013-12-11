@@ -10,37 +10,28 @@
 		<div class="col-sm-8">
 			<team ng-repeat="team in teams"></team>
 		</div>
-		
-		<div class="col-sm-2 sidebar">
-			<%= render 'navigation/users_sidebar_nav' %>
-		</div>
-		<div class="col-sm-1">
+
+		<div class="col-sm-2">
+			<div class="sidebar">
+				<h2>Designers</h2>
+				<ul ng-model="designers" id="designers">
+					<li ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}" ng-repeat="designer in designers">
+						{{designer.first_name}} {{designer.last_name}}
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
 
-<script type="text/javascript">
-// $(function() {
-// 	$("#designers, .team-list").sortable({
-// 		connectWith: ".connected-sortable",
-// 		receive: function(event, ui) {
-// 			alert("BLAHHHHHH");
-// 		// $.post("teams/" + $(this).data("team-id") + "/add_designer", {"user_id": ui.item.data("designer-id")});
-// 	}
-// })
-// });
-
-</script>
-
-<!-- trying something else here with multiSortable.js but not implemented ATM  -->
 <script type="text/javascript" charset="utf-8">
-	jQuery(function() {
-		jQuery('.sidebar li').each(function() {
-			var href = jQuery(this).find('a').attr('href');
-			if (href === window.location.pathname) {
-				jQuery(this).addClass('current');
-			}
-		});
-	});  
+jQuery(function() {
+	jQuery('.sidebar li').each(function() {
+		var href = jQuery(this).find('a').attr('href');
+		if (href === window.location.pathname) {
+			jQuery(this).addClass('current');
+		}
+	});
+});  
 
 </script>
