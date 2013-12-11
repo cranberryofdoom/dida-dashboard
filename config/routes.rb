@@ -11,11 +11,12 @@ DidaDashboard::Application.routes.draw do
     post "update_team"
     post "update_designer"
   end
+
   resources :teams do
     post "add_designer"
-    delete "remove_designer"
+    post "remove_designer"
     collection do
-      post "create_user" 
+      post "create_user"
     end
   end
 

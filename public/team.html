@@ -8,7 +8,7 @@
 		<ul data-drop="true" jqyoui-droppable="{index: {{$index}}, multiple:true, onDrop:'dropCallback(team, $index)', animate:true}" class="row team-list" ng-model="team.users">
 			<li class="col-sm-4" ng-model="team.users" ng-repeat="user in team.users track by $index">
 				<div class="designer">
-				<button class="remove-button glyphicon glyphicon-remove" ng-click="remove_designer(user.id, team)"></button>
+				<button class="remove-button glyphicon glyphicon-remove" ng-click="removeDesigner(user, team)"></button>
 					<h2>{{user.first_name}} {{user.last_name}} </h2>
 					<p>{{user.email}}</p>
 					<p>{{user.projects[0].name}}</p>

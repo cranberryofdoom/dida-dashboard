@@ -11,12 +11,11 @@ Dida.controller('TeamIndexController', function($scope, $http, Team, Designer, $
 			}
 		}
 	};
-    $scope.remove_designer = function(userId, team) {
-        console.log(userId);
-        console.log(team.id);
+    $scope.removeDesigner = function(designer, team) {
 
-        $http.delete('teams/' + team.id + '/remove_designer')
+        $http.post('teams/' + team.id + '/remove_designer', {'user_id': designer.id})
         .success(function(){
+        	alert("woohoo");
 
           //   for(i in team.users){
           //       if(team.users[i].id ==  userId) {
@@ -50,7 +49,7 @@ Dida.controller('TeamIndexController', function($scope, $http, Team, Designer, $
 
             $http.post('teams/' + team.id + '/add_designer', {'user_id': $scope.draggedDesigner.id})
             .success(function(){
-                team.users += $scope.draggedDesigner;
+            	alert("YAY");
           //           console.log(team.users);
           //       }
           //       else {
