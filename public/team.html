@@ -1,13 +1,18 @@
 <div class="teams">
-	<div class="heading">
-		<h2>{{team.name}}</h2>
-		<button class="deleteTeam" ng-click="delete(team.id)">X</button>
+	<div>
+		<h2 class="heading team-label">{{team.name}}</h2>
+		<button class="remove-button glyphicon glyphicon-remove" ng-click="delete(team.id)"></button>
 	</div>
-	<ul data-drop="true" jqyoui-droppable="{index: {{$index}}, multiple:true, onDrop:'dropCallback(team, $index)', animate:true}" class="team-list" ng-model="team.users">
-		<li ng-model="team.users" ng-repeat="user in team.users track by $index">
-			<div >
-				{{user.first_name}} {{user.last_name}} 
-			</div>
-		</li>
-	</ul>
-</div>
+
+	<div class="team-wrapper">
+		<ul data-drop="true" jqyoui-droppable="{index: {{$index}}, multiple:true, onDrop:'dropCallback(team, $index)', animate:true}" class="team-list" ng-model="team.users">
+			<li class="col-sm-4" ng-model="team.users" ng-repeat="user in team.users track by $index">
+				<div class="designer">
+					<h2>{{user.first_name}} {{user.last_name}} </h2>
+					<p>{{user.email}}</p>
+					<p>{{user.projects[0].name}}</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	</div>

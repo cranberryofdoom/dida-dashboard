@@ -5,23 +5,26 @@
 		<%=render 'navigation/projects_sidebar_nav' %>
 	</div>
 
-	<div class="col-sm-9">
+	<div class="col-sm-10">
 
 		<div ng-controller="ProjectIndexController">
-			<h1 class="project-group-label">Unassigned</h1>
-			<div id="unassigned" class="project-group">
-				<unassigned ng-repeat="project in projects | filter:{status:'unassigned'}" ng-model="project"></unassigned>
+			<h2 id="unassigned" class=" heading">Unassigned</h2>
+			<div class="project-group">
+				<div class="row">
+					<unassigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'unassigned'}" ng-model="project"></unassigned>
+				</div>
 			</div>
 			
-			<h1 class="project-group-label">Assigned</h1>
-			<div id="assigned" class="project-group">
-				<assigned ng-repeat="project in projects | filter:{status:'assigned'}:true" ng-model="project"></assigned>
+			<h2 id="assigned" class=" heading">Assigned</h2>
+			<div class="project-group">
+				<div class="row">
+					<assigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'assigned'}:true" ng-model="project"></assigned>
+				</div>
 			</div>
 			
-			<h1 class="project-group-label">Archived</h1>
-			<div id="archived">
+			<h2 id="archived" class="heading">Archived</h2>
+			<div class="project-group">
 			</div>
 		</div>
 	</div>
-		<div class="col-sm-1">
 </div>

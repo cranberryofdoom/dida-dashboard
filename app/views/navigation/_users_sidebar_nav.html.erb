@@ -1,10 +1,10 @@
 <div class="sidebar">
-	<h2>Designers</h2>
-	<ul ng-model="designers" id="designers">
+	<h2 class="heading">Designers</h2>
+	<ul ng-model="designers" class="sidenav nav" id="designers">
 		<li ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart:'startCallback(designer, $index)'}" ng-repeat="designer in designers">
-			{{designer.first_name}} {{designer.last_name}}
+			<a>{{designer.first_name}} {{designer.last_name}}</a>
 		</li>
-		<li><a class="option" data-toggle="modal" data-target="#create-user">Create New User</a></li>
+		<li><a class="option" data-toggle="modal" data-target="#create-user">Create New Designer</a></li>
 	</ul>
 </div>
 
