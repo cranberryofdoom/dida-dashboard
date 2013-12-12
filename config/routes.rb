@@ -17,6 +17,7 @@ DidaDashboard::Application.routes.draw do
     post "remove_designer"
     collection do
       post "create_user"
+      post "delete_designer"
     end
   end
 

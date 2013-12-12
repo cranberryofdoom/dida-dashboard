@@ -34,3 +34,26 @@ $teal: #BEEBE7;
 	}
 	
 }
+
+/*USER SIDEBAR NAV*/
+.designer-list-expanded {
+	padding: 30px 15px !important;
+	li {
+		border: none !important;
+		.designer {
+			margin-bottom: 30px;
+			position: relative;
+			padding: 30px;
+			background-color: $white;
+			h2 {
+				background-color: transparent !important;
+			}
+			p {
+				color: $black !important;
+			}
+		}
+	}
+	li:hover {
+		background-color: transparent !important;
+	}
+}

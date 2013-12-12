@@ -42,6 +42,7 @@ body {
 	font-weight: 900;
 	text-transform: uppercase;
 	color: $black;
+	position: relative;
 }
 
 .remove-button {
@@ -57,12 +58,12 @@ body {
 }
 
 .edit-button {
-	color: $white;
-	background-color: $charcoal;
+	color: $charcoal;
+	background-color: transparent;
 	border: none;
+	position: absolute;
 	width: 25px !important;
 	height: 25px;
-	position: absolute;
 	top: 0;
 	right: 0;
 	margin: 15px;

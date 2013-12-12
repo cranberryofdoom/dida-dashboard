@@ -1,10 +1,26 @@
 <div class="sidebar">
-	<h2 class="heading">Designers</h2>
-	<ul ng-model="designers" class="sidenav nav" id="designers">
+	<h2 class="heading">
+		Designers
+		<button class="edit-button" ng-click="editDesigners()" ><span class="glyphicon glyphicon-edit"></span></button>
+	</h2>
+
+	<ul ng-show="edit" ng-model="designers" class="sidenav nav">
 		<li ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart:'startCallback(designer, $index)'}" ng-repeat="designer in designers">
 			<a>{{designer.first_name}} {{designer.last_name}}</a>
 		</li>
 		<li><a class="option" data-toggle="modal" data-target="#create-user">Create New Designer</a></li>
+	</ul>
+
+	<ul ng-hide="edit" ng-model="designers" class="row designer-list-expanded" id="designers">
+		<li class="col-sm-4" ng-model="designers" ng-repeat="designer in designers">
+			<div class="designer">
+				<h2>{{designer.first_name}} {{designer.last_name}}</h2>
+				<p>{{designer.email}}</p>
+				<p>{{designer.projects[0].name}}</p>
+				<button>Edit This Designer</button>
+				<button class="remove-button" ng-click="deleteDesigner($index, designer, designers)"><span class="glyphicon glyphicon-remove"></span></button>
+			</div>
+		</li>
 	</ul>
 </div>
 
@@ -22,7 +38,6 @@
 				<%= f.input :last_name, :required => true %>
 				<%= f.collection_select :privilege, User::ROLES, :to_s, :humanize, :required => true %>
 				<%= f.input :email, :required => true, :autofocus => true %>
-				<%= f.input :position, :required => true, :autofocus => true %>
 				<%= f.input :area, :required => true, :autofocus => true %>
 				<%= f.input :password, :required => true %>
 				<%= f.input :password_confirmation, :required => true %>

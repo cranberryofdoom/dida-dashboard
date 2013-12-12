@@ -6,11 +6,11 @@
 
 	<div ng-controller="TeamIndexController">
 
-		<div class="col-sm-8">
+		<div id="team-list" class="col-sm-8">
 			<team ng-repeat="team in teams"></team>
 		</div>
 
-		<div class="col-sm-2">
+		<div id="designer-roster" class="col-sm-2">
 			<%= render 'navigation/users_sidebar_nav' %>
 		</div>
 	</div>

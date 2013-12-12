@@ -6,11 +6,6 @@ $black: #222222;
 $white: #ffffff;
 $red: #FF5649;
 
-.project-heading {
-	background-color: $red;
-	color: $white;
-	padding: 10px;
-}
 
 /*PROJECTS*/
 #archived {
@@ -30,10 +25,11 @@ $red: #FF5649;
 	padding: 30px;
 	background-color: $charcoal;
 	.project {
+		margin-bottom: 30px;
 		background-color: $white;
 		background-image: none;
 		position: relative;
-		padding: 25px;
+		padding: 30px;
 		a {
 			color: $black;
 		}
