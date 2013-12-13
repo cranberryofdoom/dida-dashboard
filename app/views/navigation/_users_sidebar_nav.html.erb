@@ -8,7 +8,9 @@
 		<li ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart:'startCallback(designer, $index)'}" ng-repeat="designer in designers">
 			<a>{{designer.first_name}} {{designer.last_name}}</a>
 		</li>
+		<% if current_user.privilege == "admin" %>
 		<li><a class="option" data-toggle="modal" data-target="#create-user">Create New Designer</a></li>
+		<% end %>
 	</ul>
 
 	<ul ng-hide="edit" ng-model="designers" class="row designer-list-expanded" id="designers">
