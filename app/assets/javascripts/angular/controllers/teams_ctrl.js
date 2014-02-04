@@ -9,6 +9,7 @@ Dida.controller('TeamIndexController', function($scope, $http, Team, Designer, $
 			$scope.teams.splice(teamIndex, 1);
 		});
 	};
+	
 	$scope.removeDesigner = function(designerIndex, designer, team) {
 		$http.post('teams/' + team.id + '/remove_designer', {'user_id': designer.id})
 		.success(function(){
@@ -28,17 +29,17 @@ Dida.controller('TeamIndexController', function($scope, $http, Team, Designer, $
 	};
 
 	$scope.dropCallback = function(event, ui, team) {
-			$http.post('teams/' + team.id + '/add_designer', {'user_id': $scope.draggedDesigner.id})
-			.success(function(){
-				team.users.concat($scope.draggedDesigner.id);
-			});
+		$http.post('teams/' + team.id + '/add_designer', {'user_id': $scope.draggedDesigner.id})
+		.success(function(){
+			team.users.concat($scope.draggedDesigner.id);
+		});
 	};
 
-	$scope.edit = true;
+	$scope.designersEdit = true;
 
-	$scope.editDesigners = function() {
-		$scope.edit = $scope.edit === false ? true: false;
-		if ($scope.edit == false) {
+	$scope.editDesigners = function(index) {
+		$scope.designersEdit = $scope.designersEdit === false ? true: false;
+		if ($scope.designersEdit == false) {
 			$('#team-list').hide();
 			$('#designer-roster').removeClass('col-sm-2').addClass('col-sm-10');
 		}
@@ -46,5 +47,25 @@ Dida.controller('TeamIndexController', function($scope, $http, Team, Designer, $
 			$('#team-list').show();
 			$('#designer-roster').addClass('col-sm-2').removeClass('col-sm-10');
 		}
+	}
+
+	$scope.designerEdit = [];
+	for (var i = 0; i < $scope.designerEdit.length; i++) {
+		$scope.designerEdit[i] = true;
+	}
+
+	$scope.showEditDesigner = function(index) {
+		$scope.designerEdit[index] = true;
+		if ($scope.active == false) {
+			$scope.active = true;
+		}
+		else {
+			$scope.active = true;
+		}
+	}
+
+	$scope.saveEditDesigner = function(index, designer) {
+		$http.patch('users/' + designer.id);
+		$scope.designerEdit[index] = false;
 	}
 });

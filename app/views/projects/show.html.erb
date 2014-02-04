@@ -1,9 +1,20 @@
-<ul>
-	<li><%= @project.details %></li>
-	<li><%= @project.status %></li>
-	<li><%= @project.due_date %></li>
-	<li><%= @project.client.first_name %></li>
-	<li><%= @project.client.last_name %></li>
-	<li><%= @project.client.email %></li>
-	<li><%= @project.client.department %></li>
-</ul>
+<h2 class="heading">
+	<%= @project.client.organization.name %> | Due Date: <%= @project.due_date %> | <%= @project.mediums_json %>
+</h2>
+<div class="project">
+	<div class="project-conversation">
+		<div class="row">
+			<div class="col-lg-2">
+				<b><%= @project.client.first_name %> <%= @project.client.last_name %></b>
+			</div>
+			<div class="col-sm-10">
+				<p><%= @project.details %></p>
+			</div>
+		</div>
+		
+	</div>
+	<div class="project-conversation-respond">
+		<p>Reply to the client!</p>
+		<input type="textarea" class="col-xs-12">
+	</div>
+</div>

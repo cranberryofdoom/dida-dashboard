@@ -21,5 +21,7 @@ DidaDashboard::Application.routes.draw do
     end
   end
 
+  resources :users, only: [:show, :edit, :update]
+
   root 'home#index'
 end

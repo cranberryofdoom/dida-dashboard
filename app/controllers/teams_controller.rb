@@ -11,9 +11,6 @@ class TeamsController < ApplicationController
 		@user = User.new
 	end
 
-	def save
-	end
-
 	def new
 	end
 
@@ -27,10 +24,6 @@ class TeamsController < ApplicationController
 	end
 
 	def destroy
-		t = Team.find params[:team_id]
-		t.destroy
-		t.save
-		render :json => t
 	end
 
 	def delete_designer
@@ -41,7 +34,7 @@ class TeamsController < ApplicationController
 	end
 
 	def remove_designer
-		t = Team.find params[:team_id] 
+		t = Team.find(params[:team_id])
 		u = User.find(params[:user_id])
 		t.users.delete(User.find_by_id(u.id))
 		t.save
@@ -49,7 +42,7 @@ class TeamsController < ApplicationController
 	end
 
 	def add_designer
-		t = Team.find params[:team_id]
+		t = Team.find(params[:team_id])
 		u = User.find(params[:user_id])
 		t.users << u
 		t.save

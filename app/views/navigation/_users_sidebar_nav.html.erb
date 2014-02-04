@@ -4,21 +4,76 @@
 		<button class="edit-button" ng-click="editDesigners()" ><span class="glyphicon glyphicon-edit"></span></button>
 	</h2>
 
-	<ul ng-show="edit" ng-model="designers" class="sidenav nav">
+	<ul ng-show="designersEdit" ng-model="designers" class="sidenav nav">
 		<li ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart:'startCallback(designer, $index)'}" ng-repeat="designer in designers">
 			<a>{{designer.first_name}} {{designer.last_name}}</a>
 		</li>
 		<li><a class="option" data-toggle="modal" data-target="#create-user">Create New Designer</a></li>
 	</ul>
 
-	<ul ng-hide="edit" ng-model="designers" class="row designer-list-expanded" id="designers">
+	<ul ng-hide="designersEdit" ng-model="designers" class="row designer-list-expanded" id="designers">
 		<li class="col-sm-4" ng-model="designers" ng-repeat="designer in designers">
-			<div class="designer">
+			
+			<div class="designer" ng-model="designer" ng-click="showEditDesigner($index)" ng-hide="designerEdit[$index]">
 				<h2>{{designer.first_name}} {{designer.last_name}}</h2>
 				<p>{{designer.email}}</p>
 				<p>{{designer.projects[0].name}}</p>
-				<button>Edit This Designer</button>
 				<button class="remove-button" ng-click="deleteDesigner($index, designer, designers)"><span class="glyphicon glyphicon-remove"></span></button>
+			</div>
+			
+			<div class="designer" ng-model="designer" ng-show="designerEdit[$index]">
+				<button class="remove-button" ng-click="deleteDesigner($index, designer, designers)"><span class="glyphicon glyphicon-remove"></span></button>
+				<h2>{{designer.first_name}} {{designer.last_name}}</h2>
+				<form class="form-horizontal" ng-submit="saveEditDesigner($index, designer)" role="form">
+					<div class="form-group">
+						<label>Email</label>
+						<input class="form-control" type="email" ng-model="designer" placeholder={{designer.email}}>
+						
+					</div>
+					<div class="form-group">
+						<label>Privilege</label>
+						<select class="form-control">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>NetID</label>
+						<input class="form-control" type="text" ng-model="designer" placeholder={{designer.netid}}>
+					</div>
+					<div class="form-group">
+						<label>Status</label>
+						<input class="form-control" type="text" ng-model="designer" placeholder={{designer.status}}>
+					</div>
+					<div class="form-group">
+						<label>Payroll</label>
+						<input class="form-control" type="text" ng-model="designer" placeholder={{designer.payroll}}>
+					</div>
+					<div class="form-group">
+						<label>Year</label>
+						<input class="form-control" type="text" ng-model="designer" placeholder={{designer.year}}>
+					</div>
+					<div class="form-group">
+						<label>Position</label>
+						<input class="form-control" type="text" ng-model="designer" placeholder={{designer.position}}>
+					</div>
+					<div class="form-group">
+						<label>Area</label>
+						<input class="form-control" type="text" ng-model="designer" placeholder={{designer.area}}>
+					</div>
+					<div class="form-group">
+						<label>Cell</label>
+						<input class="form-control" type="text" ng-model="designer" placeholder={{designer.cell}}>
+					</div>
+					<div class="form-group">
+						<label>Start Date</label>
+						<input class="form-control" type="text" ng-model="designer" placeholder={{designer.start_date}}>
+					</div>
+					<input type="submit">
+				</form>
 			</div>
 		</li>
 	</ul>

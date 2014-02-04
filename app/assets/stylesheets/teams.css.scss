@@ -1,13 +1,3 @@
-/*COLORS*/
-
-$yellow: #F1C462;
-$charcoal: #3F4247;
-$white: #ffffff;
-$red: #FF5649;
-$black: #222222;
-$teal: #BEEBE7;
-
-
 .teams {
 	background-color: $charcoal;
 	position: relative;
@@ -51,6 +41,12 @@ $teal: #BEEBE7;
 			p {
 				color: $black !important;
 			}
+			label {
+				color: $charcoal;
+			}
+		}
+		.designer:hover {
+			background-color: darken($white, 10%);
 		}
 	}
 	li:hover {

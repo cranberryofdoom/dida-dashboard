@@ -1,12 +1,3 @@
-/*COLORS*/
-
-$yellow: #F1C462;
-$charcoal: #3F4247;
-$black: #222222;
-$white: #ffffff;
-$red: #FF5649;
-
-
 /*PROJECTS*/
 #archived {
 	background-color: #6B99BF;
@@ -33,5 +24,32 @@ $red: #FF5649;
 		a {
 			color: $black;
 		}
+	}
+}
+
+.project {
+	padding: 30px;
+	background-color: $charcoal;
+	padding: 30px;
+	.project-conversation {
+		background-color: $white;
+		padding: 30px;
+		margin-bottom: 30px;
+		p {
+			margin: 0;
+		}
+	}
+}
+
+.heading {
+	background-color: $yellow;
+}
+
+.project-conversation-respond {
+	p {
+		color: $white;
+	}
+	input {
+		padding: 30px;
 	}
 }
