@@ -8,7 +8,7 @@ def index
 	@projects = Project.all
 	respond_to do |format|
 		format.html
-		format.json { render :json => @projects }
+		format.json { render :json => @projects.to_json(:include => [{:client => {:include => :organization}}, :team, :user]) }
 	end
 end
 

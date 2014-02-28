@@ -9,6 +9,10 @@ class TeamsController < ApplicationController
 		@team = Team.new
 		@users = User.all
 		@user = User.new
+		respond_to do |format|
+			format.html
+			format.json { render :json => @teams.to_json(:include => :users) }
+		end
 	end
 
 	def new
@@ -21,6 +25,11 @@ class TeamsController < ApplicationController
 	end
 
 	def show
+		@team = Team.find(params[:id])
+		respond_to do |format|
+			format.html
+			format.json { render :json => @team.to_json(:include => :users) }
+		end
 	end
 
 	def destroy
