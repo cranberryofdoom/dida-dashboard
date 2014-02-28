@@ -21,6 +21,8 @@
 //= require bootstrap
 //= require bootstrap-select
 //= require bootstrap-datepicker
+//= require fittext
+//= require home
 //= require turbolinks
 //= require_tree ./angular
 //= require_tree .

@@ -1,0 +1,11 @@
+.window {
+	height: 100%;
+	display: table;
+	margin: 0 auto;
+	width: 80%;
+
+	.content {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}

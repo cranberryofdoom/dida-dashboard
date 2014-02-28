@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
 	belongs_to :client
 	belongs_to :team
 	belongs_to :user
-	validates :status, :due_date, :details, :direction, :kind, presence: true
+	validates :status, :due_date, :details, :direction, presence: true
 
 	attr_accessor :mediums
 
@@ -14,5 +14,17 @@ class Project < ActiveRecord::Base
 
 	after_find do |p|
 		p.mediums = JSON.parse(p.mediums_json)
+	end
+
+	def kind
+		return "web" ? "print" : p.mediums.include?("website")
+	end
+
+	def web?
+		return kind == "web"
+	end
+
+	def print? 
+		return kind == "print"
 	end
 end

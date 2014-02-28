@@ -24,4 +24,11 @@ DidaDashboard::Application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
   root 'home#index'
+  get '/index' => 'home#index'
+  get '/about' => 'home#about'
+  get '/team' => 'home#team'
+  get '/portfolio' => 'home#portfolio'
+  get '/join' => 'home#join'
+  get '/policies' => 'home#policies'
+  get '/request' => 'projects#new'
 end

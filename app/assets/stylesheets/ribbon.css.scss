@@ -1,0 +1,40 @@
+.l-triangle-top {
+	border-style:solid;
+	border-width:40px;
+	height:0px;
+	width:0px;
+	position: absolute;
+	float: left;
+	top: 2px;
+	left: -40px;
+}
+.l-triangle-bottom {
+	border-style:solid;
+	border-width:40px;
+	height:0px;
+	width:0px;
+	position: absolute;
+	float: left;
+	top: -32px;
+	left: -50px;
+}
+.r-triangle-top {
+	border-style:solid;
+	border-width:40px;
+	height:0px;
+	width:0px;
+	position: absolute;
+	float: right;
+	top: 2px;
+	right: -40px;
+}
+.r-triangle-bottom {
+	border-style:solid;
+	border-width:40px;
+	height:0px;
+	width:0px;
+	position: absolute;
+	float: right;
+	top: -32px;
+	right: -50px;
+}

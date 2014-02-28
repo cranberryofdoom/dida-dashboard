@@ -68,3 +68,20 @@
 	padding: 25px;
 	font-size: 24px;
 }
+
+/*CREDITS*/
+
+.thanks {
+	color: $charcoal;
+	li {
+		padding: 5px 5px;
+		font-size: 10px;
+		border-bottom: 1px solid $charcoal;
+		color: $charcoal !important;
+		a {
+			padding: 0;
+			color: $charcoal !important;
+			display: inline;
+		}
+	}
+}

@@ -1,0 +1,43 @@
+html, body, .container, form {
+	height: 100%;
+}
+
+.container {
+	width: 90%;
+}
+
+h1,h2,h3,h4,h5,h6,small {
+	font-family: 'Lato', Helvetica, sans-serif;
+	margin: 0px;
+	color: $black;
+}
+
+h1 {
+	font-weight: 900;
+	font-size: 4.5em;
+}
+
+h2 {
+	font-size: 3em;
+	font-weight: 300;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+p {
+	font-family: 'Lato', Helvetica;
+	font-weight: 300;
+	font-size: 1em;
+}
+
+a {
+	color: #26282B;
+}
+
+body {
+	margin-top: 100px;
+	background-color: #FCF6F4;
+	font-family: 'Lato', Helvetica, sans-serif;
+}

@@ -37,6 +37,8 @@ gem 'role_model'
 
 gem 'simple_form'
 
+gem 'font-awesome-sass'
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
