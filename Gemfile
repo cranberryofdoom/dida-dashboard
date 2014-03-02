@@ -39,6 +39,8 @@ gem 'simple_form'
 
 gem 'font-awesome-sass'
 
+gem "underscore-rails", "~> 1.5.2"
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"

@@ -17,6 +17,7 @@ DidaDashboard::Application.routes.draw do
 
   resources :users
 
+
   root 'home#index'
   get '/index' => 'home#index'
   get '/about' => 'home#about'

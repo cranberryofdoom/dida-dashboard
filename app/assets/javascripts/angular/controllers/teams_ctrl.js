@@ -17,13 +17,6 @@ Dida.controller('TeamIndexController', function($scope, $http, Team, Designer, $
 		});
 	};
 
-	$scope.deleteDesigner = function(designerIndex, designer) {
-		$http.post('teams/delete_designer', {'user_id': designer.id})
-		.success(function(){
-			$scope.designers.splice(designerIndex, 1);
-		});
-	}
-
 	$scope.startCallback = function(event, ui, user) {
 		$scope.draggedDesigner = user;
 	};
@@ -35,37 +28,5 @@ Dida.controller('TeamIndexController', function($scope, $http, Team, Designer, $
 		});
 	};
 
-	$scope.designersEdit = true;
 
-	$scope.editDesigners = function(index) {
-		$scope.designersEdit = $scope.designersEdit === false ? true: false;
-		if ($scope.designersEdit == false) {
-			$('#team-list').hide();
-			$('#designer-roster').removeClass('col-sm-2').addClass('col-sm-10');
-		}
-		else {
-			$('#team-list').show();
-			$('#designer-roster').addClass('col-sm-2').removeClass('col-sm-10');
-		}
-	}
-
-	$scope.designerEdit = [];
-	for (var i = 0; i < $scope.designerEdit.length; i++) {
-		$scope.designerEdit[i] = true;
-	}
-
-	$scope.showEditDesigner = function(index) {
-		$scope.designerEdit[index] = true;
-		if ($scope.active == false) {
-			$scope.active = true;
-		}
-		else {
-			$scope.active = true;
-		}
-	}
-
-	$scope.saveEditDesigner = function(index, designer) {
-		$http.patch('users/' + designer.id);
-		$scope.designerEdit[index] = false;
-	}
 });

@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 	## DON'T FORGET TO REMOVE THIS LATER!
 	if Rails.env.development?
-		protect_from_forgery :except => [:add_designer, :remove_designer, :create_user, :delete_designer]
+		protect_from_forgery :except => [:add_designer, :remove_designer, :create_user]
 	end
 
 	def index
@@ -35,12 +35,6 @@ class TeamsController < ApplicationController
 	def destroy
 	end
 
-	def delete_designer
-		u = User.find(params[:user_id])
-		u.destroy
-		u.save
-		render :json => u
-	end
 
 	def remove_designer
 		t = Team.find(params[:team_id])
