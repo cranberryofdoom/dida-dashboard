@@ -33,7 +33,9 @@ gem 'devise'
 
 gem 'cancan'
 
-gem 'role_model'
+gem 'rolify'
+
+gem 'sendgrid'
 
 gem 'simple_form'
 

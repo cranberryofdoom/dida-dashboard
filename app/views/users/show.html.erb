@@ -1,0 +1,7 @@
+<h3><%= @user.first_name %> <%= @user.last_name %></h3>
+
+<p>Email: <%= @user.email if @user.email %></p>
+<p>NetID: <%= @user.netid if @user.netid %></p>
+<p>Position: <%= @user.position if @user.position %></p>
+<p>Year: <%= @user.year if @user.year %></p>
+<%= link_to 'Edit Designer', edit_user_path(@user) %>

@@ -1,4 +1,4 @@
-window.Dida = angular.module('DiDA', ['restangular', 'ngResource', 'ngRoute', 'ngDragDrop']);
+window.Dida = angular.module('DiDA', ['ngResource', 'ngRoute', 'ngDragDrop']);
 
 Dida.config(function ($routeProvider) {
 	$routeProvider
