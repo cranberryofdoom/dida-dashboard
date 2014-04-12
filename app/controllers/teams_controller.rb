@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
 		@teams = Team.all
 		@team = Team.new
 		@users = User.all
-		@user = User.new
+		@user = current_user
 		respond_to do |format|
 			format.html
 			format.json { render :json => @teams.to_json(:include => :users) }

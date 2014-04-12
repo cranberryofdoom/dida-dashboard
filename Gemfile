@@ -43,6 +43,12 @@ gem 'font-awesome-sass'
 
 gem "underscore-rails", "~> 1.5.2"
 
+gem 'rmagick'
+
+gem "paperclip", "~> 4.1"
+
+gem 'jquery-fileupload-rails'
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"

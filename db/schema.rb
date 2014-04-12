@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303033823) do
+ActiveRecord::Schema.define(version: 20140318204005) do
 
   create_table "clients", force: true do |t|
     t.string   "email"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20140303033823) do
     t.integer  "client_id"
     t.integer  "team_id"
     t.integer  "user_id"
+    t.string   "file"
+    t.string   "files_file_name"
+    t.string   "files_content_type"
+    t.integer  "files_file_size"
+    t.datetime "files_updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   add_index "projects", ["client_id"], name: "index_projects_on_client_id"

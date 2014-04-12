@@ -44,5 +44,5 @@ DidaDashboard::Application.configure do
 
   # Send email in development mode.
   config.action_mailer.perform_deliveries = false
-
+  # Paperclip.options[:command_path] = "/usr/local/bin/"
 end

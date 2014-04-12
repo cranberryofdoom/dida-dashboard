@@ -1,13 +1,19 @@
-<div class="sidebar">
-	<h2 class="heading">Details</h2>
-	<ul class="sidenav nav">
-		<li>Due Date: <%= @project.due_date %></li>
-		<li>Medium: <%= @project.mediums_json %></li>
-		
-		<li>Team: <% if @project.team != nil %> <%= @project.team.name %>
-		<% end %>
-		</li>
-		<li>Designer: <% if @project.team != nil %> <%= @project.user.first_name %><% end %></li>
-		<li>Status: <%= @project.status %> </li>
-	</ul>
+<div class="panel panel-side-nav">
+	<div class="panel-heading">
+		<h2 class="panel-title">Project <span class="bold">Details</span></h2>
+	</div>
+	<div class="panel-body">
+		<ul class="sidenav nav">
+			<li><div class="bold col-xs-6">Due Date</div><div class="col-xs-6"><%= @project.due_date %></div></li>
+			<li><div class="bold col-xs-6">Medium</div><div class="col-xs-6"><%= @project.mediums_json %></div></li>
+
+			<li><div class="bold col-xs-6">Team</div><div class="col-xs-6"><% if @project.team != nil %> <%= @project.team.name %>
+				<% end %></div>
+			</li>
+			<li><div class="bold col-xs-6">Designer</div><div class="col-xs-6"><% if @project.team != nil %> <%= @project.user.first_name %><% end %></div></li>
+			<li><div class="bold col-xs-6">Status</div><div class="col-xs-6"> <%= @project.status %></div></li>
+		</ul>
+	</div>
 </div>
+
+

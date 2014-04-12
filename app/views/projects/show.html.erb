@@ -1,26 +1,48 @@
-<div class="row">
-	<div class="col-sm-2">
-		<%=render 'navigation/project_sidebar_nav' %>
-	</div>
-	<div class="col-sm-10">
-		<h2 class="heading">
-			<%= @project.client.organization.name %>
-		</h2>
-		<div class="project">
-			<div class="project-conversation">
-				<div class="row">
-					<div class="col-lg-2">
-						<b><%= @project.client.first_name %> <%= @project.client.last_name %></b>
+<div class="proj-title">
+	<h1><%= @project.client.organization.name %>
+	</h1>
+</div>
+<div class="page-wrapper">
+	<div class="row">
+		<div class="col-sm-9">
+			<div class="panel project-panel">
+				<div class="panel-heading">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#">Internal Discussion
+						</a>
+					</li>
+					<li><a href="#">Client Discussion</a>
+					</li>
+					<li><a href="#">Files</a></li>
+					<li><a href="#">Time</a></li>
+				</ul>
+			</div>
+			<div class="panel-body">
+
+				<div class="project">
+					<div class="project-conversation">
+						<div class="row">
+							<div class="col-lg-2">
+								<b><%= @project.client.first_name %> <%= @project.client.last_name %></b>
+							</div>
+							<div class="col-sm-10">
+								<p><%= @project.details %></p>
+							</div>
+						</div>
+						<div class="divider"></div>
+
 					</div>
-					<div class="col-sm-10">
-						<p><%= @project.details %></p>
+					<div class="project-conversation-respond">
+						<p>Reply to the client!</p>
+						<input type="textarea" class="col-xs-12">
 					</div>
 				</div>
 			</div>
-			<div class="project-conversation-respond">
-				<p>Reply to the client!</p>
-				<input type="textarea" class="col-xs-12">
-			</div>
 		</div>
+		
 	</div>
+	<div class="col-sm-3">
+		<%=render 'navigation/project_sidebar_nav' %>
+	</div>
+</div>
 </div>

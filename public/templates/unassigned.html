@@ -1,22 +1,37 @@
-<div class="project">
-	<h2><a href="/projects/{{project.id}}">{{project.client.organization.name}}</a></h2>
-	<p>{{project.mediums_json[0]}}</p>
-	<p>Due Date: {{project.due_date}}</p>
-	<div class="row">
-		<div class="col-lg-6">
-			<select ng-change="updateTeam(team, project)" ng-model="team" ng-options="team.name for team in teams">
-				<option value="">Select Team</option>
-			</select>
-		</div>
-		<div class="col-lg-6">
-			<select ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
-				<option value="">Select Designer</option>
-			</select>
-		</div>
-		
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title"><a href="/projects/{{project.id}}">{{project.client.organization.name}}</a>
+			<button class="pull-right remove-button" ng-click="deleteProject(project)">
+				<span class="glyphicon glyphicon-remove"></span>
+			</button>
+		</h3>
 	</div>
-	
-	<button class="remove-button" ng-click="deleteProject(project)">
-		<span class="glyphicon glyphicon-remove"></span>
-	</button>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-sm-6">
+				<ul>
+					<li>Medium</li>
+					<li>Due Date</li>
+					<li>Team</li>
+					<li>Designer</li>
+					<li>Status</li>
+				</ul>
+			</div>
+			<div class="col-sm-6">
+				<ul>
+					<li>{{project.mediums_json[0]}} </li>
+					<li>{{project.due_date}}</li>
+					<li><select ng-change="updateTeam(team, project)" ng-model="team" ng-options="team.name for team in teams">
+						<option value="">Select Team</option>
+					</select></li>
+					<li>
+						<select ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
+							<option value="">Select Designer</option>
+						</select>
+					</li>
+					<li>{{project.status}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>

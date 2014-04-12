@@ -1,18 +1,22 @@
-<div class="sidebar">
-	<h2 class="heading">
+<div class="panel panel-side-nav">
+<div class="panel-heading">
+	<h2 class="panel-title">
 		Designers
+		<% if @user.has_role? :admin %>
 		<button class="edit-button" ><a href="/users"><span class="glyphicon glyphicon-edit"></span></a></button>
+		<% end %>
 	</h2>
-
+	</div>
+<div class="panel-body">
 	<ul class="sidenav nav">
-		<li ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart:'startCallback(designer, $index)'}" ng-repeat="designer in designers">
+		<li class="draggable" ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart:'startCallback(designer, $index)'}" ng-repeat="designer in designers">
 			<a>{{designer.first_name}} {{designer.last_name}}</a>
 		</li>
-		<% if current_user.privilege == "admin" %>
-		<li><a class="option" data-toggle="modal" data-target="#create-user">Create New Designer</a></li>
+		<% if @user.has_role? :admin %>
+		<li class="create btn"><a class="option" data-toggle="modal" data-target="#create-user">New Designer</a></li>
 		<% end %>
 	</ul>
-
+</div>
 	
 </div>
 

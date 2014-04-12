@@ -45,6 +45,16 @@ def show
 	@project = Project.find_by_id(params[:id])
 end
 
+def update
+	@project = Project.find_by_id(params[:id])
+	if @project.update_attributes(upload_files_params)
+		flash[:notice] = "Successfully uploaded file."
+		redirect_to @project
+	    else
+		flash[:notice] = "error."
+	end
+end 
+
 def update_team
 	p = Project.find params[:project_id]
 	t = Team.find(params[:team_id])
@@ -80,6 +90,10 @@ private
     # Using a private method to encapsulate the permissible parameters is just a good pattern
     # since you'll be able to reuse the same permit list between create and update. Also, you
     # can specialize this method with per-user checking of permissible attributes.
+    def upload_files_params
+    	  params.require(:project).permit(:file)
+    end
+
     def project_params
     	pp = params.except("client").except("organization").require(:project).permit(:status, :kind, :due_date, :details, :direction, :kind, {:mediums => []})
     	# hack to remove the blank item from project.mediums

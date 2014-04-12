@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		authorize! :update, @user, :message => 'Not authorized as admin'
+		# authorize! :update, @user, :message => 'Not authorized as admin'
 		@user = User.find(params[:id])
 		if params[:user][:password].blank?
 			params[:user].delete(:password)
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		authorize! :update, @user, :message => 'Not authorized as admin'
+		# authorize! :update, @user, :message => 'Not authorized as admin'
 		@user = User.find(params[:id])
 		if !@user.update_attributes(params[:user])
 			redirect_to users_path, :alert => "can't update whyy"

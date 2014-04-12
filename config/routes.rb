@@ -3,7 +3,7 @@ DidaDashboard::Application.routes.draw do
   root :to => 'home#index'
   devise_for :users, :path_prefix => "admin", :controllers => {:registrations => "registrations"}
 
-  resources :users
+  resources :users, :calendar
 
   resources :projects do
     post "update_team"

@@ -3,7 +3,7 @@
 }
 
 #unassigned {
-	background-color: $red
+	background-color: $red;
 }
 
 #assigned {
@@ -27,10 +27,9 @@
 	}
 }
 
-.project {
+.project, .files {
 	padding: 30px;
 	background-color: $charcoal;
-	padding: 30px;
 	.project-conversation {
 		background-color: $white;
 		padding: 30px;
@@ -42,7 +41,8 @@
 }
 
 .heading {
-	background-color: $yellow;
+	background-color: $teal;
+	margin-top: 10px;
 }
 
 .project-conversation-respond {

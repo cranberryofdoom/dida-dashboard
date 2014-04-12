@@ -25,6 +25,14 @@
 //= require underscore
 //= require restangular
 //= require home
+
+//= require fullcalendar.min
+
+//= require calendar
+
+//= require gcal
 //= require turbolinks
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 //= require_tree ./angular
 //= require_tree .

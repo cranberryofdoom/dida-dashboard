@@ -1,5 +1,5 @@
-<div class="navbar navbar-fixed-top topnav navbar-inverse">
-	<div class="container">
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+	<!-- <div class="container"> -->
 		<div class="navbar-header">
 			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="sr-only">Toggle navigation</span>
@@ -8,12 +8,18 @@
 			<a href="/index" class="navbar-brand">DiDA</a>
 		</div>
 		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li>
-					<a href="/projects"><span class="dashboard-nav-glyphicon glyphicon glyphicon-th-list"></span>Projects</a>
+			<ul class="nav navbar-nav side-nav">
+				<li class="dropdown">
+					<a href="/projects" class="project-nav-btn"><span class="dashboard-nav-glyphicon glyphicon glyphicon-list"></span> Projects 
+					</a><a href="/projects" class="dropdown-toggle dropdown-btn" data-toggle="dropdown"><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#unassigned">Unassigned</a></li>
+                <li><a href="#assigned">Assigned</a></li>
+                <li><a href="#archived">Archived</a></li>
+              </ul>
 				</li>
 				<li>
-					<a href="/calander"><span class="dashboard-nav-glyphicon glyphicon glyphicon-calendar"></span>Calendar</a>
+					<a class="clear" href="/calendar"><span class="dashboard-nav-glyphicon glyphicon glyphicon-calendar"></span>Calendar</a>
 				</li>
 				<li>
 					<a href="/time"><span class="dashboard-nav-glyphicon glyphicon glyphicon-time"></span>Time</a>
@@ -22,10 +28,10 @@
 					<a href="/teams"><span class="dashboard-nav-glyphicon glyphicon glyphicon-star"></span>Team</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right navbar-user">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<%= current_user.first_name %> <%= current_user.last_name %>
+						<span class="dashboard-nav-glyphicon glyphicon glyphicon-user"></span><%= current_user.first_name %> <%= current_user.last_name %>
 						<b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu"><li><a href="/settings">Settings</a></li><%= render 'devise/menu/login_items' %>
@@ -33,5 +39,5 @@
 				</li>
 			</ul>
 		</div>
-	</div>
+	<!-- </div> -->
 </div>

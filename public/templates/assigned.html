@@ -1,11 +1,38 @@
-<div class="project">
-	<h2><a href="/projects/{{project.id}}">{{project.client.organization.name}}</a></h2>
-	<p>{{project.mediums_json[0]}}</p>
-	<p>Due Date: {{project.due_date}}</p>
-	<p>{{project.team.name}}</p>
-	<p>{{project.user.first_name}} {{project.user.last_name}}</p>
-	<p>Status: {{project.status}}</p>
-	<button class="remove-button" ng-click="deleteProject(project)">
-		<span class="glyphicon glyphicon-remove"></span>
-	</button>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a href="/projects/{{project.id}}">{{project.client.organization.name}}</a><button class="pull-right remove-button" ng-click="deleteProject(project)">
+			<span class="pull-right glyphicon glyphicon-remove"></span>
+		</button>
+	</h3>
+</div>
+<div class="panel-body">
+	<div class="row">
+	<!-- <ul>
+		<li>Medium<span class="pull-right">{{project.mediums_json[0]}}</span></li>
+		<li>Due Date<span class="pull-right">{{project.due_date}}</span></li>
+		<li>Team<span class="pull-right">{{project.team.name}}</span></li>
+		<li>Designer<span class="pull-right">{{project.user.first_name}} {{project.user.last_name}}</span></li>
+		<li>Status: <span class="pull-right">{{project.status}}</span></li>
+	</ul> -->
+	<div class="col-sm-6">
+		<ul>
+			<li>Medium</li>
+			<li>Due Date</li>
+			<li>Team</li>
+			<li>Designer</li>
+			<li>Status</li>
+		</ul>
+	</div>
+	<div class="col-sm-6">
+		<ul>
+			<li>{{project.mediums_json[0]}}</li>
+			<li>{{project.due_date}}</li>
+			<li>{{project.team.name}}</li>
+			<li>{{project.user.first_name}} {{project.user.last_name}}</li>
+			<li class="statu-active">{{project.status}}</li>
+		</ul>
+	</div>
+</div>
+</div>
 </div>

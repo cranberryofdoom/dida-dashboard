@@ -1,4 +1,4 @@
-window.Dida = angular.module('DiDA', ['ngResource', 'ngRoute', 'ngDragDrop']);
+window.Dida = angular.module('DiDA', ['ui.calendar', 'ngResource', 'ngRoute', 'ngDragDrop']);
 
 Dida.config(function ($routeProvider) {
 	$routeProvider
@@ -21,6 +21,11 @@ Dida.config(function ($routeProvider) {
 	{
 		templateUrl: 'projects/index.html.erb',
 		controller: 'projects_ctrl'
+	})
+	.when('/calendar',
+	{
+		templateUrl: 'calendar/index.html.erb',
+		controller: 'calendar_ctrl'
 	})
 	.otherwise({redirectTo: '/projects'});
 });
