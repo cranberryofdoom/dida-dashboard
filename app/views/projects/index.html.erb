@@ -1,31 +1,26 @@
 <div class="page-wrapper">
-<div class="row">
-	<div class="col-sm-12">
+	<div class="row">
+		<div class="col-sm-12">
+			<div ng-controller="ProjectIndexController">
+				<div id="unassigned" class="panel no-border">
+					<h2 class="panel-heading">Unassigned</h2>
+					<div class="panel-body">
+						<unassigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'unassigned'}" ng-model="project"></unassigned>
+					</div>
+				</div>
 
-		<div ng-controller="ProjectIndexController">
-			
-			<div id="unassigned" class="panel no-border">
-			
-			<h2 class="panel-heading">Unassigned</h2>
-				<div class="panel-body">
-					<unassigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'unassigned'}" ng-model="project"></unassigned>
+				<div id="assigned" class="panel no-border">
+					<h2 class="panel-heading">Assigned</h2>
+					<div class="panel-body">
+						<assigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'assigned'}:true" ng-model="project"></assigned>
+					</div>
+				</div>
+				<div class="panel no-border">
+					<a href="/archived" class="panel-btn">
+						<h2 id="archived" class="panel-heading">Archived<span class="pull-right glyphicon glyphicon-chevron-right"></span></h2>
+					</a>
 				</div>
 			</div>
-			
-			<div id="assigned" class="panel no-border">
-				<h2 class="panel-heading">Assigned</h2>
-				<div class="panel-body">
-					<assigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'assigned'}:true" ng-model="project"></assigned>
-				</div>
-			</div>
-			<div class="panel no-border">
-			<a href="/archived" class="panel-btn">
-			<h2 id="archived" class="panel-heading">Archived<span class="pull-right glyphicon glyphicon-chevron-right"></span></h2>
-			
-			</a>
-			</div>
-
-
+		</div>
 	</div>
-</div>
 </div>

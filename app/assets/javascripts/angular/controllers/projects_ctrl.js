@@ -16,7 +16,7 @@ Dida.controller('ProjectIndexController', function($scope, $http, $log, Project,
 		});
 	};
 
-	$scope.updateDesigner = function (designer, project) {
+	$scope.updateDesigner = function(designer, project) {
 		$http.post('projects/' + project.id + '/update_designer', {'user_id': designer.id})
 		.success(function(){
 			project.status = "assigned";
@@ -25,9 +25,10 @@ Dida.controller('ProjectIndexController', function($scope, $http, $log, Project,
 		});
 	};
 
-	$scope.deleteProject = function (project) {
-		$http.delete('projects/' + project.id)
+	$scope.delete = function(projectIndex, projectId) {
+		$http.delete('projects/' + projectId)
 		.success(function(){
+			$scope.projects.splice(projectIndex, 1);
 		});
 	};
 	

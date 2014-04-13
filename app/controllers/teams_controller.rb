@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
-	## DON'T FORGET TO REMOVE THIS LATER!
+	
+	# DON'T FORGET TO REMOVE THIS LATER!
 	if Rails.env.development?
 		protect_from_forgery :except => [:add_designer, :remove_designer, :create_user]
 	end
@@ -18,9 +19,8 @@ class TeamsController < ApplicationController
 	def new
 	end
 
-
 	def create
-		t = Team.create(t_params)
+		Team.create(t_params)
 		redirect_to :controller => 'teams', :action => 'index'
 	end
 
@@ -33,6 +33,9 @@ class TeamsController < ApplicationController
 	end
 
 	def destroy
+		t = Team.find(params[:id])
+		t.delete
+		render :json => t
 	end
 
 
@@ -54,16 +57,23 @@ class TeamsController < ApplicationController
 
 	def create_user
 		u = User.create(u_params)
+		if u.admin?
+			u.add_role :admin
+		elsif u.pm?
+			u.add_role :pm
+		elsif u.designer?
+			u.add_role :designer
+		end	
 		redirect_to :controller => 'teams', :action => 'index'
 	end
 
 	private
-	def tt_params
+	def t_params
 		params.require(:team).permit(:name)
 	end
 
 	def u_params
-		params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :privilege, :netid, :status, :payroll, :year, :area, :cell, :admin, :project_manager, :role_id, :user_id)
+		params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :position, :netid, :status, :payroll, :year, :area, :cell)
 	end
 
 end

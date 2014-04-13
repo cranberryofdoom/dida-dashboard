@@ -1,16 +1,16 @@
 <div class="panel panel-side-nav" ng-controller="TeamIndexController">
-<div class="panel-heading">
-	<h2 class="panel-title">Teams</h2>
+	<div class="panel-heading">
+		<h2 class="panel-title">Teams</h2>
 	</div>
 	<div class="panel-body">
-	<ul class="sidenav nav">
-		<li class="draggable" ng-repeat="team in teams">
-			<a>{{team.name}}</a>
-		</li>
-		<% if @user.has_role? :admin %>
-		<li><a class="option" data-toggle="modal" data-target="#create-team">New Team</a></li>
-		<% end %>
-	</ul>
+		<ul class="sidenav nav">
+			<li ng-repeat="team in teams">
+				<a>{{team.name}}</a>
+			</li>
+			<% if @user.has_role? :admin %>
+			<li><a class="option" data-toggle="modal" data-target="#create-team">New Team</a></li>
+			<% end %>
+		</ul>
 	</div>
 </div>
 
@@ -26,7 +26,6 @@
 				<%= f.input :name %>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				<%= f.submit "Submit", :class => "btn" %>
 			</div>
 			<% end %>

@@ -1,21 +1,17 @@
 <div class="page-wrapper">
-<div class="row">
-	<!-- SIDEBAR NAVIGATION -->
-	<div class="col-sm-2">
-		<%= render 'navigation/teams_sidebar_nav' %>
-	</div>
-
-	<div ng-controller="TeamIndexController">
-
-		<div id="team-list" class="col-sm-8">
-			<team ng-repeat="team in teams"></team>
+	<div class="row">
+		<div class="col-sm-2">
+			<%= render 'navigation/teams_sidebar_nav' %>
 		</div>
-
-		<div id="designer-roster" class="col-sm-2">
-			<%= render 'navigation/users_sidebar_nav' %>
+		<div ng-controller="TeamIndexController">
+			<div id="team-list" class="col-sm-8">
+				<team ng-repeat="team in teams"></team>
+			</div>
+			<div id="designer-roster" class="col-sm-2">
+				<%= render 'navigation/users_sidebar_nav' %>
+			</div>
 		</div>
 	</div>
-</div>
 </div>
 
 

@@ -1,15 +1,15 @@
 class ProjectsController < ApplicationController
-## DON'T FORGET TO REMOVE THIS LATER!
+
+# DON'T FORGET TO REMOVE THIS LATER!
 if Rails.env.development?
-	protect_from_forgery except: :update_team
+	protect_from_forgery :except => [:update_team, :create_post]
 end
 
 def index
 	@projects = Project.all
 	respond_to do |format|
 		format.html
-		format.json { render :json => @projects.to_json(:include => [{:client => {:include => :organization}}, :team, :user])}
-
+		format.json {render :json => @projects.to_json(:include => [{:client => {:include => :organization}}, :team, :user])}
 	end
 end
 
@@ -21,23 +21,15 @@ end
 
 def create
 	p ||= Project.new(p_params)
-
 	p.client ||= Client.create(c_params)
 	p.client.organization = Organization.create(o_params)
 	p.status = "unassigned"
 	p.save
-	if p.errors.any?
-		@project = p
-		flash[:alert] = ("<ul><li>" << p.errors.full_messages.join("</li><li>") << "</li></ul>").html_safe
-		redirect_to :back
-		raise "check that shit"
-		return
-	end
 	render 'success'
 end
 
 def destroy
-	p = Project.find params[:project_id]
+	p = Project.find(params[:id])
 	p.delete
 	render :json => p
 end
@@ -48,7 +40,7 @@ def show
 end
 
 def create_post
-	pr = Project.find params[:project_id]
+	pr = Project.find(params[:project_id])
 	p = pr.posts.new(pt_params)
 	p.user = current_user
 	p.save
@@ -103,18 +95,21 @@ private
     def upload_files_params
     	  params.require(:project).permit(:file)
     end
+
     def pt_params
     	params["post"].permit(:content)
     end
+
     def p_params
     	p = params["project"].except("client").except("organization").permit(:status, :kind, :due_date, :details, :direction, :kind, {:mediums => []})
-    	# hack to remove the blank item from project.mediums
     	p["mediums"].delete("")
     	p
     end
+
     def c_params
     	params["project"]["client"].permit(:first_name, :last_name, :email, :department, :cell)
     end
+
     def o_params
     	params["project"]["organization"].permit(:name, :description)
     end

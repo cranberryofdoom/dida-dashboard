@@ -1,7 +1,7 @@
 DidaDashboard::Application.routes.draw do
   
-  root :to => 'home#index'
-  devise_for :users, :path_prefix => "admin", :controllers => {:registrations => "registrations"}
+  root :to => 'static#index'
+  devise_for :users
 
   resources :users, :calendar
 
@@ -20,11 +20,11 @@ DidaDashboard::Application.routes.draw do
     end
   end
 
-  get '/index' => 'home#index'
-  get '/about' => 'home#about'
-  get '/team' => 'home#team'
-  get '/portfolio' => 'home#portfolio'
-  get '/join' => 'home#join'
-  get '/policies' => 'home#policies'
+  get '/index' => 'static#index'
+  get '/about' => 'static#about'
+  get '/team' => 'static#team'
+  get '/portfolio' => 'static#portfolio'
+  get '/join' => 'static#join'
+  get '/policies' => 'static#policies'
   get '/request' => 'projects#new'
 end
