@@ -19,5 +19,6 @@ class User < ActiveRecord::Base
   # validates :privilege, presence: true
   # has_one :profile
   has_and_belongs_to_many :teams
+  has_many :posts, through: :projects
   has_many :projects, through: :teams
 end

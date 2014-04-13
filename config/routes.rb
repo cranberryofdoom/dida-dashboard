@@ -8,6 +8,7 @@ DidaDashboard::Application.routes.draw do
   resources :projects do
     post "update_team"
     post "update_designer"
+    post "create_post"
   end
 
   resources :teams do

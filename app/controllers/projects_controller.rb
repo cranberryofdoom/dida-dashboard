@@ -20,9 +20,10 @@ def new
 end
 
 def create
-	p ||= Project.new(project_params)
-	p.client = Client.create(client_params)
-	p.client.organization = Organization.create(organization_params)
+	p ||= Project.new(p_params)
+
+	p.client ||= Client.create(c_params)
+	p.client.organization = Organization.create(o_params)
 	p.status = "unassigned"
 	p.save
 	if p.errors.any?
@@ -32,10 +33,10 @@ def create
 		raise "check that shit"
 		return
 	end
-	redirect_to project_path(p)
+	render 'success'
 end
 
-def delete
+def destroy
 	p = Project.find params[:project_id]
 	p.delete
 	render :json => p
@@ -43,6 +44,15 @@ end
 
 def show
 	@project = Project.find_by_id(params[:id])
+	@post ||= Post.new
+end
+
+def create_post
+	pr = Project.find params[:project_id]
+	p = pr.posts.new(pt_params)
+	p.user = current_user
+	p.save
+	redirect_to :back
 end
 
 def update
@@ -93,17 +103,19 @@ private
     def upload_files_params
     	  params.require(:project).permit(:file)
     end
-
-    def project_params
-    	pp = params.except("client").except("organization").require(:project).permit(:status, :kind, :due_date, :details, :direction, :kind, {:mediums => []})
+    def pt_params
+    	params["post"].permit(:content)
+    end
+    def p_params
+    	p = params["project"].except("client").except("organization").permit(:status, :kind, :due_date, :details, :direction, :kind, {:mediums => []})
     	# hack to remove the blank item from project.mediums
-    	pp["mediums"].delete("")
-    	pp
+    	p["mediums"].delete("")
+    	p
     end
-    def client_params
-    	params[:project][:client].permit(:first_name, :last_name, :email, :department, :cell)
+    def c_params
+    	params["project"]["client"].permit(:first_name, :last_name, :email, :department, :cell)
     end
-    def organization_params
-    	params[:project][:organization].permit(:name, :description)
+    def o_params
+    	params["project"]["organization"].permit(:name, :description)
     end
 end

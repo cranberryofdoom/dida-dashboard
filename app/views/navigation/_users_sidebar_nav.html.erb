@@ -12,12 +12,8 @@
 		<li class="draggable" ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart:'startCallback(designer, $index)'}" ng-repeat="designer in designers">
 			<a>{{designer.first_name}} {{designer.last_name}}</a>
 		</li>
-		<% if @user.has_role? :admin %>
-		<li class="create btn"><a class="option" data-toggle="modal" data-target="#create-user">New Designer</a></li>
-		<% end %>
+		<li><a class="option" data-toggle="modal" data-target="#create-user">Create New Designer</a></li>
 	</ul>
-</div>
-	
 </div>
 
 <div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="create-user-label">
@@ -32,9 +28,9 @@
 			<div class="modal-body">
 				<%= f.input :first_name, :required => true %>
 				<%= f.input :last_name, :required => true %>
-				<%= f.collection_select :privilege, User::ROLES, :to_s, :humanize, :required => true %>
 				<%= f.input :email, :required => true, :autofocus => true %>
-				<%= f.input :area, :required => true, :autofocus => true %>
+				<%= f.input :area, collection: ["Web", "Print"] %>
+				<%= f.input :position, collection: [ "Administrator", "Lead Project Manager", "Lead Project Mentor", "Project Manager", "Project Mentor", "Designer"] %>
 				<%= f.input :password, :required => true %>
 				<%= f.input :password_confirmation, :required => true %>
 			</div>

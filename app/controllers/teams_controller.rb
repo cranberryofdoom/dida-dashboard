@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
 
 
 	def create
-		t = Team.create(team_params)
+		t = Team.create(t_params)
 		redirect_to :controller => 'teams', :action => 'index'
 	end
 
@@ -53,16 +53,16 @@ class TeamsController < ApplicationController
 	end
 
 	def create_user
-		u = User.create(user_params)
+		u = User.create(u_params)
 		redirect_to :controller => 'teams', :action => 'index'
 	end
 
 	private
-	def team_params
+	def tt_params
 		params.require(:team).permit(:name)
 	end
 
-	def user_params
+	def u_params
 		params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :privilege, :netid, :status, :payroll, :year, :area, :cell, :admin, :project_manager, :role_id, :user_id)
 	end
 
