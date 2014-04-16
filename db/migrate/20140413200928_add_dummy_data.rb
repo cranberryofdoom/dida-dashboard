@@ -1,4 +1,4 @@
-class Adddummydata < ActiveRecord::Migration
+class AddDummyData < ActiveRecord::Migration
   def up
   	organization_1 = Organization.create(:name => "Jewish Student Union", :description => "Duke's student-led Jewish undergrad organization.")
   	client_1 = Client.create(:first_name => "Glenn", :last_name => "Rivkees", :email => "glenn.rivkees@duke.edu", :department => "Undergraduate Student Organization", :cell => "3364097745")

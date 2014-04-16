@@ -27,6 +27,4 @@ Dida.controller('TeamIndexController', function($scope, $http, Team, Designer, $
 			team.users.concat($scope.draggedDesigner.id);
 		});
 	};
-
-
 });
