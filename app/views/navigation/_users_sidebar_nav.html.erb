@@ -1,5 +1,4 @@
 <div class="panel panel-side-nav">
-<!-- <<<<<<< HEAD
 <div class="panel-heading">
 	<h3 class="panel-title">
 		Designers
@@ -7,14 +6,6 @@
 		<button class="edit-button pull-right"><a href="/users"><span class="glyphicon glyphicon-edit"></span></a></button>
 		<% end %>
 	</h3>
-======= -->
-	<div class="panel-heading">
-		<h2 class="panel-title">
-			Designers
-			<% if @user.has_role? :admin %>
-			<button class="edit-button" ><a href="/users"><span class="glyphicon glyphicon-edit"></span></a></button>
-			<% end %>
-		</h2>
 	</div>
 	<div class="panel-body">
 		<ul class="sidenav nav">
@@ -22,7 +13,7 @@
 				<a>{{designer.first_name}} {{designer.last_name}}</a>
 			</li>
 			<% if @user.has_role? :admin %>
-			<li><a class="option" data-toggle="modal" data-target="#create-user">Create New Designer</a></li>
+			<li class="create btn"><a class="option" data-toggle="modal" data-target="#create-user">New Designer</a></li>
 			<% end %>
 		</ul>
 	</div>

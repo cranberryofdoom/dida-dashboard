@@ -278,6 +278,14 @@ a.dropdown-btn {
 	}
 	.nav-tabs {
 		padding-left: 0px;
+		li {
+			a {
+				color: $lightgrey;
+			}
+			a:hover {
+				border-color: $grey;
+			}
+		}
 	}
 	.panel-heading {
 		margin: 0;
@@ -287,6 +295,7 @@ a.dropdown-btn {
 	.nav-tabs > li.active > a {
 		background-color: $white;
 		border-top: 3px solid $turquoise;
+		color: $bluegrey;
 	}
 	input {
 		min-height: 50px;
@@ -313,10 +322,9 @@ a.dropdown-btn {
 
 	.designer {
 		.panel-heading {
-			background-color: $lightyellow!important;
+			background-color: $yellow!important;
 			border-bottom: none;
 			padding: 15px;
-			padding-bottom: 0px;
 			width: 100%;
 			h2,h3 {
 				font-size: 1.4em;
@@ -325,6 +333,8 @@ a.dropdown-btn {
 			}
 			button {
 				span {
+					font-size: 1em;
+					font-weight: 200;
 					color: $darkyellow;
 				}
 			}
