@@ -52,7 +52,7 @@ def update
 	if @project.update_attributes(upload_files_params)
 		flash[:notice] = "Successfully uploaded file."
 		redirect_to @project
-	    else
+	else
 		flash[:notice] = "error."
 	end
 end 
@@ -93,7 +93,7 @@ private
     # since you'll be able to reuse the same permit list between create and update. Also, you
     # can specialize this method with per-user checking of permissible attributes.
     def upload_files_params
-    	  params.require(:project).permit(:file)
+    	params.require(:project).permit(:file)
     end
 
     def pt_params

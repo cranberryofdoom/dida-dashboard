@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user!
 
 	respond_to :json
 	## DON'T FORGET TO REMOVE THIS LATER!
@@ -42,11 +41,7 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def delete_designer
-		u = User.find(params[:user_id])
-		u.destroy
-		u.save
-		render :json => u
+	def update_position
 	end
 
 	def destroy
@@ -58,6 +53,10 @@ class UsersController < ApplicationController
 		else
 			redirect_to users_path, :notice => "Can't delete yourself"
 		end
+	end
+
+	def update_position
+
 	end
 
 	def user_params

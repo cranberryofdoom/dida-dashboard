@@ -3,7 +3,11 @@ DidaDashboard::Application.routes.draw do
   root :to => 'static#index'
   devise_for :users
 
-  resources :users, :calendar
+  resources :users do
+    post "update_position"
+  end
+  
+  resource :calendar
 
   resources :projects do
     post "update_team"
