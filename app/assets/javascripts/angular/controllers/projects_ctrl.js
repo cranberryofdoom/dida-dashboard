@@ -1,8 +1,11 @@
-Dida.controller('ProjectIndexController', function($scope, $http, $log, Project, Team) {
+Dida.controller('ProjectIndexController', function($scope, $http, $log, $filter, Project, Team) {
 	
 	$scope.projects = Project.query(function() {
 		angular.forEach($scope.projects, function(value, key){
 			$scope.projects[key].mediums_json = JSON.parse($scope.projects[key].mediums_json);
+			console.log("before " + $scope.projects[key].due_date);
+			$scope.projects[key].due_date = $filter('date')($scope.projects[key].due_date, 'longDate');
+			console.log("after " + $scope.projects[key].due_date);
 		});
 	});
 

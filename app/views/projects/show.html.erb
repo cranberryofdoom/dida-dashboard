@@ -42,8 +42,8 @@
 						</div>
 						<div class="project-conversation-respond">
 							<p>Reply to the client!</p>
-							<%= simple_form_for @post, :url => project_create_post_path(@project.id), :method => :post do |f| %>
-							<%= f.input :content %>
+							<%= simple_form_for @post, :url => project_create_post_path(@project.id), :method => :post, html: {class: 'form-horizontal' } do |f| %>
+							<%= f.input :content, :class => "forn-control"%>
 							<%= f.submit "Submit", :class => "btn" %>
 							<% end %>	
 						</div>
