@@ -1,11 +1,11 @@
 <div class="panel panel-side-nav">
 <div class="panel-heading">
-	<h2 class="panel-title">
+	<h3 class="panel-title">
 		Designers
 		<% if @user.has_role? :admin %>
-		<button class="edit-button" ><a href="/users"><span class="glyphicon glyphicon-edit"></span></a></button>
+		<button class="edit-button pull-right"><a href="/users"><span class="glyphicon glyphicon-edit"></span></a></button>
 		<% end %>
-	</h2>
+	</h3>
 	</div>
 <div class="panel-body">
 	<ul class="sidenav nav">

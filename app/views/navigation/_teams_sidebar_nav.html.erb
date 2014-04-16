@@ -1,6 +1,6 @@
 <div class="panel panel-side-nav" ng-controller="TeamIndexController">
 <div class="panel-heading">
-	<h2 class="panel-title">Teams</h2>
+	<h3 class="panel-title">Teams</h3>
 	</div>
 	<div class="panel-body">
 	<ul class="sidenav nav">
@@ -8,7 +8,7 @@
 			<a>{{team.name}}</a>
 		</li>
 		<% if @user.has_role? :admin %>
-		<li><a class="option" data-toggle="modal" data-target="#create-team">New Team</a></li>
+		<li class="create btn"><a class="option" data-toggle="modal" data-target="#create-team">New Team</a></li>
 		<% end %>
 	</ul>
 	</div>

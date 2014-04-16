@@ -1,21 +1,25 @@
 <div class="teams panel">
 	<div class="panel-heading">
-		<h2 class="panel-title">{{team.name}}</h2>
-		<button class="remove-button glyphicon glyphicon-remove" ng-click="delete($index, team.id)"></button>
+		<h3 class="panel-title">{{team.name}}
+		<button class="pull-right remove-button" ng-click="delete($index, team.id)">
+			<span class="pull-right glyphicon glyphicon-remove"></span>
+		</button></h3>
+		
 	</div>
 
 	<div class="panel-body">
 		<ul data-drop="true" jqyoui-droppable="{multiple: true, accept: 'uniqueDesigner(team, $index)', onDrop:'dropCallback(team, $index)'}" class="row team-list" ng-model="team.users">
 			<li class="col-sm-4" ng-model="team.users" ng-repeat="designer in team.users track by $index">
 				<div class="panel designer">
-				<div class="panel-heading">
-				<h2>{{designer.first_name}} {{designer.last_name}}</h2>
-				<button class="pull-right btn" ng-click="removeDesigner($index, designer, team)"><span class="pull-right glyphicon glyphicon-remove"></span></button>
-				</div>
-				<div class="panel-body">
-					<p>{{designer.email}}</p>
-					<p>{{designer.projects[0].name}}</p>
-				</div>
+					<div class="panel-heading">
+						<h2 class="panel-title">{{designer.first_name}} {{designer.last_name}}
+						</h2>
+						<button class="pull-right remove-button" ng-click="removeDesigner($index, designer, team)"><span class="pull-right glyphicon glyphicon-remove"></span></button>
+					</div>
+					<div class="panel-body">
+						<p>{{designer.email}}</p>
+						<p>{{designer.projects[0].name}}</p>
+					</div>
 				</div>
 			</li>
 		</ul>
