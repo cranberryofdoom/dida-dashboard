@@ -5,13 +5,30 @@
 	<div class="panel-body">
 		<ul class="sidenav nav">
 			<li><div class="bold col-xs-6">Due Date</div><div class="col-xs-6"><%= @project.due_date %></div></li>
-			<li><div class="bold col-xs-6">Medium</div><div class="col-xs-6"><%= @project.mediums_json %></div></li>
-
-			<li><div class="bold col-xs-6">Team</div><div class="col-xs-6"><% if @project.team != nil %> <%= @project.team.name %>
-				<% end %></div>
+			<li><div class="bold col-xs-6">Medium</div><div class="col-xs-6">
+				<% @project.mediums.each do |m| %>
+				<%= m %>
+				<% end %>
+			</div></li>
+			<li><div class="bold col-xs-6">Team</div>
+				<div class="col-xs-6">
+					<% if @project.team != nil %>
+					<%= @project.team.name %>
+					<% else %>
+					No team assigned
+					<% end %>
+				</div>
 			</li>
-			<li><div class="bold col-xs-6">Designer</div><div class="col-xs-6"><% if @project.team != nil %> <%= @project.user.first_name %><% end %></div></li>
-			<li><div class="bold col-xs-6">Status</div><div class="col-xs-6"> <%= @project.status %></div></li>
+			<li><div class="bold col-xs-6">Designer</div>
+				<div class="col-xs-6">
+					<% if @project.team != nil && @project.user != nil %>
+					<%= @project.user.first_name %>
+					<% else %>
+					No designer assigned
+					<% end %>
+				</div>
+			</li>
+			<li><div class="bold col-xs-6">Status</div><div class="col-xs-6"><%= @project.status %></div></li>
 		</ul>
 	</div>
 </div>
