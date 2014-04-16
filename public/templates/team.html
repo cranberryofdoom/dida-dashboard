@@ -8,20 +8,16 @@
 <!-- 		<h3 class="panel-title">{{team.name}}</h3>
 		<button class="pull-right remove-button glyphicon glyphicon-remove" ng-click="delete($index, team.id)"></button>
 	</div> -->
-
+</div>
 	<div class="panel-body">
 		<ul data-drop="true" jqyoui-droppable="{multiple: true, accept: 'uniqueDesigner(team, $index)', onDrop:'dropCallback(team, $index)'}" class="row team-list" ng-model="team.users">
 			<li class="col-sm-4" ng-model="team.users" ng-repeat="designer in team.users track by $index">
 				<div class="panel designer">
 					<div class="panel-heading">
-<!-- <<<<<<< HEAD -->
-						<h2 class="panel-title">{{designer.first_name}} {{designer.last_name}}
-						</h2>
+						<h3 class="panel-title">{{designer.first_name}} {{designer.last_name}}
+						</h3>
 						<button class="pull-right remove-button" ng-click="removeDesigner($index, designer, team)"><span class="pull-right glyphicon glyphicon-remove"></span></button>
-<!-- =======
-						<h2>{{designer.first_name}} {{designer.last_name}}</h2>
-						<button class="pull-right btn" ng-click="removeDesigner($index, designer, team)"><span class="pull-right glyphicon glyphicon-remove"></span></button>
->>>>>>> 7fa9b300c46f2b4a25ca4dd8520a4acfb8e13e71 -->
+
 					</div>
 					<div class="panel-body">
 						<p>{{designer.email}}</p>

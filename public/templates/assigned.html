@@ -2,8 +2,8 @@
 	<div class="panel-heading">
 		<h3 class="panel-title">
 			<a href="/projects/{{project.id}}">{{project.client.organization.name}}</a>	
-			<button class="pull-right remove-button" ng-click="deleteProject(project)">
-			<span class="pull-right glyphicon glyphicon-remove"></span>
+			<button class="pull-right remove-button">
+			<span class="pull-right glyphicon glyphicon-remove" ng-click="delete($index, project.id)"></span>
 		</button>
 	</h3>
 

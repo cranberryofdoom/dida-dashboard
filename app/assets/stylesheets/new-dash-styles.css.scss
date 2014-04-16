@@ -55,7 +55,7 @@ li{
 	font-weight: 200;
 	color: $bluegrey;
 	a:hover{
-	background-color: $yellow;
+		background-color: $yellow;
 
 	}
 }
@@ -303,25 +303,27 @@ a.dropdown-btn {
 			color: $white;
 		}
 	}
+	.panel-body {
+		ul {
+			min-height: 100px;
+		}
+		
+	}
+
+
 	.designer {
 		.panel-heading {
-			display: table;
 			background-color: $lightyellow!important;
 			border-bottom: none;
 			padding: 15px;
 			padding-bottom: 0px;
 			width: 100%;
 			h2,h3 {
-				line-height: 2em;
 				font-size: 1.4em;
 				font-weight: 500;
 				color: $white;
-				display: table-cell;
-				vertical-align: middle;
 			}
 			button {
-				display: table-cell;
-				vertical-align: middle;
 				span {
 					color: $darkyellow;
 				}
