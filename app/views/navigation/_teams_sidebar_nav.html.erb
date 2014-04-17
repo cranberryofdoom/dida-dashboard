@@ -7,7 +7,7 @@
 		<li class="draggable" ng-repeat="team in teams">
 			<a>{{team.name}}</a>
 		</li>
-		<% if @user.has_role? :admin %>
+		<% if current_user.has_role? :admin %>
 		<li class="create btn"><a class="option" data-toggle="modal" data-target="#create-team">New Team</a></li>
 		<% end %>
 	</ul>

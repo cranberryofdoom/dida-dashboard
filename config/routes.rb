@@ -6,7 +6,7 @@ DidaDashboard::Application.routes.draw do
   resources :users do
     post "update_position"
   end
-  
+
   resource :calendar
 
   resources :projects do

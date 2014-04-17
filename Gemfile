@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-gem "pg"
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -29,9 +27,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '3.0.1'
 
 gem 'devise'
-
 gem 'cancan'
-
 gem 'rolify'
 
 gem 'sendgrid'
@@ -45,8 +41,8 @@ gem "underscore-rails", "~> 1.5.2"
 gem 'rmagick'
 
 gem "paperclip", "~> 4.1"
-
-gem 'jquery-fileupload-rails'
+gem 'aws-sdk'
+gem 's3_direct_upload'
 
 group :development do
 	gem "better_errors"
