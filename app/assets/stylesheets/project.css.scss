@@ -1,55 +1,192 @@
-/*#archived {
-	background-color: #6B99BF;
+/*Project Form*/
+.project-form-content {
+	width: 60%;
+	display: table-cell;
+	vertical-align: middle;
+	h2 {
+		text-align: center;
+	}
 }
 
-#unassigned {
-	background-color: $red;
+/*Projects*/
+#archived {
+	color: $slate;
 }
 
 #assigned {
-	background-color: #13C4A5;
-}
-
-.project-group {
-	margin-bottom: 30px;
-	padding: 30px;
-	background-color: $charcoal;
-	.project {
-		margin-bottom: 30px;
-		background-color: $white;
-		background-image: none;
-		position: relative;
-		padding: 30px;
-		a {
-			color: $black;
-			font-size: 24px;
-		}
+	.panel-default {
+		border-top-color: $pink;
 	}
-}
 
-.project, .files {
-	padding: 30px;
-	background-color: $charcoal;
-	.project-conversation {
-		background-color: $white;
-		padding: 30px;
-		margin-bottom: 30px;
-		p {
-			margin: 0;
-		}
+}
+#unassigned {
+	.panel-default {
+		border-top-color: $orange;
 	}
+
 }
 
-.heading {
-	background-color: $green;
-	margin-top: 10px;
-}
-
-.project-conversation-respond {
-	p {
+/*Individual Project View*/
+.proj-title {
+	width: 100%;
+	height: 60px;
+	display: table;
+	margin-bottom: 20px;
+	h1 {
 		color: $white;
+		display: table-cell;
+		vertical-align: middle;
+		padding-left: 25px;
+		font-weight: 500;
+	}
+}
+.panel.project-panel {
+	.panel-body {
+		background-color: $white;
+		border-bottom: 1px solid #ddd;
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		.project {
+			padding: 15px;
+		}
+	}
+	.nav-tabs {
+		padding-left: 0px;
+		li {
+			a {
+				color: $lightgrey;
+			}
+			a:hover {
+				border-color: $grey;
+			}
+		}
+	}
+	.panel-heading {
+		margin: 0;
+		padding: 0;
+		border-bottom: none;
+	}
+	.nav-tabs > li.active > a {
+		background-color: $white;
+		border-top: 3px solid $green;
+		color: $bluegrey;
 	}
 	input {
-		padding: 30px;
+		min-height: 50px;
 	}
-}*/
+}
+
+
+/*Teams*/
+.teams.panel {
+	.panel-body {
+		ul {
+			min-height: 100px;
+		}
+		
+	}
+
+
+	.designer {
+		background-color: $white!important;
+		.panel-heading {
+			border-bottom: none;
+			padding: 15px;
+			width: 100%;
+			h2,h3 {
+				font-size: 1.4em;
+				font-weight: 500;
+			}
+			button {
+				span {
+					font-size: 1em;
+					font-weight: 200;
+				}
+			}
+		}
+
+	}
+}
+
+
+tr:hover {
+	background-color: #fff;
+}
+
+
+
+/* Edit Below to Customize Widths > 768px */
+@media (min-width:768px) {
+
+	/* Wrappers */
+	.wrapper {
+		padding-left: 200px;
+	}
+
+	.page-wrapper {
+		padding: 15px 25px;
+	}
+
+
+	/*Projects View*/
+	.side-nav {
+		margin-left: -200px;
+		left: 200px;
+		width: 200px;
+		position: fixed;
+		top: 50px;
+		height: 100%;
+		border-radius: 0;
+		border: none;
+		background-color: $charcoal;
+		overflow-y: auto;
+		li {
+			width: 100%;
+		}
+		li.dropdown{
+			ul.dropdown-menu {
+				position: relative;
+				min-width: 200px;
+				margin: 0;
+				padding: 0;
+				border: none;
+				border-radius: 0;
+				background-color: transparent;
+				box-shadow: none;
+				-webkit-box-shadow: none;
+
+			}
+		}
+		
+		li.dropdown>ul.dropdown-menu>li>a {
+			color: $grey;
+			background-color: #252A30;
+			padding: 15px 15px 15px 25px;
+
+		}
+
+	}
+	.navbar-header,.navbar-collapse {
+		background-color: $darkgrey;
+	}
+
+
+	.side-nav>li.dropdown>ul.dropdown-menu>li>a:hover,
+	.side-nav>li.dropdown>ul.dropdown-menu>li>a.active {
+		color: $lightgrey;
+	}
+	.side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
+		color: $charcoal;
+	}
+
+	.navbar.navbar-nav>li>a:hover,
+	.navbar .navbar-nav>li>a:focus {
+		color: darken($lightgrey, 10%);
+	}
+
+	.navbar-collapse {
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
+
+}

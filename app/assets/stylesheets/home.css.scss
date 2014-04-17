@@ -1,7 +1,23 @@
-
+.window {
+	height: 100%;
+	display: table;
+	width: 100%;
+	.content {
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+		width: 80%;
+	}
+}
 
 .home-header {
 	margin-bottom: 20px;
+	font-weight: 900;
+	font-size: 40px;
+}
+
+.home-subheader {
+	margin-bottom: 50px;
 }
 
 #intro {

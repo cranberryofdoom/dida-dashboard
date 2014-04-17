@@ -9,25 +9,30 @@
 </head>
 
 <body>
+	<% if current_user %>
+	<%= render 'navigation/dashboard_nav' %>
+	<% else %>
+	<%= render 'navigation/main_nav' %>
+	<% end %>
+	<% if flash[:notice] %>
+	<div class="alert alert-info">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<%= flash[:notice] %>
+	</div>
+	<% end %>
+	<% if flash[:alert] %>
+	<div class="alert alert-warning">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<%= flash[:alert] %>
+	</div>
+	<% end %>
+	<% if current_user %>
 	<div class="wrapper">
-		<% if current_user %>
-		<%= render 'navigation/dashboard_nav' %>
-		<% else %>
-		<%= render 'navigation/main_nav' %>
-		<% end %>
-		<% if flash[:notice] %>
-		<div class="alert alert-info">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			<%= flash[:notice] %>
-		</div>
-		<% end %>
-		<% if flash[:alert] %>
-		<div class="alert alert-warning">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			<%= flash[:alert] %>
-		</div>
-		<% end %>
 		<%= yield %>
 	</div>
-</body>
+	<% else %>
+	<%= yield %>
+	<% end %>
+
+</div>
 </html>
