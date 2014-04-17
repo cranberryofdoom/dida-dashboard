@@ -23,22 +23,6 @@ ActiveRecord::Schema.define(version: 20140416230308) do
     t.datetime "updated_at"
   end
 
-  create_table "conversations", force: true do |t|
-    t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "conversations", ["project_id"], name: "index_conversations_on_project_id"
-
-  create_table "conversations_users", id: false, force: true do |t|
-    t.integer "conversation_id"
-    t.integer "user_id"
-  end
-
-  add_index "conversations_users", ["conversation_id"], name: "index_conversations_users_on_conversation_id"
-  add_index "conversations_users", ["user_id"], name: "index_conversations_users_on_user_id"
-
   create_table "organizations", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -56,10 +40,6 @@ ActiveRecord::Schema.define(version: 20140416230308) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "kind"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
     t.string   "attached_file_file_name"
     t.string   "attached_file_content_type"
     t.integer  "attached_file_file_size"
@@ -80,6 +60,15 @@ ActiveRecord::Schema.define(version: 20140416230308) do
     t.integer  "client_id"
     t.integer  "team_id"
     t.integer  "user_id"
+    t.string   "file"
+    t.string   "files_file_name"
+    t.string   "files_content_type"
+    t.integer  "files_file_size"
+    t.datetime "files_updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   add_index "projects", ["client_id"], name: "index_projects_on_client_id"
@@ -112,12 +101,12 @@ ActiveRecord::Schema.define(version: 20140416230308) do
   add_index "teams_users", ["user_id"], name: "index_teams_users_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -135,9 +124,12 @@ ActiveRecord::Schema.define(version: 20140416230308) do
     t.string   "payroll"
     t.string   "year"
     t.string   "position"
+    t.string   "privilege"
     t.string   "area"
     t.string   "cell"
     t.datetime "start_date"
+    t.boolean  "admin",                  default: false
+    t.boolean  "project_manager",        default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -30,7 +30,7 @@ Dida.config(function ($routeProvider) {
 	.when('/calendar',
 	{
 		templateUrl: 'calendar/index.html.erb',
-		controller: 'calendar_ctrl'
+		controller: 'CalendarController'
 	})
 	.otherwise({redirectTo: '/projects'});
 });

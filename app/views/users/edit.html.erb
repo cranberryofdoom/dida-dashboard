@@ -1,5 +1,10 @@
+<div class="proj-title">
+ <h1>Edit <%= @user.first_name %></h1>
+</div>
+<div class="page-wrapper">
+
 <div class="container">
-  <h3>Edit <%= @user.first_name %></h3>
+ 
   <%= simple_form_for @user do |f| %>
   <div class="form-group">
     <%= f.label :first_name %>
@@ -52,4 +57,5 @@
   </fieldset>
   <%= f.submit 'Update', :class => 'button right' %>
   <% end %>
+</div>
 </div>

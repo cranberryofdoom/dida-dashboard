@@ -3,48 +3,58 @@
 		<h3 class="panel-title">Project <span class="bold">Details</span></h3>
 	</div>
 	<div ng-controller="ProjectShowController">
-		<div class="panel-body">
-			<ul class="nav">
-				<li><div class="bold col-xs-6">Due Date</div><div class="col-xs-6"><%= @project.due_date %></div></li>
-				<li><div class="bold col-xs-6">Medium</div><div class="col-xs-6">
-					<% @project.mediums.each do |m| %>
+
+	<div class="panel-body project">
+		<ul class="nav">
+			<li>
+
+			<div class="bold col-xs-6"><p>Due Date</p></div>
+				<div class="right col-xs-6"><p><%= @project.due_date %></p></div>
+			</li>
+			<li>
+				<div class="bold col-xs-6"><p>Medium</p></div>
+				<div class="right col-xs-6">
+					<p><% @project.mediums.each do |m| %>
 					<%= m %>
-					<% end %>
-				</div></li>
-				<li><div class="bold col-xs-6">Team</div>
-					<div class="col-xs-6">
-						<% if @project.team != nil %>
+					<% end %></p>
+				</div>
+			</li>
+			<li>
+				<div class="bold col-xs-6"><p>Team</p></div>
+				<div class="right col-xs-6">
+					<p><% if @project.team != nil %>
 						<%= @project.team.name %>
 						<% else %>
 						<select ng-change="updateTeam(team, <%= @project.id %>)" ng-model="team" ng-options="team.name for team in teams">
 							<option value="">Select Team</option>
 						</select>
-						<% end %>
-					</div>
-				</li>
-				<li><div class="bold col-xs-6">Designer</div>
-					<div class="col-xs-6">
-						<% if @project.team != nil && @project.user != nil %>
-						<%= @project.user.first_name %>
-						<% elsif %>
+						<% end %></p>
+				</div>
+			</li>
+			<li>
+
+			<div class="bold col-xs-6"><p>Designer</p></div>
+				<div class="right col-xs-6">
+					<p><% if @project.team != nil && @project.user != nil %>
+					<%= @project.user.first_name %>
+					<% elsif %>
 						<select ng-change="updateDesigner(designer, <%= @project.id %>)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
 							<option value="">Select Designer</option>
 						</select>
-						<% end %>
+						<% end %></p>
+				</div>
+			</li>
+
+			<li><div class="bold col-xs-6"><p>Status</p></div><div class="right col-xs-6"><p><%= @project.status %></p></div></li>
+			<li >
+			<div>
+					<% if @project.status == "assigned" %>
+					<button class="create btn">Archive Project</button>
+					<% end %>
 					</div>
 				</li>
-				<li>
-					<div class="bold col-xs-6">Status</div>
-					<div class="col-xs-6"><%= @project.status %></div>
-				</li>
-				<li>
-					<% if @project.status == "assigned" %>
-					<button class="btn">Archive Project</button>
-					<% end %>
-				</li>
-			</ul>
-		</div>
+		</ul>
 	</div>
-</div>
+</div></div>
 
 

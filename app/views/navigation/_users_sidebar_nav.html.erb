@@ -8,7 +8,7 @@
 	</h3>
 	</div>
 	<div class="panel-body">
-		<ul class="sidenav nav">
+		<ul class="nav">
 			<li class="draggable" ng-model="designers" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart:'startCallback(designer, $index)'}" ng-repeat="designer in designers">
 				<a>{{designer.first_name}} {{designer.last_name}}</a>
 			</li>

@@ -10,8 +10,10 @@
 				<div class="panel panel-default designer">
 					<div class="panel-heading">
 						<h3 class="panel-title">{{designer.first_name}} {{designer.last_name}}
-						</h3>
 						<button class="pull-right remove-button" ng-click="removeDesigner($index, designer, team)"><span class="pull-right glyphicon glyphicon-remove"></span></button>
+						</h3>
+						
+						<p class="position">{{designer.position}} </p>
 					</div>
 					<div class="panel-body">
 						<p>{{designer.email}}</p>

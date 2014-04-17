@@ -7,19 +7,19 @@
 			</button>
 		</h3>
 	</div>
-	<div class="panel-body">
+	<div class="card panel-body">
 		<div class="row">
-			<ul>
+			<ul class="nav">
 				<li>
-					<div class="col-xs-6">Medium</div>
+					<div class="bold col-xs-6"><span class="glyphicon glyphicon-picture"></span>Medium</div>
 					<div class="col-xs-6">{{project.mediums_json[0]}}</div>
 				</li>
 				<li>
-					<div class="col-xs-6">Due Date</div>
+					<div class="bold col-xs-6"><span class="glyphicon glyphicon-calendar"></span>Due Date</div>
 					<div class="col-xs-6">{{project.due_date}}</div>
 				</li>
 				<li>
-					<div class="col-xs-6">Team</div>
+					<div class="bold col-xs-6"><span class="glyphicon glyphicon-list"></span>Team</div>
 					<div class="col-xs-6">
 						<select ng-change="updateTeam(team, project)" ng-model="team" ng-options="team.name for team in teams">
 							<option value="">Select Team</option>
@@ -27,17 +27,16 @@
 					</div>
 				</li>
 				<li>
-					<div class="col-xs-6">Designer</div>
-					<div class="col-xs-6">
-						<select ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
-							<option value="">Select Designer</option>
-						</select>
-					</div>
-				</li>
-				<li>
-					<div class="col-xs-6">Status</div><div class="col-xs-6">{{project.status}}</div>
-				</li>
-			</ul>
-		</div>
+
+					<div class="bold col-xs-6"><span class="glyphicon glyphicon-user"></span>Designer</div>
+					<div class="col-xs-6"><select ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
+						<option value="">Select Designer</option>
+					</select>
+				</div>
+			</li>
+			<li>
+			<div class="bold col-xs-6"><span class="glyphicon glyphicon-unchecked"></span>Status</div><div class="col-xs-6">{{project.status}}</div>
+			</li>
+		</ul>
 	</div>
 </div>

@@ -7,27 +7,27 @@
 			</button>
 		</h3>
 	</div>
-	<div class="panel-body">
+	<div class="card panel-body">
 		<div class="row">
 			<ul>
 				<li>
-					<div class="col-xs-6"><span class="glyphicon glyphicon-picture"></span>Medium</div>
+					<div class="bold col-xs-6"><span class="glyphicon glyphicon-picture"></span>Medium</div>
 					<div class="col-xs-6">{{project.mediums_json[0]}}</div>
 				</li>
 				<li>
-					<div class="col-xs-6"><span class="glyphicon glyphicon-calendar"></span>Due Date</div>
+					<div class="bold col-xs-6"><span class="glyphicon glyphicon-calendar"></span>Due Date</div>
 					<div class="col-xs-6">{{project.due_date}}</div>
 				</li>
 				<li>
-					<div class="col-xs-6"><span class="glyphicon glyphicon-list"></span>Team</div>
+					<div class="bold col-xs-6"><span class="glyphicon glyphicon-list"></span>Team</div>
 					<div class="col-xs-6">{{project.team.name}}</div>
 				</li>
 				<li>
-				<div class="col-xs-6"><span class="glyphicon glyphicon-user"></span>Designer</div>
+				<div class="bold col-xs-6"><span class="glyphicon glyphicon-user"></span>Designer</div>
 					<div class="col-xs-6">{{project.user.first_name}} {{project.user.last_name}}</div>
 				</li>
 				<li>
-					<div class="col-xs-6"><span class="glyphicon glyphicon-unchecked"></span>Status</div>
+					<div class="bold col-xs-6"><span class="glyphicon glyphicon-unchecked"></span>Status</div>
 					<div class="col-xs-6">{{project.status}}</div>
 				</li>
 			</ul>

@@ -1,3 +1,4 @@
+/*<<<<<<< Updated upstream
 .navbar.navbar-inverse {
 	background-color: $charcoal;
 	border-bottom: 1px solid $grey;
@@ -7,27 +8,137 @@
 			webkit-box-shadow: none;
 			box-shadow: none;
 			font-family: 'Lato';
-			li {
-				a {
-					line-height: 2em;
+=======*/
+/*SIDEBAR NAVS*/
+
+/*.sidebar {
+	background-color: #3F4247;
+	font-weight: 300;
+	color: $white;
+	padding: 0;
+	margin-bottom: 15px;
+	h4, a {
+		color: $white;
+	}
+	h2 {
+		background-color: $yellow;
+	}
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+		margin-left: 0;
+		width: 100%;
+		li {
+			border-top: 1px solid rgb(92, 92, 92);
+			
+			a {
+				padding: 15px 25px;
+			}
+			a:hover{
+				background-color: transparent;
+				color: $white;
+			}
+		}
+		li:hover {
+			background-color: #565961;
+			text-decoration: none;
+		}
+		li:active {
+			background-color: #FFCF5C;
+			text-decoration: none;
+		}
+	}
+}
+
+.option a {
+	margin-top: 12px;
+}
+*/
+
+/*DASHBOARD NAV
+
+.dashboard-nav-glyphicon {
+	margin-right: 15px;
+}
+
+.navbar-nav .active {
+	color: #F1C40F;
+	li > a:hover {
+		color: #F1C40F;
+	}
+}
+
+.navbar-nav {
+	li {
+		a {
+			padding: 25px;
+		}
+	}
+}
+
+.navbar-brand {
+	padding: 25px;
+	font-size: 24px;
+	}*/
+
+	/*Navbar styles*/
+
+	.navbar.navbar-inverse {
+		background-color: $charcoal;
+		.navbar-nav {
+			.dropdown-menu {
+				border-radius: 1px;
+				webkit-box-shadow: none;
+				box-shadow: none;
+				font-family: 'Lato';
+				li {
+					a {
+						line-height: 2em;
+
+					}
 				}
 			}
 		}
-	}
-	a.navbar-brand{
-		color: $white!important;
-	}
-	.side-nav {
+		a.navbar-brand{
+			color: $white!important;
+		}
+		.side-nav {
+/*>>>>>>> Stashed changes*/
+			li {
+				color: $charcoal;
+				a {
+					color: $grey;
+					font-weight: 500;
+					text-transform: uppercase;
+					letter-spacing: 2px;
+					font-size: 13px;
+					padding-left: 15px;
+					span {
+						color: $white;
+						margin-right: 10px;
+					}
+				}
+
+			}
+		}
 		li {
-			color: $charcoal;
-			a {
-				color: $lightgrey;
-				font-weight: 500;
-				span {
-					color: $bluegrey;
-					margin-right: 10px;
+			a.dropdown-toggle, .caret {		
+				color: $lightgrey;	
+			}
+			a:hover{
+				color: $yellow;
+				border-left: solid;
+				border-left-width: 3px;
+				border-left-color: $yellow;
+				padding-left: 12px;
+			}
+			a:focus {
+				background-color: $lightgrey;
+				span.glyphicon {
+					color: $white;
 				}
 			}
+/*<<<<<<< Updated upstream*/
 		}
 	}
 	.navbar-user {
@@ -44,38 +155,45 @@
 			background-color: $lightgrey;
 			span {
 				color: $white;
+/*=======*/
+			/*a.active{
+				color: $yellow;
+				border-left: solid;
+				border-left-width: 3px;
+				border-left-color: $yellow;
+				padding-left: 12px;
+>>>>>>> Stashed changes*/
+			}
+
+
+		}
+	}
+
+	a.project-nav-btn {
+		float: left;
+		width: 155px!important;
+	}
+
+	a.dropdown-btn {
+		float: right;
+		width: 45px!important;
+	}
+
+
+
+	/*CREDITS*/
+
+	.thanks {
+		color: $charcoal;
+		li {
+			padding: 5px 5px;
+			font-size: 10px;
+			border-bottom: 1px solid $charcoal;
+			color: $charcoal !important;
+			a {
+				padding: 0;
+				color: $charcoal !important;
+				display: inline;
 			}
 		}
-
-		
 	}
-}
-
-a.project-nav-btn {
-	float: left;
-	width: 155px!important;
-}
-
-a.dropdown-btn {
-	float: right;
-	width: 45px!important;
-}
-
-
-
-/*CREDITS*/
-
-.thanks {
-	color: $charcoal;
-	li {
-		padding: 5px 5px;
-		font-size: 10px;
-		border-bottom: 1px solid $charcoal;
-		color: $charcoal !important;
-		a {
-			padding: 0;
-			color: $charcoal !important;
-			display: inline;
-		}
-	}
-}
