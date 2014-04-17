@@ -37,6 +37,10 @@ end
 def show
 	@project = Project.find_by_id(params[:id])
 	@post ||= Post.new
+	respond_to do |format|
+		format.html
+		format.json {render :json => @project.to_json}
+	end
 end
 
 def create_post
@@ -47,15 +51,9 @@ def create_post
 	redirect_to :back
 end
 
-def update
-	@project = Project.find_by_id(params[:id])
-	if @project.update_attributes(upload_files_params)
-		flash[:notice] = "Successfully uploaded file."
-		redirect_to @project
-	else
-		flash[:notice] = "error."
-	end
-end 
+def update_status
+
+end
 
 def update_team
 	p = Project.find params[:project_id]

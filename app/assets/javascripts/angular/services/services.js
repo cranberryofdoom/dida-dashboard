@@ -8,7 +8,6 @@ Dida.factory('Team', ['$resource', function($resource) {
 }]);
 
 Dida.factory('Designer', ['$resource', function($resource) {
-
 	return $resource('/users/:id.json', {id: '@id'}, {
 		query: {method:'GET', params:{id:'@id'}, isArray:true},
 		post: {method:'POST'},
@@ -18,7 +17,10 @@ Dida.factory('Designer', ['$resource', function($resource) {
 }]);
 
 Dida.factory('Project', ['$resource', function($resource) {
-	return $resource('projects/:id.json',
-		{id: '@id'});
+	return $resource('/projects/:id.json', {id: '@id'}, {
+		query: {method:'GET', params:{id:'@id'}, isArray:true},
+		post: {method:'POST'},
+		update: {method:'PUT', isArray:false},
+		remove: {method:'DELETE'}
+	});
 }]);
-

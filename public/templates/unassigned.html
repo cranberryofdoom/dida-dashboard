@@ -28,15 +28,16 @@
 				</li>
 				<li>
 					<div class="col-xs-6">Designer</div>
-					<div class="col-xs-6"><select ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
-						<option value="">Select Designer</option>
-					</select>
-				</div>
-			</li>
-			<li>
-				<div class="col-xs-6">Status</div><div class="col-xs-6">{{project.status}}</div>
-			</li>
-		</ul>
+					<div class="col-xs-6">
+						<select ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
+							<option value="">Select Designer</option>
+						</select>
+					</div>
+				</li>
+				<li>
+					<div class="col-xs-6">Status</div><div class="col-xs-6">{{project.status}}</div>
+				</li>
+			</ul>
+		</div>
 	</div>
-</div>
 </div>

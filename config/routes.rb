@@ -13,6 +13,7 @@ DidaDashboard::Application.routes.draw do
     post "update_team"
     post "update_designer"
     post "create_post"
+    post "update_status"
   end
 
   resources :teams do

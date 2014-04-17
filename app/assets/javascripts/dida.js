@@ -12,7 +12,7 @@ Dida.config(function ($routeProvider) {
 		templateUrl: 'users/index.html.erb',
 		controller: 'UsersController'
 	})
-	.when('/teams', 
+	.when('/teams',
 	{
 		templateUrl: 'teams/index.html.erb',
 		controller: 'teams_ctrl',
@@ -21,6 +21,11 @@ Dida.config(function ($routeProvider) {
 	{
 		templateUrl: 'projects/index.html.erb',
 		controller: 'projects_ctrl'
+	})
+	.when('/projects/:id',
+	{
+		templateUrl: 'projects/show.html.erb',
+		controller: 'project_ctrl'
 	})
 	.when('/calendar',
 	{

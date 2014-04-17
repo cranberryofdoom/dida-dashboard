@@ -9,5 +9,4 @@ class Post < ActiveRecord::Base
 	:s3_credentials => "#{Rails.root}/config/aws.yml",
 	:path => ":class/:attachment/:id/:style/:filename",
 	:url => ':s3_domain_url'
-
 end

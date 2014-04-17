@@ -1,77 +1,3 @@
-/*SIDEBAR NAVS*/
-
-/*.sidebar {
-	background-color: #3F4247;
-	font-weight: 300;
-	color: $white;
-	padding: 0;
-	margin-bottom: 15px;
-	h4, a {
-		color: $white;
-	}
-	h2 {
-		background-color: $yellow;
-	}
-	ul {
-		list-style-type: none;
-		padding-left: 0;
-		margin-left: 0;
-		width: 100%;
-		li {
-			border-top: 1px solid rgb(92, 92, 92);
-			
-			a {
-				padding: 15px 25px;
-			}
-			a:hover{
-				background-color: transparent;
-				color: $white;
-			}
-		}
-		li:hover {
-			background-color: #565961;
-			text-decoration: none;
-		}
-		li:active {
-			background-color: #FFCF5C;
-			text-decoration: none;
-		}
-	}
-}
-
-.option a {
-	margin-top: 12px;
-}
-*/
-
-/*DASHBOARD NAV
-
-.dashboard-nav-glyphicon {
-	margin-right: 15px;
-}
-
-.navbar-nav .active {
-	color: #F1C40F;
-	li > a:hover {
-		color: #F1C40F;
-	}
-}
-
-.navbar-nav {
-	li {
-		a {
-			padding: 25px;
-		}
-	}
-}
-
-.navbar-brand {
-	padding: 25px;
-	font-size: 24px;
-}*/
-
-/*Navbar styles*/
-
 .navbar.navbar-inverse {
 	background-color: $charcoal;
 	border-bottom: 1px solid $grey;
@@ -104,12 +30,15 @@
 			}
 		}
 	}
+	.navbar-user {
+		margin: 0 10px;
+	}
 	li {
 		a.dropdown-toggle, .caret {		
 			color: $lightgrey;	
 		}
 		a:hover{
-			color: $yellow;
+			color: $lightgrey;
 		}
 		a:focus {
 			background-color: $lightgrey;

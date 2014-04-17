@@ -237,9 +237,6 @@ tr:hover {
 		overflow-y: auto;
 		li {
 			width: 100%;
-			a:hover {
-				background-color: $yellow;
-			}
 		}
 		li.dropdown{
 			ul.dropdown-menu {
@@ -275,19 +272,11 @@ tr:hover {
 	}
 	.side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
 		color: $charcoal;
-		background-color: $yellow;
-	}
-
-	.side-nav>li>a {
-		width: 200px;
-		color:#cccccc;
-		font-family: 'Open Sans', 'Helvetica', sans-serif;
 	}
 
 	.navbar.navbar-nav>li>a:hover,
 	.navbar .navbar-nav>li>a:focus {
-		background-color: #FFE591;
-
+		color: darken($lightgrey, 10%);
 	}
 
 	.navbar-collapse {
