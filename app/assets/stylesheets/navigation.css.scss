@@ -1,6 +1,6 @@
 /*SIDEBAR NAVS*/
 
-.sidebar {
+/*.sidebar {
 	background-color: #3F4247;
 	font-weight: 300;
 	color: $white;
@@ -42,9 +42,9 @@
 .option a {
 	margin-top: 12px;
 }
+*/
 
-
-/*DASHBOARD NAV*/
+/*DASHBOARD NAV
 
 .dashboard-nav-glyphicon {
 	margin-right: 15px;
@@ -68,7 +68,71 @@
 .navbar-brand {
 	padding: 25px;
 	font-size: 24px;
+}*/
+
+/*Navbar styles*/
+
+.navbar.navbar-inverse {
+	background-color: $charcoal;
+	border-bottom: 1px solid $grey;
+	.navbar-nav {
+		.dropdown-menu {
+			border-radius: 1px;
+			webkit-box-shadow: none;
+			box-shadow: none;
+			font-family: 'Lato';
+			li {
+				a {
+					line-height: 2em;
+				}
+			}
+		}
+	}
+	a.navbar-brand{
+		color: $white!important;
+	}
+	.side-nav {
+		li {
+			color: $charcoal;
+			a {
+				color: $lightgrey;
+				font-weight: 500;
+				span {
+					color: $bluegrey;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+	li {
+		a.dropdown-toggle, .caret {		
+			color: $lightgrey;	
+		}
+		a:hover{
+			color: $yellow;
+		}
+		a:focus {
+			background-color: $lightgrey;
+			span {
+				color: $white;
+			}
+		}
+
+		
+	}
 }
+
+a.project-nav-btn {
+	float: left;
+	width: 155px!important;
+}
+
+a.dropdown-btn {
+	float: right;
+	width: 45px!important;
+}
+
+
 
 /*CREDITS*/
 

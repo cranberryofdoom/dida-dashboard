@@ -1,15 +1,13 @@
 <div class="teams panel">
-	<div class="panel-heading">
-		<h3 class="panel-title">{{team.name}}
+		<h2 class="panel-heading">{{team.name}}
 			<button class="pull-right remove-button" ng-click="delete($index, team.id)">
 				<span class="pull-right glyphicon glyphicon-remove"></span>
 			</button>
 		</h3>
-	</div>
 	<div class="panel-body">
 		<ul data-drop="true" jqyoui-droppable="{multiple: true, accept: 'uniqueDesigner(team, $index)', onDrop:'dropCallback(team, $index)'}" class="row team-list" ng-model="team.users">
 			<li class="col-sm-4" ng-model="team.users" ng-repeat="designer in team.users track by $index">
-				<div class="panel designer">
+				<div class="panel panel-default designer">
 					<div class="panel-heading">
 						<h3 class="panel-title">{{designer.first_name}} {{designer.last_name}}
 						</h3>

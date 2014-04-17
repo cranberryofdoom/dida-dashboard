@@ -23,13 +23,9 @@
 //= require bootstrap-datepicker
 //= require fittext
 //= require underscore
-//= require restangular
 //= require home
-
 //= require fullcalendar.min
-
 //= require calendar
-
 //= require gcal
 //= require turbolinks
 //= require_tree ./angular

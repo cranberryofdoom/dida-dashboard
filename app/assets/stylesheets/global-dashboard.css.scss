@@ -1,4 +1,4 @@
-a {
+/*a {
 	
 }
 .heading {
@@ -69,4 +69,70 @@ a {
 }
 .pull-right {
 	background-color: transparent;
+}
+*/
+
+/*global dashboard*/
+body {
+	margin-top: 50px;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	background-color: $lightgrey;
+	padding-left: 0;
+
+}
+
+h1,h2,h3,h4,h5,h6,small {
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	margin: 0px;
+	color: $bluegrey;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+p {
+	font-family: 'Open Sans', Helvetica;
+	font-weight: 200;
+	font-size: 1em;
+}
+
+a {
+	/*color: #26282B;*/
+	color: $bluegrey;
+	-webkit-transition: background-color .5s ease;
+	-moz-transition: background-color .5s ease;
+	-ms-transition: background-color .5s ease;
+	-o-transition: background-color .5s ease;
+	transition: background-color .5s ease;
+}
+a:hover, a:focus,
+a:active{
+	text-decoration: none;
+}
+
+ul {
+	padding-left: 15px;
+}
+
+li{
+	list-style: none;
+	font-family: 'Open Sans';
+	font-size: 1.1em;
+	line-height: 1.9em;
+	font-weight: 200;
+	color: $bluegrey;
+	a:hover{
+		background-color: $yellow;
+
+	}
+}
+
+.page-wrapper {
+	width: 100%;
+	padding: 15px 25px;
 }

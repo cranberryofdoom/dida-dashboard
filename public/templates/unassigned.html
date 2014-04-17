@@ -3,36 +3,40 @@
 		<h3 class="panel-title">
 			<a href="/projects/{{project.id}}">{{project.client.organization.name}}</a>
 			<button class="pull-right remove-button">
-			<span class="pull-right glyphicon glyphicon-remove" ng-click="delete($index, project.id)"></span></button>
+				<span class="pull-right glyphicon glyphicon-remove" ng-click="delete($index, project.id)"></span>
+			</button>
 		</h3>
-		
 	</div>
 	<div class="panel-body">
 		<div class="row">
-			<div class="col-sm-6">
-				<ul>
-					<li>Medium</li>
-					<li>Due Date</li>
-					<li>Team</li>
-					<li>Designer</li>
-					<li>Status</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<ul>
-					<li>{{project.mediums_json[0]}} </li>
-					<li>{{project.due_date}}</li>
-					<li><select ng-change="updateTeam(team, project)" ng-model="team" ng-options="team.name for team in teams">
-						<option value="">Select Team</option>
-					</select></li>
-					<li>
-						<select ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
-							<option value="">Select Designer</option>
+			<ul>
+				<li>
+					<div class="col-xs-6">Medium</div>
+					<div class="col-xs-6">{{project.mediums_json[0]}}</div>
+				</li>
+				<li>
+					<div class="col-xs-6">Due Date</div>
+					<div class="col-xs-6">{{project.due_date}}</div>
+				</li>
+				<li>
+					<div class="col-xs-6">Team</div>
+					<div class="col-xs-6">
+						<select ng-change="updateTeam(team, project)" ng-model="team" ng-options="team.name for team in teams">
+							<option value="">Select Team</option>
 						</select>
-					</li>
-					<li>{{project.status}}</li>
-				</ul>
-			</div>
-		</div>
+					</div>
+				</li>
+				<li>
+					<div class="col-xs-6">Designer</div>
+					<div class="col-xs-6"><select ng-change="updateDesigner(designer, project)" ng-model="designer" ng-options="(u.first_name+' '+u.last_name) for u in team.users">
+						<option value="">Select Designer</option>
+					</select>
+				</div>
+			</li>
+			<li>
+				<div class="col-xs-6">Status</div><div class="col-xs-6">{{project.status}}</div>
+			</li>
+		</ul>
 	</div>
+</div>
 </div>

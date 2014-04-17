@@ -1,141 +1,3 @@
-/* Dashboard styles */
-
-/*global dashboard*/
-body {
-	margin-top: 50px;
-	font-family: 'Lato', Helvetica, sans-serif;
-	background-color: $grey;
-	padding-left: 0;
-
-}
-
-h1,h2,h3,h4,h5,h6,small {
-	font-family: 'Lato', Helvetica, sans-serif;
-	margin: 0px;
-	color: $bluegrey;
-}
-
-h1 {
-	font-size: 2em;
-}
-
-h2 {
-	font-size: 1.5em;
-}
-
-p {
-	font-family: 'Lato', Helvetica;
-	font-weight: 200;
-	font-size: 1em;
-}
-
-a {
-	/*color: #26282B;*/
-	color: $bluegrey;
-	-webkit-transition: background-color .5s ease;
-	-moz-transition: background-color .5s ease;
-	-ms-transition: background-color .5s ease;
-	-o-transition: background-color .5s ease;
-	transition: background-color .5s ease;
-}
-a:hover, a:focus,
-a:active{
-	text-decoration: none;
-}
-
-ul {
-	padding-left: 15px;
-}
-
-li{
-	list-style: none;
-	font-family: 'Lato';
-	font-size: 1.1em;
-	line-height: 1.9em;
-	font-weight: 200;
-	color: $bluegrey;
-	a:hover{
-		background-color: $yellow;
-
-	}
-}
-
-.page-wrapper {
-	width: 100%;
-	padding: 15px 25px;
-}
-
-
-
-/*Navbar styles*/
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-	background-color: $yellow;
-}
-.navbar.navbar-inverse {
-	background-color: $charcoal;
-
-	border-bottom: 1px solid $grey;
-	.navbar-nav {
-		.dropdown-menu {
-			border-radius: 1px;
-			webkit-box-shadow: none;
-			box-shadow: none;
-			font-family: 'Lato';
-			li {
-				a {
-					line-height: 2em;
-				}
-			}
-		}
-	}
-	a.navbar-brand{
-		color: $white!important;
-	}
-	.side-nav {
-		li {
-			color: $charcoal;
-			a {
-				color: $lightgrey;
-				font-weight: 500;
-				span {
-					color: $bluegrey;
-					margin-right: 10px;
-				}
-			}
-		}
-	}
-	li {
-		a.dropdown-toggle, .caret {		
-			color: $lightgrey;	
-		}
-		a:hover{
-			background-color: $yellow;
-		}
-		a:focus {
-			background-color: $lighteryellow!important;
-			color: $darkyellow!important;
-			span {
-				color: $darkyellow;
-			}
-		}
-
-		
-	}
-}
-
-a.project-nav-btn {
-	float: left;
-	width: 155px!important;
-}
-
-a.dropdown-btn {
-	float: right;
-	width: 45px!important;
-}
-
-
-
-
 /*panels*/
 .panel {
 	padding-left: 0px;
@@ -144,25 +6,43 @@ a.dropdown-btn {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 
+	.panel-default {
+		border: 1px solid;
+		border-top-width: 3px;
+		border-color: rgb(225, 227, 229);
+		background-color: $white;
+		.panel-heading {
+			border-color: rgb(225, 227, 229);
+		}
+		.panel-body {
+			ul {
+				li {
+					line-height: 2.5em;
+					div span.glyphicon {
+						margin-right: 10px;
+						color: $grey;
+					}
+				}
+			}
+		}
+
+	}
 	.panel-heading {
-		color: #bbbbbb;
-		border-bottom: 1px solid #f0f0f0;
+		color: #999;
 		background-color: transparent;
-		border-style: none;
-		border-bottom: 1px solid;
+		border-bottom: 1px solid rgb(225, 227, 229);
 		border-top-right-radius: 1px;
 		border-top-left-radius: 1px;
-		padding: 10px;
+		padding: 15px;
 		h3.panel-title {
 			line-height: 1.5em;
-			color: $darkgrey;
 			padding-left: 5px;
 		}
 		a {
 			width: 100%;
-			font-family: "Lato";
+			font-family: "Open Sans";
 			font-weight: 500;
-			color: white;
+			color: $darkgrey;
 		}
 		button {
 			border: none;
@@ -172,16 +52,17 @@ a.dropdown-btn {
 			text-align: center;
 		}
 		span.glyphicon {
-			color: white;
+			color: $darkgrey;
 		}
 	}
 	.panel-body {
+		padding-left: 5px;
 		.col-sm-6 {
 			padding: 0px;
 		}
 
 		ul {
-			padding-left: 5px;
+			padding: 15px;
 			li {
 				padding-left: 15px;
 				font-weight: 500;
@@ -190,19 +71,22 @@ a.dropdown-btn {
 
 				}
 			}
+			li:nth-child(odd) div {
+				background-color: $lightgrey;
+			}
 		}
 	}
 }
 
 .panel-side-nav {
 	border: 1px solid;
-	border-color: $bluegrey;
+	border-color: $slate;
 	.panel-heading {
-		background-color: $lightgrey;
+		background-color: lighten($slate, 40%);
 	}
 	.panel-body {
 		padding: 10px 5px;
-		background-color: #8DA1BA;
+		background-color: lighten($slate, 40%);
 		li:nth-child(odd) {
 			background-color: $lightgrey;
 		}
@@ -224,37 +108,22 @@ a.dropdown-btn {
 	color: $slate;
 }
 
-#unassigned {
-	.panel-default {
-		border: 1px solid;
-		border-color: $red;
-		.panel-heading {
-			background-color: $red;
-		}
-		.panel-body {
-			background-color: white;
-		} 
-	}
-}
-
 #assigned {
 	.panel-default {
-		border: 1px solid;
-		border-color: $teal;
-		.panel-heading {
-			background-color: $teal;
-		}
-		.panel-body {
-			background-color: white;
-		} 
+		border-top-color: $pink;
 	}
-}
 
+}
+#unassigned {
+	.panel-default {
+		border-top-color: $orange;
+	}
+
+}
 
 /*Individual Project View*/
 .proj-title {
 	width: 100%;
-	background-color: $turquoise;
 	height: 60px;
 	display: table;
 	margin-bottom: 20px;
@@ -294,7 +163,7 @@ a.dropdown-btn {
 	}
 	.nav-tabs > li.active > a {
 		background-color: $white;
-		border-top: 3px solid $turquoise;
+		border-top: 3px solid $green;
 		color: $bluegrey;
 	}
 	input {
@@ -305,13 +174,6 @@ a.dropdown-btn {
 
 /*Teams*/
 .teams.panel {
-	border:1px solid $turquoise;
-	.panel-heading {
-		background-color: $turquoise;
-		h3 {
-			color: $white;
-		}
-	}
 	.panel-body {
 		ul {
 			min-height: 100px;
@@ -321,31 +183,23 @@ a.dropdown-btn {
 
 
 	.designer {
+		background-color: $white!important;
 		.panel-heading {
-			background-color: $yellow!important;
 			border-bottom: none;
 			padding: 15px;
 			width: 100%;
 			h2,h3 {
 				font-size: 1.4em;
 				font-weight: 500;
-				color: $white;
 			}
 			button {
 				span {
 					font-size: 1em;
 					font-weight: 200;
-					color: $darkyellow;
 				}
 			}
 		}
 
-		.panel-body {
-			background-color: $lightyellow;
-			p {
-				color: $darkyellow;
-			}
-		}
 	}
 }
 
@@ -411,7 +265,7 @@ tr:hover {
 
 	}
 	.navbar-header,.navbar-collapse {
-		background-color: $yellow;
+		background-color: $darkgrey;
 	}
 
 
@@ -427,7 +281,7 @@ tr:hover {
 	.side-nav>li>a {
 		width: 200px;
 		color:#cccccc;
-		font-family: 'Lato', 'Helvetica', sans-serif;
+		font-family: 'Open Sans', 'Helvetica', sans-serif;
 	}
 
 	.navbar.navbar-nav>li>a:hover,
@@ -468,10 +322,7 @@ span.glyphicon {
 }
 /*status*/
 .project-not-started {
-	background-color: $red;
-}
-.status-active {
-	background-color: $teal;
+	background-color: $pink;
 }
 .status-final {
 	background-color: $orange;

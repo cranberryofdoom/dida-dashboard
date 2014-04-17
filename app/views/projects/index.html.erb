@@ -2,14 +2,14 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div ng-controller="ProjectIndexController">
-				<div id="unassigned" class="panel no-border">
+				<div id="unassigned" class="panel">
 					<h2 class="panel-heading">Unassigned</h2>
 					<div class="panel-body">
 						<unassigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'unassigned'}" ng-model="project"></unassigned>
 					</div>
 				</div>
 
-				<div id="assigned" class="panel no-border">
+				<div id="assigned" class="panel">
 					<h2 class="panel-heading">Assigned</h2>
 					<div class="panel-body">
 						<assigned class="col-sm-4" ng-repeat="project in projects | filter:{status:'assigned'}:true" ng-model="project"></assigned>
@@ -17,7 +17,7 @@
 				</div>
 				
 
-				<div id="archived" class="panel no-border">
+				<div id="archived" class="panel">
 					<a href="/archived" class="panel-btn">
 						<h2  class="panel-heading">Archived<span class="pull-right glyphicon glyphicon-chevron-right"></span></h2>
 
