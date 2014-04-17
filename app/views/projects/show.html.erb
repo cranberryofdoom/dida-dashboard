@@ -11,8 +11,8 @@
 					</a></li>
 					<li><a href="#internal" data-toggle="tab">Internal Discussion</a>
 					</li>
-					<li><a href="#files" data-toggle="tab">Files</a></li><!-- 
-					<li><a href="#time" data-toggle="tab">Time</a></li> -->
+					<li><a href="#files" data-toggle="tab">Files</a></li>
+					<!-- <li><a href="#time" data-toggle="tab">Time</a></li> -->
 				</ul>
 				<div class="panel-body tab-content">
 					<div class="project tab-pane active" id="client">
@@ -26,6 +26,61 @@
 								</div>
 							</div>
 							<% @project.posts.each do |p| %>
+							<% if p.kind == "client" %>
+							<div class="row">
+								<div class="col-lg-2">
+									<% if p.user.present? %>
+									<b><%= p.user.first_name %> <%= p.user.last_name %></b>
+									<% end %>
+								</div>
+								<div class="col-sm-10">
+									<p><%= p.content %></p>
+									<%= image_tag p.direct_upload_url %>
+								</div>
+							</div>
+							<% end %>
+							<% end %>
+							<div class="divider"></div>
+						</div>
+						<div class="project-conversation-respond">
+							<p>Reply to the client!</p>
+
+							<%= s3_uploader_form id: "s3_uploader",
+							expiration: 24.hours.from_now.utc.iso8601,
+							max_file_size: 100.megabytes do %>
+							<%= file_field_tag :file, multiple: true %>
+							<% end %>
+
+							<div id="uploads_container"></div>
+							<script id="template-upload" type="text/x-tmpl">
+							<div id="upload_{%=o.unique_id%}" class="upload">
+							<h5>{%=o.name%}</h5>
+							<div class="progress progress-striped active"><div class="bar" style="width: 0%"></div></div>
+							</div>
+							</script>
+							<br/>
+
+							<%= simple_form_for @post, :url => project_create_post_path(@project.id), :method => :post, html: {class: 'form-horizontal' } do |f| %>
+							<%= f.input :content, :class => "form-control"%>
+							<%= f.input :kind, as: :hidden, input_html: { value: 'client' } %>
+
+							<%= f.hidden_field :direct_upload_url %>
+
+							<%= f.hidden_field :attached_file_file_name %>
+							<%= f.hidden_field :attached_file_file_size %>
+							<%= f.hidden_field :attached_file_content_type %>
+
+							<%= f.hidden_field :attached_file_file_path %>
+
+
+							<%= f.submit "Submit", :class => "btn" %>
+							<% end %>	
+						</div>
+					</div>
+					<div class="project tab-pane" id="internal">
+						<div class="project-conversation">
+							<% @project.posts.each do |p| %>
+							<% if p.kind == "internal" %>
 							<div class="row">
 								<div class="col-lg-2">
 									<% if p.user.present? %>
@@ -37,22 +92,19 @@
 								</div>
 							</div>
 							<% end %>
-
-							<div class="divider"></div>
+							<% end %>
 						</div>
 						<div class="project-conversation-respond">
-							<p>Reply to the client!</p>
-							
+							<% if current_user.has_role? :admin %>
+							<p>Talk to the designer!</p>
+							<% else %>
+							<p>Talk to your manager!</p>
+							<% end %>
 							<%= simple_form_for @post, :url => project_create_post_path(@project.id), :method => :post, html: {class: 'form-horizontal' } do |f| %>
-							<%= f.input :content, :class => "forn-control"%>
+							<%= f.input :content, :class => "form-control"%>
+							<%= f.input :kind, as: :hidden, input_html: { value: 'internal' } %>
 							<%= f.submit "Submit", :class => "btn" %>
 							<% end %>	
-						</div>
-					</div>
-					<div class="project tab-pane" id="internal">
-						<div class="project-conversation">
-						</div>
-						<div class="project-conversation-respond">	
 						</div>
 					</div>
 					<div class="project tab-pane" id="files">
@@ -61,12 +113,12 @@
 						<div class="project-conversation-respond">	
 						</div>
 					</div>
-					<div class="project tab-pane" id="time">
+					<!-- <div class="project tab-pane" id="time">
 						<div class="project-conversation">
 						</div>
 						<div class="project-conversation-respond">	
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

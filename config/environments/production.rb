@@ -77,4 +77,14 @@ DidaDashboard::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # config/environments/production.rb
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['dida'],
+      :access_key_id => ENV['AKIAI5CTH66KPLEFCBAQ'],
+      :secret_access_key => ENV['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']
+    }
+  }
 end

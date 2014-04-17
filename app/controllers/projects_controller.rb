@@ -97,7 +97,7 @@ private
     end
 
     def pt_params
-    	params["post"].permit(:content)
+    	params["post"].permit(:content, :kind, :direct_upload_url, :attached_file_file_name, :attached_file_file_size, :attached_file_content_type, :attached_file_file_path)
     end
 
     def p_params

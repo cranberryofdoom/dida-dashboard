@@ -1,0 +1,14 @@
+development:
+    access_key_id: AKIAI5CTH66KPLEFCBAQ
+    secret_access_key: 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
+    bucket: dida
+
+test:
+    access_key_id: AKIAI5CTH66KPLEFCBAQ
+    secret_access_key: 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
+    bucket: dida
+
+production:
+    access_key_id: AKIAI5CTH66KPLEFCBAQ
+    secret_access_key: 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
+    bucket: dida

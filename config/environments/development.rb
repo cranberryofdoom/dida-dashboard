@@ -44,5 +44,17 @@ DidaDashboard::Application.configure do
 
   # Send email in development mode.
   config.action_mailer.perform_deliveries = false
-  # Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  Paperclip.options[:command_path] = "/usr/local/bin/convert"
+
+  # config/environments/development.rb
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['dida'],
+      :access_key_id => ENV['AKIAI5CTH66KPLEFCBAQ'],
+      :secret_access_key => ENV['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']
+    }
+  }
+
 end
